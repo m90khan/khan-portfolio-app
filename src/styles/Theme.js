@@ -4,6 +4,7 @@ export const COLORS = {
   bodyLight: '#232b3a',
   primary: '#06B08D',
   secondary: '#22DBB5',
+  textgrey: '#7C8898',
   // colors
   black: '#1E1F20',
   white: '#FFFFFF',
