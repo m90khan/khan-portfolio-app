@@ -18,22 +18,22 @@ html {
   scroll-behavior: smooth;
   /* cursor: none; */
 
-  font-size: 35.5%;  
-  ${respondTo.xs`
-      font-size: 42%; 
-      `} 
-  ${respondTo.sm`
-      font-size: 50%; 
-      `} 
+  font-size: 62.5%;  
+  ${respondTo.xl`
+   font-size: 75%; 
+   `};
+  ${respondTo.lg`
+       font-size: 65%; 
+       `}  
    ${respondTo.md`
      font-size: 56.2%; 
      `}
-  ${respondTo.lg`
-       font-size: 70%; 
-       `}  
-  ${respondTo.xl`
-   font-size: 80%; 
-   `};
+  ${respondTo.sm`
+      font-size: 50%; 
+      `} 
+     ${respondTo.xs`
+         font-size: 45%; 
+         `} 
 }
  
 body{
@@ -48,14 +48,18 @@ button{
     font-size: 1.1.rem;
     cursor: pointer;
     padding: 1rem 2rem;
-    border: 3px solid  ;
-    background: transparent;
+    border: 5px solid   ${COLORS.bodyLight};
+    background: ${COLORS.bodyLight};
     font-family: 'Archivo', sans-serif;
     color: white;
     transition: all 0.5s ease;
+    border-radius: .5rem;
+    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
      &:hover{
-        background-color: #23d997;
+        background-color: ${COLORS.primary};
         color: white;
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     }
 }
 
@@ -76,17 +80,17 @@ p {
   color: ${COLORS.white};
 }
 h1{
-    font-size: 5rem;     
+    font-size: 7rem;     
 }
     h2{
-         font-size: 10rem;
+         font-size: 12rem;
     }
     h3{
         color: ${COLORS.white};
-        font-size: 4rem;
+        font-size: 6rem;
     }
     h4{
-         font-size: 2rem;
+         font-size: 2.2rem;
        
     }
     a{
@@ -96,7 +100,7 @@ h1{
          color:#23d997;
     }
     p{
-          font-size: 1.6rem;
+          font-size: 2rem;
         line-height: 150%;
     }
  

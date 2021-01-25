@@ -13,8 +13,11 @@ const Path = (props) => (
   />
 );
 
-export const MenuToggle = ({ toggle }) => (
-  <MenuIcon onClick={toggle}>
+export const MenuToggle = ({ toggle, isOpen }) => (
+  <MenuIcon
+    onClick={toggle}
+    style={isOpen ? { width: '4%', height: '8%' } : { width: '80%', height: '16%' }}
+  >
     <svg width='30' height='25' viewBox='0 0 23 23'>
       <Path
         variants={{
@@ -50,7 +53,8 @@ const MenuIcon = styled.button`
   position: absolute;
   top: 1rem;
   right: 0.8rem;
-  width: 3%;
+  width: 80%;
+  height: 16%;
   /* height: 5rem; */
   border-radius: 50%;
   border: 1px solid ${COLORS.primary};

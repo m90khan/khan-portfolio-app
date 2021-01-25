@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
@@ -42,13 +42,14 @@ const Nav = () => {
         animate={isOpen ? 'open' : 'closed'}
         custom={height}
         ref={containerRef}
+        style={isOpen ? { width: '100%' } : { width: '3%', height: '40%' }}
       >
-        <motion.div className='background' variants={sidebar} />
+        <motion.div className={isOpen ? 'background' : ''} variants={sidebar} />
         <NavItem />
-        <MenuToggle toggle={() => toggleOpen()} />
+        <MenuToggle toggle={() => toggleOpen()} isOpen={isOpen} />
       </StyledNav>
       <LeftNav>
-        <Link to='/work' className='logo'>
+        <Link to='/' className='logo'>
           <img src={profile} alt='profile' />
         </Link>
         <Link to='/about' className='leftlink'>
@@ -89,9 +90,8 @@ const StyledNav = styled(motion.nav)`
   top: 0;
   right: 0%;
   bottom: 0;
-  width: 100%;
   height: 100%;
-  z-index: 900;
+  z-index: 40;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,77 +107,78 @@ const StyledNav = styled(motion.nav)`
   }
 `;
 
-const bubbleHack = styled.div`
-  height: 50px;
-  width: 50px;
-  background-color: #000;
-  top: 10px;
-  right: 10px;
-  position: absolute;
-  border-radius: 50%;
-  -webkit-transform: scale(1);
-  opacity: 1;
-`;
+// const bubbleHack = styled.div`
+//   height: 50px;
+//   width: 50px;
+//   background-color: #000;
+//   top: 10px;
+//   right: 10px;
+//   position: absolute;
+//   border-radius: 50%;
+//   -webkit-transform: scale(1);
+//   opacity: 1;
+// `;
 
-const NavColumn = styled(motion.div)`
-  flex: 0 0 25%;
-  z-index: 1000;
-  a {
-    text-align: left;
-    margin-top: 3rem;
-    display: block;
-    font-size: 5rem;
-    color: #fff;
-    text-decoration: underline;
-  }
-  p {
-    text-align: left;
-    margin-top: 30px;
-    display: block;
-    line-height: inherit;
-    font-size: 30px;
-    color: #585f6d;
-    text-decoration: line-through;
-  }
-  h2 {
-    text-align: left;
-    display: block;
-    margin-bottom: 30px;
-    font-size: 15rem;
-    letter-spacing: 4px;
-    color: #1abc9c;
-    text-transform: uppercase;
-  }
-`;
-const NavItems = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  z-index: 900;
-  opacity: 0; /* -webkit-transition: all 0s ease-out;
-  -webkit-transition-delay: 0s; */
-`;
+// const NavColumn = styled(motion.div)`
+//   flex: 0 0 25%;
+//   z-index: 1000;
+//   a {
+//     text-align: left;
+//     margin-top: 3rem;
+//     display: block;
+//     font-size: 5rem;
+//     color: #fff;
+//     text-decoration: underline;
+//   }
+//   p {
+//     text-align: left;
+//     margin-top: 30px;
+//     display: block;
+//     line-height: inherit;
+//     font-size: 30px;
+//     color: #585f6d;
+//     text-decoration: line-through;
+//   }
+//   h2 {
+//     text-align: left;
+//     display: block;
+//     margin-bottom: 30px;
+//     font-size: 15rem;
+//     letter-spacing: 4px;
+//     color: #1abc9c;
+//     text-transform: uppercase;
+//   }
+// `;
+// const NavItems = styled(motion.div)`
+//   display: flex;
+//   justify-content: center;
+//   z-index: 900;
+//   opacity: 0; /* -webkit-transition: all 0s ease-out;
+//   -webkit-transition-delay: 0s; */
+// `;
 
-const Menu = styled(motion.div)`
-  /* z-index: 600; */
-  width: 100vw;
-  max-height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 400;
-  opacity: 1;
-  transition: all 0.3s ease-out;
-  transition-delay: 0.4s;
+// const Menu = styled(motion.div)`
+//   /* z-index: 600; */
+//   width: 100vw;
+//   max-height: 100vh;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 400;
+//   opacity: 1;
+//   transition: all 0.3s ease-out;
+//   transition-delay: 0.4s;
 
-  /* clip-path: circle(200% at 100% -10%);
-  -webkit-clip-path: circle(200% at 100% -10%); */
-`;
+//   /* clip-path: circle(200% at 100% -10%);
+//   -webkit-clip-path: circle(200% at 100% -10%); */
+// `;
 
 const LeftNav = styled(motion.div)`
   width: 4%;
   height: 100%;
   position: fixed;
   top: 0;
+  z-index: 20;
   left: 0;
   background-color: ${COLORS.bodyDark};
   overflow: hidden;
@@ -230,6 +231,7 @@ const RightNav = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: space-between;
+  z-index: 30;
 
   .rightlink {
     transform: rotate(-90deg);

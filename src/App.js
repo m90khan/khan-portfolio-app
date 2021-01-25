@@ -10,18 +10,19 @@ import {
   ContactScreen,
   AboutScreen,
 } from './screens';
+import ProjectCard from './components/ProjectCard';
 
 function App() {
   // for framer motion to animation based on the pathname /key
 
   return (
-    <div className='App'>
+    <>
       <GlobalStyle />
       <Nav />
       <Switch>
-        <Route path='/' exact>
-          <HomeScreen />
-        </Route>
+        <Route path='/' exact component={HomeScreen} />
+        <Route path='/work/:id' component={ProjectCard} />
+
         <Route path='/work' exact>
           <WorkScreen />
         </Route>
@@ -35,7 +36,7 @@ function App() {
           <ContactScreen />
         </Route>
       </Switch>
-    </div>
+    </>
   );
 }
 export default App;

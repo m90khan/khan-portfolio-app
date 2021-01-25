@@ -35,34 +35,42 @@ const InfoSection = styled(motion.div)`
 `;
 const InfoHeader = styled.div`
   background: ${COLORS.primary};
-  height: 50vh;
-  max-height: 70%;
+  max-height: 90%;
   width: 60%;
   border-bottom-right-radius: 2rem;
   border-top-right-radius: 2rem;
   border-bottom-left-radius: 2rem;
-  padding: 2rem 6rem;
-
+  padding: 4rem 8rem;
+  border: 4px solid ${COLORS.secondary};
   .short {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     color: ${COLORS.bodyDark};
-    text-decoration: underline;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid ${COLORS.bodyDark};
+    background-color: ${COLORS.secondary};
+    display: inline-block;
+  }
+  .intro {
+    -webkit-text-stroke: 2px ${COLORS.bodyDark};
+    text-stroke: 2px ${COLORS.bodyDark};
   }
   .desc {
     font-weight: 500;
     line-height: 1.5;
-    padding: 1rem 0;
+    padding: 2rem 0;
+    font-size: 2.2rem;
   }
   .job {
     background-color: ${COLORS.bodyDark};
-    width: 70%;
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem;
     border-radius: 0.5rem;
+    display: inline-block;
   }
   .notice {
     margin-top: 1rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 `;
 

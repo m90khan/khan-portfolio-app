@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { direction, design, code, strategy, skillBack } from './../assets/images';
+import { direction, design, code, strategy, skillBack } from '../assets/images';
 import { COLORS } from '../styles/Theme';
-const WorkSection = () => {
+const IntroDetails = () => {
   return (
     <Overview>
       <div className='deedColumn'>
@@ -101,7 +101,7 @@ const Overview = styled(motion.div)`
       height: 100%;
       .icon-background {
         position: absolute;
-        top: -30%;
+        top: -40%;
         left: -20%;
         width: 100%;
         height: 150%;
@@ -111,7 +111,7 @@ const Overview = styled(motion.div)`
         z-index: 1;
         top: 2rem;
         position: relative;
-        left: 15%;
+        left: 18%;
       }
     }
     h3 {
@@ -120,7 +120,7 @@ const Overview = styled(motion.div)`
     }
     p {
       font-size: 2rem;
-      line-height: 1.5;
+      line-height: 1.6;
       color: ${COLORS.textgrey};
     }
   }
@@ -136,10 +136,10 @@ const Overview = styled(motion.div)`
         left: 10rem;
       }
       .icon {
-        left: 25%;
+        left: 20%;
       }
     }
   }
 `;
 
-export default WorkSection;
+export default IntroDetails;

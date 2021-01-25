@@ -16,7 +16,7 @@ const breakpoints = {
 };
 export const respondTo = Object.keys(breakpoints).reduce((accumulator, label) => {
   accumulator[label] = (...args) => css`
-    @media (min-width: ${breakpoints[label]}) {
+    @media only screen and (max-width: ${breakpoints[label]}) {
       ${css(...args)};
     }
   `;
