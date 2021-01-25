@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 const variants = {
   open: {
@@ -18,16 +19,37 @@ const variants = {
   },
 };
 
-const colors = ['#FF008C', '#D309E1', '#9C1AFF', '#D309E1', '#7700FF', '#4400FF'];
+const colors = ['#FF008C', '#D309E1', '#9C1AFF', '#D309E1'];
 
 export const MenuItem = ({ i }) => {
   const style = { border: `2px solid ${colors[i]}` };
   return (
-    <motion.li variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-      <div className='icon-placeholder' style={style}></div>
+    <Item variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+      {/* <div className='icon-placeholder' style={style}></div> */}
       <div className='text-placeholder' style={style}>
-        <h1>hee</h1>
+        <p>Home</p>
       </div>
-    </motion.li>
+    </Item>
   );
 };
+
+const Item = styled(motion.li)`
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  /* .icon-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex: 20px 0;
+    margin-right: 20px;
+  } */
+
+  .text-placeholder {
+    flex: 0 0 15%;
+    width: 10rem;
+    border-radius: 5px;
+  }
+`;

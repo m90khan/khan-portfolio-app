@@ -17,8 +17,8 @@ const Nav = () => {
   const { height } = useDimensions(containerRef);
 
   const sidebar = {
-    open: (height = 1000) => ({
-      clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    open: () => ({
+      clipPath: `  circle(200% at 100% -10%)`,
       transition: {
         type: 'spring',
         stiffness: 20,
@@ -26,7 +26,7 @@ const Nav = () => {
       },
     }),
     closed: {
-      clipPath: 'circle(30px at 40px 40px)',
+      clipPath: 'circle(30px at 100% -50%)',
       transition: {
         delay: 0.5,
         type: 'spring',
@@ -37,7 +37,7 @@ const Nav = () => {
   };
   return (
     <>
-      <motion.nav
+      <StyledNav
         initial={false}
         animate={isOpen ? 'open' : 'closed'}
         custom={height}
@@ -46,7 +46,7 @@ const Nav = () => {
         <motion.div className='background' variants={sidebar} />
         <NavItem />
         <MenuToggle toggle={() => toggleOpen()} />
-      </motion.nav>
+      </StyledNav>
       <LeftNav>
         <Link to='/work' className='logo'>
           <img src={profile} alt='profile' />
@@ -58,19 +58,8 @@ const Nav = () => {
           <p>© Khan Mohsin {new Date().getFullYear()}</p>
         </div>
       </LeftNav>
-      {/* <div className={activeMenu ? 'bubbleback active' : 'bubbleback'}></div>
-      <div className={activeMenu ? 'bubble active' : 'bubble'}></div> */}
 
       <RightNav>
-        {/* <div
-          className={activeMenu ? 'bubble-wrap active' : 'bubble-wrap'}
-          onClick={handleMenu}
-        >
-          <div className={activeMenu ? 'bar first active  ' : 'bar first'}></div>
-          <div className={activeMenu ? 'bar second active  ' : 'bar second'}></div>
-          <div className={activeMenu ? 'bar third active  ' : 'bar third'}></div>
-        </div> */}
-
         <Link className='rightlink' to='/contact'>
           Contact Me
         </Link>
@@ -94,6 +83,29 @@ const Nav = () => {
     </>
   );
 };
+
+const StyledNav = styled(motion.nav)`
+  position: fixed;
+  top: 0;
+  right: 0%;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    /* bottom: 0; */
+    width: 100%;
+    background: ${COLORS.bodyDark};
+  }
+`;
 
 const bubbleHack = styled.div`
   height: 50px;

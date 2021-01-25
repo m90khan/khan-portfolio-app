@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MenuItem } from './MenuItem';
+import styled from 'styled-components';
 
 const variants = {
   open: {
@@ -13,9 +14,19 @@ const variants = {
 const itemIds = [0, 1, 2, 3, 4, 5];
 
 export const NavItem = () => (
-  <motion.ul variants={variants}>
+  <List variants={variants}>
     {itemIds.map((i) => (
       <MenuItem i={i} key={i} />
     ))}
-  </motion.ul>
+  </List>
 );
+
+const List = styled(motion.ul)`
+  padding: 25px;
+  position: absolute;
+  top: 100px;
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

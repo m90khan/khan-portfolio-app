@@ -7,7 +7,7 @@ export const COLORS = {
   textgrey: '#7C8898',
   // colors
   black: '#1E1F20',
-  white: '#FFFFFF',
+  white: '#FFFBFB',
 
   lightGray: '#F5F5F6',
   lightGray2: '#F6F6F7',

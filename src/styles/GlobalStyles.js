@@ -60,7 +60,9 @@ button{
 }
 
 h1, h2, h3, h4, h5, h6{
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Archivo', sans-serif;       
+     color: white;
+
 }
 li,
 button,
@@ -73,11 +75,15 @@ p {
   background-color:${COLORS.primary} ;
   color: ${COLORS.white};
 }
+h1{
+    font-size: 5rem;     
+}
     h2{
-         font-size: 8rem;
+         font-size: 10rem;
     }
     h3{
-        color: white;
+        color: ${COLORS.white};
+        font-size: 4rem;
     }
     h4{
          font-size: 2rem;
@@ -90,7 +96,7 @@ p {
          color:#23d997;
     }
     p{
-          font-size: 1.4rem;
+          font-size: 1.6rem;
         line-height: 150%;
     }
  
