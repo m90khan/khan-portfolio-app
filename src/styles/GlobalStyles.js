@@ -19,20 +19,26 @@ html {
   /* cursor: none; */
 
   font-size: 62.5%;  
-  ${respondTo.xl`
+  @media only screen and (min-width: 1920px ) {
+    font-size: 100%; 
+    }
+      ${respondTo.xxD`
    font-size: 75%; 
    `};
-  ${respondTo.lg`
+  ${respondTo.xD`
        font-size: 65%; 
        `}  
-   ${respondTo.md`
-     font-size: 56.2%; 
+   ${respondTo.L`
+     font-size: 50.2%; 
      `}
-  ${respondTo.sm`
-      font-size: 50%; 
+  ${respondTo.iPro`
+      font-size: 60%; 
       `} 
-     ${respondTo.xs`
-         font-size: 45%; 
+     ${respondTo.iPad`
+         font-size: 52.5%; 
+         `} 
+           ${respondTo.pMobile`
+         font-size: 50%; 
          `} 
 }
  
@@ -45,7 +51,7 @@ body{
 }
 button{
     font-weight: bold;
-    font-size: 1.1.rem;
+    font-size: 2rem;
     cursor: pointer;
     padding: 1rem 2rem;
     border: 5px solid   ${COLORS.bodyLight};
@@ -65,8 +71,7 @@ button{
 
 h1, h2, h3, h4, h5, h6{
     font-family: 'Archivo', sans-serif;       
-     color: white;
-
+     color: ${COLORS.white};
 }
 li,
 button,
@@ -83,7 +88,13 @@ h1{
     font-size: 7rem;     
 }
     h2{
-         font-size: 12rem;
+         font-size: 11rem;
+         ${respondTo.iPro`
+      font-size: 9rem; 
+      `} 
+      ${respondTo.pMobile`
+    font-size: 6rem; 
+    `} 
     }
     h3{
         color: ${COLORS.white};

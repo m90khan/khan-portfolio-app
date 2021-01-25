@@ -8,11 +8,12 @@ import { css } from 'styled-components';
 //   xl: '87.5em',
 // };
 const breakpoints = {
-  xs: '480px',
-  sm: '768px',
-  md: '992px',
-  lg: '1200px',
-  xl: '1400px',
+  pMobile: '600px',
+  iPad: '768px',
+  iPro: '1024px',
+  L: '1366px',
+  xD: '1600px',
+  xxD: '1920px',
 };
 export const respondTo = Object.keys(breakpoints).reduce((accumulator, label) => {
   accumulator[label] = (...args) => css`

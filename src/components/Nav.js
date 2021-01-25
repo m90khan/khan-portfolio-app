@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { motion, useCycle } from 'framer-motion';
 import { useDimensions } from '../utils/useDimension';
@@ -66,17 +66,21 @@ const Nav = () => {
         </Link>
 
         <div className='footerright'>
-          <a href='https://dribbble.com/khanx' target='_blank'>
+          <a href='https://dribbble.com/khanx' target='_blank' rel='noreferrer'>
             <img src={dribble} alt='dribble' />
           </a>
-          <a href='https://www.behance.net/m90khanb58f' target='_blank'>
+          <a href='https://www.behance.net/m90khanb58f' target='_blank' rel='noreferrer'>
             <img src={behance} alt='behance' />
           </a>
 
-          <a href='https://twitter.com/m90khan' target='_blank'>
+          <a href='https://twitter.com/m90khan' target='_blank' rel='noreferrer'>
             <img src={twitter} alt='twitter' />
           </a>
-          <a href='https://www.linkedin.com/in/khanmohsinx/' target='_blank'>
+          <a
+            href='https://www.linkedin.com/in/khanmohsinx/'
+            target='_blank'
+            rel='noreferrer'
+          >
             <img src={linkedin} alt='linkedin' />
           </a>
         </div>

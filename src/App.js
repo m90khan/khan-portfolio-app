@@ -10,7 +10,7 @@ import {
   ContactScreen,
   AboutScreen,
 } from './screens';
-import ProjectCard from './components/ProjectCard';
+import ScrollTop from './components/ScrollTop';
 
 function App() {
   // for framer motion to animation based on the pathname /key
@@ -18,24 +18,17 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <ScrollTop />
       <Nav />
-      <Switch>
-        <Route path='/' exact component={HomeScreen} />
-        <Route path='/work/:id' component={ProjectCard} />
-
-        <Route path='/work' exact>
-          <WorkScreen />
-        </Route>
-        <Route path='/work/:id'>
-          <WorkDetails />
-        </Route>
-        <Route path='/about'>
-          <AboutScreen />
-        </Route>
-        <Route path='/contact'>
-          <ContactScreen />
-        </Route>
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch>
+          <Route path='/' exact component={HomeScreen} />
+          <Route path='/work' component={WorkScreen} />
+          <Route path='/work/:id' component={WorkDetails} />
+          <Route path='/about' component={AboutScreen} />
+          <Route path='/contact' component={ContactScreen} />
+        </Switch>
+      </AnimatePresence>
     </>
   );
 }

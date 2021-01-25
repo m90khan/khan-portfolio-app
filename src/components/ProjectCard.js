@@ -8,21 +8,21 @@ import { alohaOverview } from '../assets/projects/AlohaT';
 import { behance, dribble, github } from '../assets/social';
 import { Link } from 'react-router-dom';
 
-const ProjectCard = ({ onClick }) => {
+const ProjectCard = ({ onClick, keyv }) => {
   const socialLinks = [behance, dribble, github];
 
   return (
-    <Project>
+    <Project key={keyv}>
       <div className='header-img' onClick={onClick}>
-        <img src={alohaOverview} />
+        <img src={alohaOverview} alt='overview' />
       </div>
       <div className='content'>
         <div className='title'>
           <h4>Aloha Travels</h4>
           <div className='icons-socials'>
-            {socialLinks.map((icon, i) => (
+            {socialLinks.map((icon, index) => (
               <button>
-                <img src={icon} key={i} />
+                <img src={icon} key={index} alt='overview' />
               </button>
             ))}
           </div>
@@ -57,7 +57,7 @@ const Project = styled(motion.div)`
   box-shadow: rgba(48, 111, 219, 0.25) 0px 50px 100px -20px,
     rgba(221, 37, 37, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  ${respondTo.xs` 
+  ${respondTo.pMobile` 
    flex: 0 0 100%;
   `}
 

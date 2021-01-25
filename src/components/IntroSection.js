@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
+
 const IntroSection = () => {
   return (
     <>
@@ -41,6 +43,18 @@ const InfoHeader = styled.div`
   border-top-right-radius: 2rem;
   border-bottom-left-radius: 2rem;
   padding: 4rem 8rem;
+  ${respondTo.iPro`
+          padding: 6rem 6rem;
+          width: 80%;
+         `}
+  ${respondTo.iPad`
+          padding: 6rem 6rem;
+          width: 75%;
+         `}
+  ${respondTo.pMobile`
+          padding: 2.5rem 2rem;
+          width: 85%;
+         `}
   border: 4px solid ${COLORS.secondary};
   .short {
     font-size: 1.2rem;
