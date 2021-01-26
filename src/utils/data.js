@@ -21,6 +21,7 @@ const data = () => {
       description:
         'It is a Full Stack Tour booking platform that provide an comfortable experience to view tour and book it online.',
       side: 'Full-Stack',
+      primaryColor: '#FFBC4B',
       socialIcons: [
         {
           name: 'dribble',
@@ -46,6 +47,8 @@ const data = () => {
       description:
         'A Portfolio website to showcase projects including design, code, case-studies amd Blog for future ',
       side: 'Front-End',
+      primaryColor: '#EAA335',
+
       socialIcons: [
         {
           name: 'behance',

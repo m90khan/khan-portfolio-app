@@ -1,77 +1,95 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { direction, design, code, strategy, skillBack } from '../assets/images';
+import { skillBack, germany, china, pakistan } from '../assets/images';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
 
-const IntroDetails = () => {
+const EducationDetails = () => {
+  const Schools = [
+    {
+      icon: germany,
+      country: 'Germany',
+
+      date: 'On Hold',
+      details:
+        'I started my Masters (MS) in Computer & Communication Technology at Saarland University. My major courses were Artificial intelligence, Future media internet, telecommunication || and Automation.',
+    },
+    {
+      icon: china,
+      country: 'China',
+      date: '2011',
+      details:
+        "When I moved to China in 2007, I Studied Bachelor's (BE) Electronics & Information Engineering from HUST. During this period, I worked on different projects every semester especially moving objects recognition using video surveillance.",
+    },
+    {
+      icon: pakistan,
+      country: 'Pakistan',
+      date: '2007',
+      details:
+        'I completed my college studies in the field of Science covering the main topics of Math, Physics, and Computer Science from Punjab Group of Colleges, Pakistan.',
+    },
+    {
+      icon: pakistan,
+      country: 'Pakistan',
+      date: '2005',
+      details:
+        'I finished high school studies at JDIHS, Pakistan. The major courses were Physics, Mathematics, Chemistry, Computer Science and English ',
+    },
+  ];
+
   return (
     <Overview>
       <div className='deedColumn'>
         <div className='direction'>
           <div className='direction-img'>
-            <img src={direction} className='icon' alt='direction' />
+            <img src={Schools[0].icon} className='icon' alt='direction' />
             <img src={skillBack} className='icon-background' alt='background' />
           </div>
           <h3>
-            Strong <br></br>Direction
+            {Schools[0].country} <br></br>
+            <h4 className='short'> {Schools[0].date}</h4>
           </h3>
-          <p>
-            I believe that having a strong direction and team is very crucial when
-            developing a product. I like to get involved in the planning stage to give my
-            feedback if necessary to be able to match customer expectations.
-          </p>
+          <p>{Schools[0].details}</p>
         </div>
       </div>
       <div className='deedColumn deedColumnright'>
         <div className='direction strategy'>
           <div className='direction-img'>
-            <img src={strategy} className='icon' alt='strategy' />
+            <img src={Schools[1].icon} className='icon' alt='strategy' />
             <img src={skillBack} className='icon-background' alt='background' />
           </div>
           <h3>
-            Deep <br></br>Strategy
+            {Schools[1].country} <br></br>
+            <h4 className='short'> {Schools[1].date}</h4>
           </h3>
-          <p>
-            I always try to do my best to bring strategic thought to the forefront with
-            every project. I take my time to do deep research to find the best possible
-            solution for the problem and use it to create great experiences that deliver
-            on user needs and business objectives.
-          </p>
+          <p>{Schools[1].details}</p>
         </div>
       </div>
       <div className='deedColumn'>
         <div className='direction'>
           <div className='direction-img'>
-            <img src={design} className='icon' alt='design' />
+            <img src={Schools[2].icon} className='icon' alt='design' />
             <img src={skillBack} className='icon-background' alt='background' />
           </div>
           <h3>
-            Creative <br></br>Design
+            {Schools[2].country} <br></br>
+            <h4 className='short'> {Schools[2].date}</h4>
           </h3>
-          <p>
-            Bringing the creative aspect in every project is what I do. I get obsessed
-            with the latest trends “what’s next in design” so to test and implement them
-            into projects to get brands to improve the User Experience.
-          </p>
+          <p>{Schools[2].details}</p>
         </div>
       </div>
       <div className='deedColumn deedColumnright'>
         <div className='direction strategy'>
           <div className='direction-img'>
-            <img src={code} className='icon' alt='code' />
+            <img src={Schools[3].icon} className='icon' alt='code' />
             <img src={skillBack} className='icon-background' alt='background' />
           </div>
           <h3>
-            Dry <br></br>Principle
+            {Schools[3].country} <br></br>
+            <h4 className='short'> {Schools[3].date}</h4>
           </h3>
-          <p>
-            I believe in the separation of concerns when it comes to problem-solving. I
-            understand MVC architecture and separate the features into sections. I tend to
-            go over the requirements and design thoroughly besides discussing with
-            associated team members before coding.
-          </p>
+          <p>{Schools[3].details}</p>
         </div>
       </div>
     </Overview>
@@ -142,6 +160,7 @@ const Overview = styled(motion.div)`
         top: 0%;
         position: relative;
         left: 18%;
+        width: 30%;
         object-fit: cover;
         ${respondTo.iPro`
                 left: 10%;
@@ -214,4 +233,4 @@ const Overview = styled(motion.div)`
   }
 `;
 
-export default IntroDetails;
+export default EducationDetails;

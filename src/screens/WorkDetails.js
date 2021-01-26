@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { behance, dribble, github, starEmpty, starFull } from '../assets/social';
 import { COLORS } from '../styles/Theme';
+import { workCircle, workBackground } from './../assets/images';
+import useWindowSize from './../utils/useWindowSize';
+import { respondTo } from './../styles/RespondTo';
 
 const WorkDetails = ({ projects }) => {
+  const [project, setProject] = useState(projects[0]);
   const history = useHistory();
   const location = useLocation();
   const pathId = location.pathname.split('/')[2];
-  const [project, setProject] = useState(null);
+  // const params = useParams();
+  // const pathId = params.id;
   const exitDetailHander = (e) => {
     const element = e.target;
     if (element.classList.contains('shadow')) {
@@ -17,11 +22,6 @@ const WorkDetails = ({ projects }) => {
       history.push('/');
     }
   };
-  console.log(project);
-  useEffect(() => {
-    const currentProject = projects.filter((stateProject) => stateProject.id === pathId);
-    setProject(currentProject[0]);
-  }, [projects, pathId]);
 
   const game = {
     name: 'khan',
@@ -54,82 +54,114 @@ const WorkDetails = ({ projects }) => {
         return null;
     }
   };
+  useEffect(() => {
+    const currentProject = projects.filter((stateProject) => stateProject.id === pathId);
+    setProject(currentProject[0]);
+  }, [project, projects, history, pathId]);
+  const iconsBackground = {
+    background: `${project.primaryColor}`,
+    padding: '.5rem',
+    borderRadius: '1.5rem',
+  };
+
   return (
-    <CardShadow className='shadow' onClick={exitDetailHander}>
+    <>
       {project && (
-        <Detail layoutId={pathId}>
-          <Stats>
-            <div className='rating'>
-              <div className='header'>
-                <motion.h3 layoutId={`title ${pathId}`}>{project.title}</motion.h3>
+        <CardShadow className='shadow' onClick={exitDetailHander}>
+          <Detail
+            layoutId={pathId}
+            style={{ background: project.primaryColor }}
+            key={project.id}
+          >
+            <Stats>
+              <div className='rating'>
+                <Platforms style={iconsBackground}>
+                  {project.socialIcons.map((icon, index) => (
+                    <a
+                      href={icon.link}
+                      target='_blank'
+                      rel='noreferrer noopener'
+                      className='icon-back'
+                      key={index}
+                    >
+                      <img src={getPlatform(icon.name)} alt='overview' />
+                    </a>
+                  ))}
+                </Platforms>
+                <div className='header'>
+                  <motion.h2 layoutId={`title ${pathId}`}>{project.title}</motion.h2>
+                  <img
+                    src={workBackground}
+                    className='back background-1'
+                    alt='background'
+                  />
+                  <img src={workCircle} className='back background-2' alt='pakistan' />
+                </div>
+                <p>
+                  <h4>Description:</h4>
+                  {project.description} <br /> <h4>Skills:</h4>
+                  {project.builtWith}
+                </p>
               </div>
-              <p>Rating: {game.rating}</p>
-            </div>
-            <Info>
-              {/* <h3>Platforms</h3> */}
-              <div>{getStars()}</div>
-              <Platforms>
-                {project.socialIcons.map((icon, index) => (
-                  <a
-                    href={icon.link}
-                    target='_blank'
-                    rel='noreferrer noopener'
-                    className='icon-back'
-                  >
-                    <img src={getPlatform(icon.name)} key={index} alt='overview' />
-                  </a>
-                ))}
-              </Platforms>
-            </Info>
-          </Stats>
-          <Media>
-            {/* <motion.img
+              <Info>
+                {/* <h3>Platforms</h3> */}
+                {/* <div>{getStars()}</div> */}
+              </Info>
+            </Stats>
+            <Media>
+              {/* <motion.img
             layoutId={`image ${pathId}`}
             src={smallImage(game.background_image, 1280)}
             alt={game.background_image}
           /> */}
-          </Media>
-          <Description>
-            <p>{game.description_raw}</p>
-          </Description>
-          <div className='gallery'>
-            {project.images.map((image, i) => (
-              <img src={image} key={project.id} alt={'he'} />
-            ))}
-          </div>
-        </Detail>
+            </Media>
+            <Description>
+              <p>{game.description_raw}</p>
+            </Description>
+            <div className='gallery'>
+              {project.images.map((image, i) => (
+                <img src={image} key={i} alt={'he'} />
+              ))}
+            </div>
+          </Detail>
+        </CardShadow>
       )}
-    </CardShadow>
+    </>
   );
 };
 
 const CardShadow = styled(motion.div)`
   width: 100%;
+
   min-height: 100vh;
   overflow-y: scroll;
   background: rgba(25, 32, 44, 0.7);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 900;
 
   &::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 1rem;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
+    background-color: ${COLORS.primary};
   }
 
   &::-webkit-scrollbar-track {
-    background: white;
+    background: ${COLORS.bodyLight};
   }
 `;
 
 const Detail = styled(motion.div)`
   width: 80%;
+
   border-radius: 1rem;
   padding: 2rem 5rem;
+  ${respondTo.pMobile` 
+  padding: 2rem 1rem;
+      `}
   background: ${COLORS.white};
   position: absolute;
   left: 10%;
@@ -146,12 +178,53 @@ const Stats = styled(motion.div)`
   align-items: center;
   justify-content: space-between;
   .rating {
-    /* width: 100%;
-    height: 80vh; */
-    .header {
-      height: 60vh;
-      background: green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    p {
+      background: rgba(25, 32, 44, 1);
+      padding: 4rem;
+      width: 80%;
+      border-radius: 1rem;
+      color: ${COLORS.white};
+      ${respondTo.pMobile` 
       width: 100%;
+      `}
+      h4 {
+        padding: 2rem 0;
+      }
+    }
+    .header {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      ${respondTo.pMobile` 
+    height: 50vh;
+      `}
+      .back {
+        position: absolute;
+        width: 20%;
+        height: auto;
+        object-fit: cover;
+        ${respondTo.pMobile` 
+    width: 40%;
+      `}
+      }
+      .background-1 {
+        width: 45%;
+        height: 9%;
+        ${respondTo.pMobile` 
+    width: 80%;
+      `}
+      }
+      h2 {
+        z-index: 20;
+      }
     }
   }
   img {
@@ -168,16 +241,20 @@ const Info = styled(motion.div)`
   justify-content: space-around;
 `;
 const Platforms = styled(motion.div)`
+  align-self: flex-end;
   display: flex;
-  justify-content: flex-end;
-
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* position: fixed; */
+  height: 20%;
+  /* margin: 1rem; */
   .icon-back {
     margin-right: 1rem;
     border-radius: 50%;
     padding: 0.5rem 0.5rem;
     display: flex;
     justify-content: center;
-    width: 20%;
     align-items: center;
     text-align: center;
     cursor: pointer;
@@ -186,9 +263,6 @@ const Platforms = styled(motion.div)`
     transition: all 0.5s ease;
     :hover {
       background-color: ${COLORS.white} !important;
-    }
-    img {
-      margin-left: 3rem;
     }
   }
 `;

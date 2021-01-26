@@ -73,6 +73,7 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Archivo', sans-serif;       
      color: ${COLORS.white};
 }
+ 
 li,
 button,
 label,
@@ -85,7 +86,7 @@ p {
   color: ${COLORS.white};
 }
 h1{
-    font-size: 7rem;     
+    font-size: 6rem;     
 }
     h2{
          font-size: 11rem;
@@ -106,6 +107,7 @@ h1{
     }
     a{
         font-size: 1.1rem;
+        text-decoration:none;
     }
     span{
          color:#23d997;
@@ -114,7 +116,16 @@ h1{
           font-size: 2rem;
         line-height: 150%;
     }
- 
+    .short {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: ${COLORS.bodyDark};
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid ${COLORS.bodyDark};
+      background-color: ${COLORS.secondary};
+      display: inline-block;
+    }
 `;
 
 export default GlobalStyle;

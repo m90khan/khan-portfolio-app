@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
@@ -17,9 +17,10 @@ import {
   skillsPhone2x,
   skillsIpad2x,
 } from './../assets/skills';
+import { intro } from '../utils/textData';
+import EducationDetails from '../components/EducationSection';
 
 const HomeScreen = ({ projects }) => {
-  console.log(projects);
   return (
     <>
       <Header>
@@ -29,7 +30,13 @@ const HomeScreen = ({ projects }) => {
           Full Stack <br></br> Web Developer
         </h2>
       </Header>
-      <IntroSection />
+      <IntroSection
+        story='Short Bio'
+        title={intro.title}
+        description={intro.description}
+        job={intro.job}
+        notice={intro.notice}
+      />
       <IntroDetails />
       <Work>
         <div className='work-intro'>
@@ -37,7 +44,7 @@ const HomeScreen = ({ projects }) => {
         </div>
         <ProjectSection>
           {projects.map((project) => (
-            <ProjectCard project={project} />
+            <ProjectCard project={project} key={project.id} />
           ))}
         </ProjectSection>
         <Link to='/work'>
@@ -49,16 +56,16 @@ const HomeScreen = ({ projects }) => {
           <h1>Armory</h1>
           <picture>
             <source
-              srcSet={`${skillsDesktop} 1x, ${skillsDesktop2x} 2x`}
-              media='(min-width: 65.5em)'
+              srcSet={`${skillsPhone} 1x, ${skillsPhone2x} 2x`}
+              media='(max-width: 37.5em)'
             />
             <source
               srcSet={`${skillsIpad} 1x, ${skillsIpad2x} 2x`}
-              media='(min-width: 48em)'
+              media='(max-width: 64em)'
             />
             <source
-              srcSet={`${skillsPhone} 1x, ${skillsPhone2x} 2x`}
-              media='(max-width: 37.5em)'
+              srcSet={`${skillsDesktop} 1x, ${skillsDesktop2x} 2x`}
+              media='(max-width: 81em)'
             />
             <img
               srcSet={`${skillsDesktop} 1x, ${skillsDesktop2x} 2x`}
@@ -98,15 +105,14 @@ const Skills = styled(motion.div)`
       `}
     height: 30%;
     margin: 0 auto;
-    background: ${COLORS.bodyDark};
     padding: 2rem 4rem;
-    border-bottom-right-radius: 2rem;
-    border-top-right-radius: 2rem;
-    border-bottom-left-radius: 2rem;
+    background: rgba(25, 32, 44, 0.8);
+    border-bottom-right-radius: 4rem;
+    border-top-right-radius: 4rem;
+    border-bottom-left-radius: 4rem;
     border: 2px solid ${COLORS.secondary};
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-      rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
     img {
       padding: 1rem 0;
       height: 100%;
@@ -124,11 +130,11 @@ const Skills = styled(motion.div)`
 const Work = styled(motion.div)`
   min-height: 50vh;
   width: 90%;
-  margin: 10% auto 0 auto;
+  margin: 30% auto 0 auto;
   text-align: center;
 
   ${respondTo.iPro` 
-  margin: 25% auto 0 auto; 
+  margin: 20% auto 0 auto; 
       `}
   .work-intro {
     width: 60%;
@@ -137,13 +143,13 @@ const Work = styled(motion.div)`
     text-align: center;
     background: ${COLORS.bodyDark};
     padding: 2rem 0;
-    border-bottom-right-radius: 2rem;
-    border-top-right-radius: 2rem;
-    border-bottom-left-radius: 2rem;
+    background: rgba(25, 32, 44, 0.8);
+    border-bottom-right-radius: 3rem;
+    border-top-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
     border: 2px solid ${COLORS.secondary};
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-      rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   }
   h2 {
     -webkit-text-stroke: 2px ${COLORS.secondary};
@@ -220,7 +226,7 @@ const Header = styled(motion.div)`
     position: absolute;
     top: 65%;
     left: 50%;
-    width: 100%;
+    width: 80%;
     transform: translate(-50%, -50%);
     z-index: 20;
     ${respondTo.iPro`

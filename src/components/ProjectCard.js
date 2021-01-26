@@ -6,7 +6,7 @@ import TextEllipsis from 'react-text-ellipsis';
 
 import { respondTo } from './../styles/RespondTo';
 import { Link, useHistory } from 'react-router-dom';
-import iconList from './iconList';
+// import iconList from './iconList';
 import { behance, dribble, github, timeIcon } from '../assets/social';
 
 const ProjectCard = ({ project }) => {
@@ -42,6 +42,7 @@ const ProjectCard = ({ project }) => {
                 target='_blank'
                 rel='noreferrer noopener'
                 className='icon-back'
+                key={index}
               >
                 <img src={getPlatform(icon.name)} key={index} alt='overview' />
               </a>
@@ -65,8 +66,8 @@ const ProjectCard = ({ project }) => {
             <strong>Skills:</strong> {project.builtWith}
           </p> */}
           <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            72h
             <img src={timeIcon} alt='overview' />
+            <p> 72h </p>
           </p>
         </div>
         <div className='title '>
@@ -90,9 +91,8 @@ const Project = styled(motion.div)`
   background: ${COLORS.white};
   margin-bottom: 10rem;
   border-radius: 2rem;
-  box-shadow: rgba(48, 111, 219, 0.25) 0px 50px 100px -20px,
-    rgba(221, 37, 37, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   height: auto;
   ${respondTo.pMobile` 
    flex: 0 0 100%;
@@ -180,7 +180,6 @@ const Project = styled(motion.div)`
     align-items: center;
     .skills-desc-left {
       flex: 0 0 80%;
-      background: red;
     }
     p {
       font-size: 1.8rem;

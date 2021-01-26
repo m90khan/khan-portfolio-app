@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import GlobalStyle from './styles/GlobalStyles';
 import { Switch, Route } from 'react-router-dom';
@@ -16,6 +16,11 @@ import data from './utils/data';
 function App() {
   const [projects, setProjects] = useState(data());
 
+  useEffect(() => {
+    if (!projects) {
+      return setProjects(data());
+    }
+  }, [projects]);
   return (
     <>
       <GlobalStyle />
@@ -29,11 +34,11 @@ function App() {
               exact
               render={(props) => <HomeScreen {...props} projects={projects} />}
             />
-            <Route path='/work' exact component={WorkScreen} />
             <Route
               path='/work/:id'
               render={(props) => <WorkDetails {...props} projects={projects} />}
             />
+            <Route path='/work' exact component={WorkScreen} />
             <Route path='/about' component={AboutScreen} />
             <Route path='/contact' component={ContactScreen} />
           </Switch>

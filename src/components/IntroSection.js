@@ -4,24 +4,26 @@ import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 
-const IntroSection = () => {
+const IntroSection = ({ story, title, description, job, notice, skills }) => {
+  const styleSkill = {
+    width: '80%',
+  };
   return (
     <>
       <InfoSection>
-        <InfoHeader>
-          <h4 className='short'>Short Bio</h4>
-          <h1 className='intro'>Hi, I'm Khan</h1>
-          <p className='desc'>
-            and I am a full-stack web developer. I like working on challenging projects. I
-            like the visual aspects while building things. My experience with startups has
-            also allowed me to gain knowledge of UX/UI design. My current stack is MERN
-            with GraphQL & TypeScript.
-          </p>
-          <h4 className='job'>I am looking for full-time developer job</h4>
-          <p className='notice'>
-            Note: I Prefer remote position for now and have no objection for relocation
-            once the Covid situation settles down.
-          </p>
+        <InfoHeader style={skills ? { width: '65%' } : { width: '60%' }}>
+          <h4 className='short'>{story}</h4>
+          <h1 className='intro'>{title}</h1>
+          {skills &&
+            skills.map((skill, i) => (
+              <p className='desc' key={i} style={{ padding: 0 }}>
+                {skill}
+              </p>
+            ))}
+
+          {description && <p className='desc'>{description}</p>}
+          {job && <h4 className='job'>{job}</h4>}
+          {notice && <p className='notice'>{notice}</p>}
         </InfoHeader>
       </InfoSection>
     </>
@@ -34,15 +36,19 @@ const InfoSection = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  ${respondTo.iPad`
+           height: 60vh;  min-height: 80vh;
+         `}
 `;
 const InfoHeader = styled.div`
   background: rgba(6, 176, 141, 0.8);
-  max-height: 90%;
   width: 60%;
-  border-bottom-right-radius: 2rem;
-  border-top-right-radius: 2rem;
-  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 4rem;
+  border-top-right-radius: 4rem;
+  border-bottom-left-radius: 4rem;
   padding: 4rem 8rem;
+  -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   ${respondTo.iPro`
           padding: 6rem 6rem;
           width: 80%;
@@ -56,16 +62,7 @@ const InfoHeader = styled.div`
           width: 85%;
          `}
   border: 4px solid ${COLORS.secondary};
-  .short {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: ${COLORS.bodyDark};
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid ${COLORS.bodyDark};
-    background-color: ${COLORS.secondary};
-    display: inline-block;
-  }
+
   .intro {
     -webkit-text-stroke: 2px ${COLORS.bodyDark};
     text-stroke: 2px ${COLORS.bodyDark};
