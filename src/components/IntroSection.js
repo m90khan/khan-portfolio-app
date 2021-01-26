@@ -36,7 +36,7 @@ const InfoSection = styled(motion.div)`
   align-items: center;
 `;
 const InfoHeader = styled.div`
-  background: ${COLORS.primary};
+  background: rgba(6, 176, 141, 0.8);
   max-height: 90%;
   width: 60%;
   border-bottom-right-radius: 2rem;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
@@ -8,6 +8,7 @@ import IntroSection from '../components/IntroSection';
 import IntroDetails from '../components/IntroDetails';
 import ProjectCard from '../components/ProjectCard';
 import { Link } from 'react-router-dom';
+
 import {
   skillsDesktop,
   skillsPhone,
@@ -16,10 +17,9 @@ import {
   skillsPhone2x,
   skillsIpad2x,
 } from './../assets/skills';
-const HomeScreen = ({ history }) => {
-  const ProjectDetails = (id) => {
-    history.push(`/word/${id}`);
-  };
+
+const HomeScreen = ({ projects }) => {
+  console.log(projects);
   return (
     <>
       <Header>
@@ -36,10 +36,9 @@ const HomeScreen = ({ history }) => {
           <h2>WORK</h2>
         </div>
         <ProjectSection>
-          <ProjectCard onClick={() => ProjectDetails('item')} keyv={2} />
-          <ProjectCard onClick={() => ProjectDetails('item')} keyv={4} />
-          <ProjectCard onClick={() => ProjectDetails('item')} keyv={4} />
-          <ProjectCard onClick={() => ProjectDetails('item')} keyv={4} />
+          {projects.map((project) => (
+            <ProjectCard project={project} />
+          ))}
         </ProjectSection>
         <Link to='/work'>
           <button className='projects-btn'>View All Projects (82)</button>
@@ -251,11 +250,11 @@ const Footer = styled(Header)`
   h2 {
     -webkit-text-stroke: 3px ${COLORS.white};
     text-stroke: 3px ${COLORS.white};
+    margin-top: 6rem;
     ${respondTo.pMobile`
       -webkit-text-stroke: 1px ${COLORS.white};
       text-stroke: 1px ${COLORS.white}`}
     color: ${COLORS.primary};
-    margin-top: 4rem;
     ${respondTo.pMobile`
          margin-top: 0;
      `}

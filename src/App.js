@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from './components/Nav';
 import GlobalStyle from './styles/GlobalStyles';
-import { AnimatePresence } from 'framer-motion';
 import { Switch, Route } from 'react-router-dom';
 import {
   HomeScreen,
@@ -11,24 +10,35 @@ import {
   AboutScreen,
 } from './screens';
 import ScrollTop from './components/ScrollTop';
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import data from './utils/data';
 
 function App() {
-  // for framer motion to animation based on the pathname /key
+  const [projects, setProjects] = useState(data());
 
   return (
     <>
       <GlobalStyle />
       <ScrollTop />
       <Nav />
-      <AnimatePresence exitBeforeEnter>
-        <Switch>
-          <Route path='/' exact component={HomeScreen} />
-          <Route path='/work' component={WorkScreen} />
-          <Route path='/work/:id' component={WorkDetails} />
-          <Route path='/about' component={AboutScreen} />
-          <Route path='/contact' component={ContactScreen} />
-        </Switch>
-      </AnimatePresence>
+      <AnimateSharedLayout type='crossfade'>
+        <AnimatePresence exitBeforeEnter>
+          <Switch>
+            <Route
+              path='/'
+              exact
+              render={(props) => <HomeScreen {...props} projects={projects} />}
+            />
+            <Route path='/work' exact component={WorkScreen} />
+            <Route
+              path='/work/:id'
+              render={(props) => <WorkDetails {...props} projects={projects} />}
+            />
+            <Route path='/about' component={AboutScreen} />
+            <Route path='/contact' component={ContactScreen} />
+          </Switch>
+        </AnimatePresence>
+      </AnimateSharedLayout>
     </>
   );
 }

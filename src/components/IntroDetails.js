@@ -87,7 +87,7 @@ const Overview = styled(motion.div)`
   overflow: hidden;
   .deedColumn {
     width: 100%;
-    height: 100%;
+    height: 70%;
   }
 
   .direction,
@@ -116,7 +116,6 @@ const Overview = styled(motion.div)`
             width: 80%
          `}
       width: 100%;
-      background: red;
       display: flex;
       flex-direction: column;
       justify-content: center;

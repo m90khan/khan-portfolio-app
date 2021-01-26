@@ -2,44 +2,80 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
+import TextEllipsis from 'react-text-ellipsis';
 
 import { respondTo } from './../styles/RespondTo';
-import { alohaOverview } from '../assets/projects/AlohaT';
-import { behance, dribble, github } from '../assets/social';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import iconList from './iconList';
+import { behance, dribble, github, timeIcon } from '../assets/social';
 
-const ProjectCard = ({ onClick, keyv }) => {
-  const socialLinks = [behance, dribble, github];
+const ProjectCard = ({ project }) => {
+  const history = useHistory();
 
+  const ProjectDetails = (id) => {
+    history.push(`/work/${id}`);
+  };
+  const getPlatform = (platform) => {
+    switch (platform) {
+      case 'dribble':
+        return dribble;
+      case 'github':
+        return github;
+      case 'behance':
+        return behance;
+      default:
+        return null;
+    }
+  };
   return (
-    <Project key={keyv}>
-      <div className='header-img' onClick={onClick}>
-        <img src={alohaOverview} alt='overview' />
+    <Project key={project.id}>
+      <div className='header-img' onClick={() => ProjectDetails(project.id)}>
+        <img src={project.overview} alt='overview' />
       </div>
       <div className='content'>
         <div className='title'>
-          <h4>Aloha Travels</h4>
-          <div className='icons-socials'>
-            {socialLinks.map((icon, index) => (
-              <button>
-                <img src={icon} key={index} alt='overview' />
-              </button>
+          <h4>{project.title} </h4>
+          <div className='icon-social'>
+            {project.socialIcons.map((icon, index) => (
+              <a
+                href={icon.link}
+                target='_blank'
+                rel='noreferrer noopener'
+                className='icon-back'
+              >
+                <img src={getPlatform(icon.name)} key={index} alt='overview' />
+              </a>
             ))}
           </div>
         </div>
-        <p className='short-desc'>
-          Premium pepperoni and cheese is made with real ozzarella on original hand-tossed
-          crust.
-        </p>
+        <TextEllipsis lines={2} tag={'p'} ellipsisChars={'...'} tagClass={'short-desc'}>
+          {project.description}
+        </TextEllipsis>
+        {/* <p className='short-desc'>{project.description}</p> */}
         <div className='title skills-desc'>
-          <p>HTML5, CSS3, SCSS, JS, NodeJS, MondoDB</p>
-          <p>Duration: 72h</p>
+          <TextEllipsis
+            lines={2}
+            tag={'p'}
+            ellipsisChars={'...'}
+            tagClass={'skills-desc-left'}
+          >
+            <strong>Skills:</strong> {project.builtWith}
+          </TextEllipsis>
+          {/* <p className='skills-desc-left'>
+            <strong>Skills:</strong> {project.builtWith}
+          </p> */}
+          <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            72h
+            <img src={timeIcon} alt='overview' />
+          </p>
         </div>
-        <div className='title'>
-          <h4 style={{ color: COLORS.primary }}>Front-End</h4>
+        <div className='title '>
+          <h4 style={{ color: COLORS.primary }}>{project.side}</h4>
           <div className='icons'>
-            <button style={{ marginRight: '1rem' }}>Live</button>
-            <Link to='/contact'>
+            <a href='/contact'>
+              <button style={{ marginRight: '1rem' }}>Live</button>{' '}
+            </a>
+            <Link to={`/work/${project.id}`}>
               <button>Details</button>
             </Link>
           </div>
@@ -57,6 +93,7 @@ const Project = styled(motion.div)`
   box-shadow: rgba(48, 111, 219, 0.25) 0px 50px 100px -20px,
     rgba(221, 37, 37, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  height: auto;
   ${respondTo.pMobile` 
    flex: 0 0 100%;
   `}
@@ -71,34 +108,65 @@ const Project = styled(motion.div)`
   .content {
     padding: 2rem 1.5rem;
   }
+
   .title,
-  .icons-socials {
+  .icon-social {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .title {
+    @media only screen and (max-width: 900px) {
+      flex-wrap: wrap;
+      text-align: left;
+      h4 {
+        padding: 0.5rem 0;
+        flex: 0 0 100%;
+        width: 100%;
+      }
+      .icons {
+        width: 100%;
+        button {
+          padding: 1rem 2rem;
+        }
+      }
+    }
+    @media only screen and (max-width: 600px) {
+      flex-wrap: no-wrap;
+      text-align: left;
+      h4 {
+        padding: 0.5rem 0;
+        flex: 0 0 50%;
+        width: 100%;
+      }
+    }
   }
   h4 {
     color: ${COLORS.bodyDark};
     font-size: 2.8rem;
   }
-  .icons-socials {
-    button {
-      margin-right: 1rem;
-      border-radius: 50%;
-      padding: 0.5rem 0.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      :hover {
-        background-color: ${COLORS.white} !important;
-      }
-      img {
-        height: 2rem;
-      }
+  .icon-back {
+    margin-right: 1rem;
+    border-radius: 50%;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 5px solid ${COLORS.bodyLight};
+    background: ${COLORS.bodyLight};
+    transition: all 0.5s ease;
+    :hover {
+      background-color: ${COLORS.white} !important;
+    }
+    img {
+      height: 2rem;
+      pointer-events: none;
     }
   }
   .short-desc {
-    padding: 1.5rem 0;
+    padding: 0.5rem 0;
     color: ${COLORS.textgrey};
     text-align: left;
   }
@@ -106,6 +174,14 @@ const Project = styled(motion.div)`
     padding: 1rem 0;
     color: ${COLORS.textgrey};
     opacity: 0.6;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .skills-desc-left {
+      flex: 0 0 80%;
+      background: red;
+    }
     p {
       font-size: 1.8rem;
     }
