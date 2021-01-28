@@ -9,7 +9,7 @@ import { Link, useHistory } from 'react-router-dom';
 // import iconList from './iconList';
 import { behance, dribble, github, timeIcon } from '../assets/social';
 
-const ProjectCard = ({ project, style }) => {
+const ProjectListCard = ({ project, style }) => {
   const history = useHistory();
 
   const ProjectDetails = (id) => {
@@ -49,7 +49,7 @@ const ProjectCard = ({ project, style }) => {
             ))}
           </div>
         </div>
-        <TextEllipsis lines={2} tag={'p'} ellipsisChars={'...'} tagClass={'short-desc'}>
+        <TextEllipsis lines={1} tag={'p'} ellipsisChars={'...'} tagClass={'short-desc'}>
           {project.description}
         </TextEllipsis>
         {/* <p className='short-desc'>{project.description}</p> */}
@@ -65,13 +65,15 @@ const ProjectCard = ({ project, style }) => {
           {/* <p className='skills-desc-left'>
             <strong>Skills:</strong> {project.builtWith}
           </p> */}
-          <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={timeIcon} alt='overview' />
-            <p> 72h </p>
-          </p>
         </div>
         <div className='title '>
-          <h4 style={{ color: COLORS.primary }}>{project.side}</h4>
+          <h4 style={{ color: COLORS.primary, textAlign: 'right', fontSize: '2rem' }}>
+            {project.side}
+          </h4>
+          {/* <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src={timeIcon} alt='overview' />
+            <p> 72h </p>
+          </p> */}
           <div className='icons'>
             <a href='/contact'>
               <button style={{ marginRight: '1rem' }}>Live</button>{' '}
@@ -96,19 +98,23 @@ const Project = styled(motion.div)`
   -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   height: auto;
+  display: flex;
+  overflow: hidden;
   ${respondTo.pMobile` 
    flex: 0 0 100%;
   `}
 
   .header-img {
+    flex: 0 0 40%;
     cursor: pointer;
     img {
-      object-fit: cover;
+      object-fit: fill;
       width: 100%;
+      height: 100%;
     }
   }
   .content {
-    padding: 2rem 1.5rem;
+    padding: 2rem 0.5rem;
   }
 
   .title,
@@ -181,7 +187,7 @@ const Project = styled(motion.div)`
     justify-content: space-between;
     align-items: center;
     .skills-desc-left {
-      flex: 0 0 80%;
+      flex: 0 0 100%;
     }
     p {
       font-size: 1.8rem;
@@ -189,4 +195,4 @@ const Project = styled(motion.div)`
   }
 `;
 
-export default ProjectCard;
+export default ProjectListCard;

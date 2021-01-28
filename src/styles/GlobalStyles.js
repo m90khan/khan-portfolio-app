@@ -73,7 +73,11 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Archivo', sans-serif;       
      color: ${COLORS.white};
 }
- 
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
 li,
 button,
 label,
@@ -126,6 +130,45 @@ h1{
       background-color: ${COLORS.secondary};
       display: inline-block;
     }
+
+
+    .planewrap{
+    position: fixed;
+    pointer-events: none;
+    top: 30%;
+    left: 40%;
+    ${respondTo.iPro` 
+    top: 18%;
+      `}
+      transform: translate(-50%, -50%);
+    -webkit-animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
+    width: 20%;
+    height: 50%;
+    object-fit:contain;
+    z-index: 2;
+    text-align: center;
+}
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+  50% {
+    -webkit-transform: translatey(-20px);
+            transform: translatey(-20px);
+  }
+  100% {
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+}
+.job {
+    background-color: ${COLORS.bodyDark};
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+  }
 `;
 
 export default GlobalStyle;

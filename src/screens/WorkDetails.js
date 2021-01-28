@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
-import { behance, dribble, github, starEmpty, starFull } from '../assets/social';
+import { useHistory, useLocation } from 'react-router-dom';
+import { behance, dribble, github } from '../assets/social';
 import { COLORS } from '../styles/Theme';
 import { workCircle, workBackground } from './../assets/images';
-import useWindowSize from './../utils/useWindowSize';
 import { respondTo } from './../styles/RespondTo';
 
 const WorkDetails = ({ projects }) => {
   const [project, setProject] = useState(projects[0]);
   const history = useHistory();
   const location = useLocation();
-  const pathId = location.pathname.split('/')[2];
+  let pathId = location.pathname.split('/')[2];
   // const params = useParams();
   // const pathId = params.id;
   const exitDetailHander = (e) => {
@@ -28,18 +27,18 @@ const WorkDetails = ({ projects }) => {
     rating: 3,
   };
   //Get Stars
-  const getStars = () => {
-    const stars = [];
-    const rating = Math.floor(game.rating);
-    for (let i = 1; i <= 5; i++) {
-      if (i <= rating) {
-        stars.push(<img alt='star' key={i} src={starFull}></img>);
-      } else {
-        stars.push(<img alt='star' key={i} src={starEmpty}></img>);
-      }
-    }
-    return stars;
-  };
+  // const getStars = () => {
+  //   const stars = [];
+  //   const rating = Math.floor(game.rating);
+  //   for (let i = 1; i <= 5; i++) {
+  //     if (i <= rating) {
+  //       stars.push(<img alt='star' key={i} src={starFull}></img>);
+  //     } else {
+  //       stars.push(<img alt='star' key={i} src={starEmpty}></img>);
+  //     }
+  //   }
+  //   return stars;
+  // };
 
   //GET PLATFORM IMAGES
   const getPlatform = (platform) => {
@@ -54,15 +53,21 @@ const WorkDetails = ({ projects }) => {
         return null;
     }
   };
+  const ref = useRef();
   useEffect(() => {
-    const currentProject = projects.filter((stateProject) => stateProject.id === pathId);
-    setProject(currentProject[0]);
-  }, [project, projects, history, pathId]);
-  const iconsBackground = {
-    background: `${project.primaryColor}`,
-    padding: '.5rem',
-    borderRadius: '1.5rem',
-  };
+    const fetchProject = (id) => {
+      const currentProject = projects.filter(
+        (stateProject) => stateProject.id === pathId
+      );
+      setProject(currentProject[0]);
+    };
+    fetchProject();
+    if (!project) {
+      history.push('/');
+      // const id = location.pathname.split('/')[2];
+      // fetchProject(id);
+    }
+  }, [project, projects, location.pathname, history, pathId]);
 
   return (
     <>
@@ -70,25 +75,35 @@ const WorkDetails = ({ projects }) => {
         <CardShadow className='shadow' onClick={exitDetailHander}>
           <Detail
             layoutId={pathId}
-            style={{ background: project.primaryColor }}
-            key={project.id}
+            style={project && { background: project.primaryColor }}
+            key={project && project.id}
+            ref={ref}
           >
             <Stats>
               <div className='rating'>
-                <Platforms style={iconsBackground}>
-                  {project.socialIcons.map((icon, index) => (
-                    <a
-                      href={icon.link}
-                      target='_blank'
-                      rel='noreferrer noopener'
-                      className='icon-back'
-                      key={index}
-                    >
-                      <img src={getPlatform(icon.name)} alt='overview' />
-                    </a>
-                  ))}
+                <Platforms
+                  style={
+                    project && {
+                      background: project.primaryColor,
+                      padding: '.5rem',
+                      borderRadius: '1.5rem',
+                    }
+                  }
+                >
+                  {project &&
+                    project.socialIcons.map((icon, index) => (
+                      <motion.a
+                        href={icon.link}
+                        target='_blank'
+                        rel='noreferrer noopener'
+                        className='icon-back'
+                        key={index}
+                      >
+                        <motion.img src={getPlatform(icon.name)} alt='overview' />
+                      </motion.a>
+                    ))}
                 </Platforms>
-                <div className='header'>
+                <motion.div className='header'>
                   <motion.h2 layoutId={`title ${pathId}`}>{project.title}</motion.h2>
                   <img
                     src={workBackground}
@@ -96,7 +111,7 @@ const WorkDetails = ({ projects }) => {
                     alt='background'
                   />
                   <img src={workCircle} className='back background-2' alt='pakistan' />
-                </div>
+                </motion.div>
                 <p>
                   <h4>Description:</h4>
                   {project.description} <br /> <h4>Skills:</h4>

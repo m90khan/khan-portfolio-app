@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
-import { footerBack, germany, headerBack, pakistan } from './../assets/images';
+import { footerBack, germany, headerBack, pakistan, plane } from './../assets/images';
 import { COLORS } from '../styles/Theme';
 import IntroSection from '../components/IntroSection';
 import IntroDetails from '../components/IntroDetails';
@@ -18,7 +18,7 @@ import {
   skillsIpad2x,
 } from './../assets/skills';
 import { intro } from '../utils/textData';
-import EducationDetails from '../components/EducationSection';
+import { Work, ProjectSection } from './../styles/styles';
 
 const HomeScreen = ({ projects }) => {
   return (
@@ -38,6 +38,7 @@ const HomeScreen = ({ projects }) => {
         notice={intro.notice}
       />
       <IntroDetails />
+      <img src={plane} className='planewrap' alt='planer' />
       <Work>
         <div className='work-intro'>
           <h2>WORK</h2>
@@ -99,6 +100,8 @@ const Skills = styled(motion.div)`
   align-items: center;
   .skills-intro {
     text-align: left;
+    z-index: 10;
+
     width: 65%;
     ${respondTo.pMobile` 
     width: 90%;
@@ -116,6 +119,7 @@ const Skills = styled(motion.div)`
     img {
       padding: 1rem 0;
       height: 100%;
+
       width: 100%;
       object-fit: contain;
     }
@@ -127,57 +131,6 @@ const Skills = styled(motion.div)`
   }
 `;
 
-const Work = styled(motion.div)`
-  min-height: 50vh;
-  width: 90%;
-  margin: 30% auto 0 auto;
-  text-align: center;
-
-  ${respondTo.iPro` 
-  margin: 20% auto 0 auto; 
-      `}
-  .work-intro {
-    width: 60%;
-    height: 30%;
-    margin: 0 auto;
-    text-align: center;
-    background: ${COLORS.bodyDark};
-    padding: 2rem 0;
-    background: rgba(25, 32, 44, 0.8);
-    border-bottom-right-radius: 3rem;
-    border-top-right-radius: 3rem;
-    border-bottom-left-radius: 3rem;
-    border: 2px solid ${COLORS.secondary};
-    -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
-    box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
-  }
-  h2 {
-    -webkit-text-stroke: 2px ${COLORS.secondary};
-    text-stroke: 2px ${COLORS.secondary};
-  }
-  .projects-btn {
-    background: ${COLORS.secondary};
-    color: ${COLORS.bodyDark};
-    font-size: 4rem;
-    border: 1rem solid ${COLORS.bodyDark};
-    :hover {
-      background: ${COLORS.white};
-      color: ${COLORS.bodyDark};
-    }
-  }
-`;
-const ProjectSection = styled(motion.div)`
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 20rem 0 10rem 0;
-  ${respondTo.iPro` 
-  padding: 12rem 0 8rem 0;
-      `}
-`;
 const Header = styled(motion.div)`
   height: 90vh;
   width: 100%;
@@ -207,6 +160,7 @@ const Header = styled(motion.div)`
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 1;
 
     width: 20%;
     transform: translate(-50%, -50%);
@@ -228,7 +182,7 @@ const Header = styled(motion.div)`
     left: 50%;
     width: 80%;
     transform: translate(-50%, -50%);
-    z-index: 20;
+    z-index: 1;
     ${respondTo.iPro`
       font-size: 9rem; 
       `}

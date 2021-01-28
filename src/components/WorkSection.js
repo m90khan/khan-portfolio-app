@@ -3,26 +3,17 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
-const WorkSection = () => {
-  const works = [
-    'Full Stack Web Developer @Freelance (August 2020 - Present)',
-    'Web Developer @WebsiteKitchen (Jan 2020 - June 2020)',
-    'Front End Developer @FoodiFie (April 2017 - Mar 2018)',
-    'Intern Web Developer @ChinaSourcingCo (Jan 2015 - July 2016)',
-    'Technical Support @LeejinSource (Jun 2011 - Dec 2011)',
-    'CCNA Internship (Feb 2011 - Apr 2011)',
-  ];
-
+import Form from './Form';
+const WorkSection = ({ story, title, works }) => {
   return (
     <Work>
       <div className='video-block'>
-        <h4 className='short'>Work</h4>
-        <h1>Experience</h1>
+        <h4 className='short'>{story}</h4>
+        <h1>{title}</h1>
         <br />
         <div className='video'>
-          {works.map((item, i) => (
-            <p key={i}>- {item}</p>
-          ))}
+          {works && works.map((item, i) => <p key={i}>- {item}</p>)}
+          {title === 'Contact' ? <Form /> : ''}
         </div>
       </div>
     </Work>
@@ -35,6 +26,10 @@ const Work = styled(motion.div)`
   justify-content: center;
   align-items: center;
   margin-top: 5rem;
+  ${respondTo.iPro` 
+  height: 70vh;
+      `}
+
   .video-block {
     /* background: rgba(25, 32, 44, 0.5); */
     padding: 6rem;

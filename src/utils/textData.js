@@ -22,3 +22,12 @@ export const Skills = [
   'Drupal, niice, fullstory, invision, Trello.',
   'I can speak English, Urdu, Punjabi, Deutsch and Mandarin.',
 ];
+
+export const Works = [
+  'Full Stack Web Developer @Freelance (August 2020 - Present)',
+  'Web Developer @WebsiteKitchen (Jan 2020 - June 2020)',
+  'Front End Developer @FoodiFie (April 2017 - Mar 2018)',
+  'Intern Web Developer @ChinaSourcingCo (Jan 2015 - July 2016)',
+  'Technical Support @LeejinSource (Jun 2011 - Dec 2011)',
+  'CCNA Internship (Feb 2011 - Apr 2011)',
+];

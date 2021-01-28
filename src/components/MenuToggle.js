@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { COLORS } from '../styles/Theme';
+import { respondTo } from './../styles/RespondTo';
 
 const Path = (props) => (
   <motion.path
     fill='transparent'
-    strokeWidth='3'
+    strokeWidth='4'
     stroke='#fff'
     strokeLinecap='round'
     {...props}
@@ -16,9 +17,11 @@ const Path = (props) => (
 export const MenuToggle = ({ toggle, isOpen }) => (
   <MenuIcon
     onClick={toggle}
-    style={isOpen ? { width: '4%', height: '8%' } : { width: '80%', height: '16%' }}
+    style={
+      isOpen ? { background: `${COLORS.primary}` } : { background: `${COLORS.bodyDark}` }
+    }
   >
-    <svg width='30' height='25' viewBox='0 0 23 23'>
+    <svg viewBox='0 0 23 23'>
       <Path
         variants={{
           closed: { d: 'M 2 2.5 L 20 2.5' },
@@ -50,16 +53,35 @@ const MenuIcon = styled.button`
   -moz-user-select: none;
   -ms-user-select: none;
   cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 0.8rem;
-  width: 80%;
-  height: 16%;
-  /* height: 5rem; */
+  position: fixed;
+  top: 1.5rem;
+  left: 0rem;
+  width: 6rem;
+  height: 5.5rem;
   border-radius: 50%;
-  border: 1px solid ${COLORS.primary};
-  background: ${COLORS.bodyLight};
-  padding: 1rem 0rem;
+  background: transparent;
+  z-index: 500;
+  ${respondTo.iPro` 
+  left: 1%;
+     `}
+
+  ${respondTo.pMobile` 
+    top: 1.5rem;
+  left: 1rem;
+  position : fixed;
+     width: 10%;
+     height: 8rem;
+
+     right: 0;
+    margin: 0rem .5rem;
+     
+    background: ${COLORS.bodyDark};
+     `}
+         @media only screen and (max-width: 450px) {
+    width: 14%;
+    height: 7rem;
+  }
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -71,5 +93,7 @@ const MenuIcon = styled.button`
     position: relative;
     top: 0.2rem;
     flex: 1;
+    width: 20rem;
+    height: 20rem;
   }
 `;

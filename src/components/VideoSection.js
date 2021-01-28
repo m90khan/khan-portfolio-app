@@ -15,7 +15,7 @@ const VideoSection = () => {
             title='Video Resume'
             src='https://www.youtube-nocookie.com/embed/lLQagAL3Fwo'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowfullscreen
+            allowfullScreen
           ></iframe>
         </div>
       </div>
@@ -29,6 +29,12 @@ const Video = styled(motion.div)`
   justify-content: center;
   align-items: center;
   margin-top: 5rem;
+  ${respondTo.iPro` 
+  height: 70vh;
+      `}
+  ${respondTo.iPad` 
+  height: 50vh;
+      `}
   .video-block {
     /* background: rgba(25, 32, 44, 0.5); */
     padding: 6rem;

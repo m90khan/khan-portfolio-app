@@ -163,15 +163,15 @@ const Overview = styled(motion.div)`
         width: 30%;
         object-fit: cover;
         ${respondTo.iPro`
-                left: 10%;
-             width: 20%;
-             height: 30%;
-             object-fit: cover;
+                left: 2%;
+             width: 40%;
+             height: 50%;
+             object-fit: contain;
          `}
         ${respondTo.pMobile`
-              width: 30%;
-             height: 25%;
-             object-fit: cover;
+              width: 35%;
+             height: 45%;
+             object-fit: contain;
          `}
       }
     }
@@ -199,12 +199,10 @@ const Overview = styled(motion.div)`
     top: 25rem;
     ${respondTo.iPro`
               top: 0rem;
+          `}
 
-         `}
     height: auto;
-    /* ${respondTo.iPro`
-    right: 0%;
-         `} */
+
     align-items: flex-end;
     .direction-img {
       .icon-background {
@@ -222,7 +220,7 @@ const Overview = styled(motion.div)`
       left: 52%;
          `}
         ${respondTo.iPro`
-      left: 65%;
+      left: 55%;
          `}
         ${respondTo.pMobile`
                   left: 60%;

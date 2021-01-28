@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { behance, dribble, github, linkedin, timeIcon } from '../assets/social';
+import { behance, dribble, github, linkedin } from '../assets/social';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
@@ -8,7 +8,7 @@ import { workCircle, workBackground } from './../assets/images';
 import VideoSection from '../components/VideoSection';
 import WorkSection from '../components/WorkSection';
 import IntroSection from '../components/IntroSection';
-import { Skills } from '../utils/textData';
+import { Skills, Works } from '../utils/textData';
 import EducationDetails from '../components/EducationSection';
 import CheckWork from '../components/CheckWork';
 
@@ -58,7 +58,7 @@ const AboutScreen = () => {
         </div>
       </div>
       <VideoSection />
-      <WorkSection />
+      <WorkSection story='Work' title='Experience' works={Works} />
       <IntroSection story='Technical' title='Skills' skills={Skills} />
       <EducationDetails />
       <CheckWork />
@@ -81,7 +81,7 @@ const Stats = styled(motion.div)`
     padding: 4rem;
     background: ${COLORS.primary};
     .header {
-      height: 90vh;
+      height: 70vh;
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -89,24 +89,31 @@ const Stats = styled(motion.div)`
       justify-content: center;
       text-align: center;
       ${respondTo.pMobile` 
-    height: 50vh;
+    height: 90vh;
       `}
       .back {
         position: absolute;
         width: 20%;
-        top: 50%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         height: auto;
         object-fit: cover;
+
+        ${respondTo.L` 
+    width: 30%;
+    top: 40%;
+
+      `}
         ${respondTo.pMobile` 
     width: 40%;
+    top: 50%
       `}
       }
       .background-1 {
         width: 50%;
         height: 70%;
-        ${respondTo.pMobile` 
+        ${respondTo.L` 
     width: 80%;
       `}
       }
@@ -117,15 +124,12 @@ const Stats = styled(motion.div)`
     }
   }
 `;
-const Info = styled(motion.div)`
-  text-align: center;
-  background: red;
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-`;
+
 const Platforms = styled(motion.div)`
   align-self: flex-end;
+  ${respondTo.pMobile` 
+      align-self: center;
+      `}
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -5,13 +5,10 @@ import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 
 const IntroSection = ({ story, title, description, job, notice, skills }) => {
-  const styleSkill = {
-    width: '80%',
-  };
   return (
     <>
       <InfoSection>
-        <InfoHeader style={skills ? { width: '65%' } : { width: '60%' }}>
+        <InfoHeader>
           <h4 className='short'>{story}</h4>
           <h1 className='intro'>{title}</h1>
           {skills &&
@@ -42,6 +39,8 @@ const InfoSection = styled(motion.div)`
 `;
 const InfoHeader = styled.div`
   background: rgba(6, 176, 141, 0.8);
+  z-index: 4;
+
   width: 60%;
   border-bottom-right-radius: 4rem;
   border-top-right-radius: 4rem;
@@ -73,12 +72,7 @@ const InfoHeader = styled.div`
     padding: 2rem 0;
     font-size: 2.2rem;
   }
-  .job {
-    background-color: ${COLORS.bodyDark};
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    display: inline-block;
-  }
+
   .notice {
     margin-top: 1rem;
     font-size: 1.5rem;
