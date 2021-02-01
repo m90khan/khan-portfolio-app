@@ -3,22 +3,32 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
+import { useScroll } from './useScroll';
+import { fade } from '../styles/Animation';
 const VideoSection = () => {
+  const [element, controls] = useScroll();
+
   return (
     <Video>
-      <div className='video-block'>
-        <h4 className='short'>Full Story</h4>
-        <h1>Video Resume</h1>
+      <motion.div
+        className='video-block'
+        ref={element}
+        variants={fade}
+        animate={controls}
+        initial='hidden'
+      >
+        <motion.h4 className='short'>Full Story</motion.h4>
+        <motion.h1>Video Resume</motion.h1>
         <br />
-        <div className='video'>
+        <motion.div className='video'>
           <iframe
             title='Video Resume'
             src='https://www.youtube-nocookie.com/embed/lLQagAL3Fwo'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowfullScreen
           ></iframe>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </Video>
   );
 };
@@ -28,6 +38,7 @@ const Video = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+
   margin-top: 5rem;
   ${respondTo.iPro` 
   height: 70vh;
@@ -39,6 +50,7 @@ const Video = styled(motion.div)`
     /* background: rgba(25, 32, 44, 0.5); */
     padding: 6rem;
     width: 80%;
+    z-index: 900;
     height: auto;
     color: ${COLORS.white};
     background: rgba(25, 32, 44, 0.8);

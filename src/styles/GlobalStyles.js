@@ -135,16 +135,16 @@ h1{
     .planewrap{
     position: fixed;
     pointer-events: none;
-    top: 30%;
+    top: 10%;
     left: 40%;
     ${respondTo.iPro` 
     top: 18%;
       `}
       transform: translate(-50%, -50%);
-    -webkit-animation: float 6s ease-in-out infinite;
-    animation: float 6s ease-in-out infinite;
+    /* -webkit-animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite; */
     width: 20%;
-    height: 50%;
+    height: 40%;
     object-fit:contain;
     z-index: 2;
     text-align: center;
@@ -169,6 +169,26 @@ h1{
     border-radius: 0.5rem;
     display: inline-block;
   }
+ .big-text{
+  font-family: 'Permanent Marker', cursive;
+
+ }
+.progress-icon {
+  position: fixed;
+  bottom: 1rem;
+  left: 4%;
+   border-radius:100%;
+  height: 8%;
+ 
+}
+
+@media (max-width: 600px) {
+   .progress-icon {
+    width: 70px;
+    height: 70px;
+    left: 10px;
+    top: 10px;
+  }}
 `;
 
 export default GlobalStyle;

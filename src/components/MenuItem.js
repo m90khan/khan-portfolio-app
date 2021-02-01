@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { COLORS } from '../styles/Theme';
-import { Link, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
-
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Line } from './../styles/styles';
 const variants = {
   open: {
     y: 0,
@@ -21,24 +21,10 @@ const variants = {
   },
 };
 
-// {
-//   title: 'SOCIAL',
-//   links: [
-//     { name: 'Linkedin', link: 'https://www.linkedin.com/in/khanmohsinx/' },
-//     { name: 'Github', link: 'https://github.com/m90khan' },
-//     {
-//       name: 'Behance',
-//       link: 'https://www.behance.net/Khan_Mohsin',
-//     },
-//     {
-//       name: 'Dribble',
-//       link: 'https://dribbble.com/khanx',
-//     },
-//   ],
-// },
-
 export const MenuItem = ({ menuItem, toggle }) => {
   const history = useHistory();
+  const { pathname } = useLocation();
+  console.log(pathname);
   const { title, links } = menuItem;
   const toggleHandler = (link) => {
     if (history.location.pathname === link) {
@@ -57,9 +43,21 @@ export const MenuItem = ({ menuItem, toggle }) => {
       <div className='text-placeholder'>
         {links.map((item, i) =>
           item.link[0] === '/' ? (
-            <Link to={`${item.link}`} key={i}>
-              <p onClick={() => toggleHandler(item.link)}>{item.name}</p>
-            </Link>
+            <>
+              <Link to={`${item.link}`} key={i}>
+                <p
+                  onClick={() => toggleHandler(item.link)}
+                  style={item.link === pathname ? { opacity: 1 } : { opacity: 0.6 }}
+                >
+                  {item.name}
+                  <Line
+                    transition={{ duration: 0.75 }}
+                    initial={{ width: '0%' }}
+                    animate={{ width: item.link === pathname ? '30%' : '0%' }}
+                  />
+                </p>
+              </Link>
+            </>
           ) : (
             <Link to={{ pathname: item.link }} key={i} target='_blank'>
               <p>{item.name}</p>
@@ -98,12 +96,14 @@ const Item = styled(motion.li)`
     width: 200px;
     height: 20px;
     flex: 1;
+
     p {
+      position: relative;
+      opacity: 0.6;
       color: ${COLORS.white};
     }
     p:hover {
       color: ${COLORS.secondary};
-      text-decoration: underline;
     }
   }
 `;

@@ -4,17 +4,40 @@ import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
 import { Link } from 'react-router-dom';
+import { Line } from '../styles/styles';
+import { useScroll } from './useScroll';
+import { fade } from '../styles/Animation';
+
 const CheckWork = () => {
+  const [element, controls] = useScroll({ threshold: 0 });
   return (
     <Work>
-      <div className='video-block'>
-        <Link to='/work'>
-          <h1>Check Out My Work</h1>
-        </Link>
-      </div>
+      <Link to='/work'>
+        <motion.div
+          className='video-block'
+          variants={fade}
+          animate={controls}
+          initial='hidden'
+          ref={element}
+        >
+          <div style={{ position: 'relative' }}>
+            <h1>Check Out My Work</h1>
+            <LineAnim
+              transition={{ duration: 0.75 }}
+              initial={{ width: '0%' }}
+              animate={{ width: '100%' }}
+              ref={element}
+            />
+          </div>
+        </motion.div>
+      </Link>
     </Work>
   );
 };
+
+const LineAnim = styled(Line)`
+  bottom: -20%;
+`;
 const Work = styled(motion.div)`
   height: 100vh;
   width: 80%;
@@ -29,8 +52,8 @@ const Work = styled(motion.div)`
 
   .video-block {
     /* background: rgba(25, 32, 44, 0.5); */
-    padding: 15% 2rem;
-    width: 80%;
+    padding: 15% 20rem;
+    width: 100%;
     color: ${COLORS.white};
     /* background: rgba(25, 32, 44, 0.8); */
     border-bottom-right-radius: 4rem;
@@ -46,7 +69,6 @@ const Work = styled(motion.div)`
       text-decoration: none;
       text-decoration-color: white;
       transition: all 0.2s ease-out;
-
       :hover {
         color: ${COLORS.bodyDark};
       }

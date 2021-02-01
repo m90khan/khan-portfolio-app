@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
@@ -8,7 +8,12 @@ import IntroSection from '../components/IntroSection';
 import IntroDetails from '../components/IntroDetails';
 import ProjectCard from '../components/ProjectCard';
 import { Link } from 'react-router-dom';
+import Lottie from 'react-lottie';
+import blob from './../assets/lottie/blob.json';
+import blob2 from './../assets/lottie/blob-2.json';
+import introloader from './../assets/lottie/intro.json';
 
+import { useScroll } from './../components/useScroll';
 import {
   skillsDesktop,
   skillsPhone,
@@ -18,17 +23,51 @@ import {
   skillsIpad2x,
 } from './../assets/skills';
 import { intro } from '../utils/textData';
-import { Work, ProjectSection } from './../styles/styles';
-
+import { Work, ProjectSection, Hide } from './../styles/styles';
+import Meta from '../components/Meta';
+import { containerdiv, titleAnim, headerImage, planeImage } from './../styles/Animation';
 const HomeScreen = ({ projects }) => {
+  const defaultOptions = (img) => {
+    return {
+      loop: true,
+      autoplay: true,
+      animationData: img,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+      },
+    };
+  };
+  const [element, controls] = useScroll();
+
   return (
     <>
-      <Header>
-        <img src={headerBack} className='background' alt='background' />
-        <img src={pakistan} className='map' alt='pakistan' />
-        <h2>
-          Full Stack <br></br> Web Developer
-        </h2>
+      <Meta />
+      <Header variants={containerdiv} initial='hidden' animate='show'>
+        <motion.div className='background' variants={headerImage}>
+          <Lottie options={defaultOptions(blob)} />
+        </motion.div>
+        <motion.div className='background background-1' variants={headerImage}>
+          <Lottie options={defaultOptions(blob2)} />
+        </motion.div>
+        <motion.img
+          src={pakistan}
+          className='map'
+          alt='pakistan'
+          variants={headerImage}
+        />
+        {/* <img src={headerBack} className='background' alt='background' /> */}
+        <Heading>
+          <Hide>
+            <motion.h2 className='big-text' variants={titleAnim}>
+              Full Stack
+            </motion.h2>
+          </Hide>
+          <Hide>
+            <motion.h2 className='big-text' variants={titleAnim}>
+              Web Developer
+            </motion.h2>
+          </Hide>
+        </Heading>
       </Header>
       <IntroSection
         story='Short Bio'
@@ -38,7 +77,6 @@ const HomeScreen = ({ projects }) => {
         notice={intro.notice}
       />
       <IntroDetails />
-      <img src={plane} className='planewrap' alt='planer' />
       <Work>
         <div className='work-intro'>
           <h2>WORK</h2>
@@ -76,17 +114,23 @@ const HomeScreen = ({ projects }) => {
           </picture>
         </div>
       </Skills>
-      <Footer>
-        <img src={footerBack} className='background' alt='background' />
-        <img src={germany} className='map' alt='germany' />
+      <Footer variants={containerdiv} initial='hidden' animate='show'>
+        <motion.div className='background' variants={headerImage}>
+          <Lottie options={defaultOptions(blob)} />
+        </motion.div>
+        <motion.div className='background background-1' variants={headerImage}>
+          <Lottie options={defaultOptions(blob2)} />
+        </motion.div>
+        <motion.img src={germany} className='map' alt='pakistan' variants={headerImage} />
         <h2>
-          <span> I've landed </span>
-          <br></br> Lets Talk
+          I've landed <br />
+          <span>Lets Talk </span>
         </h2>
       </Footer>
     </>
   );
 };
+
 const Skills = styled(motion.div)`
   min-height: 100vh;
   ${respondTo.pMobile` 
@@ -132,7 +176,7 @@ const Skills = styled(motion.div)`
 `;
 
 const Header = styled(motion.div)`
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -140,10 +184,10 @@ const Header = styled(motion.div)`
   position: relative;
   text-align: center;
   .background {
-    width: 50%;
+    width: 48%;
     position: absolute;
-    top: 10%;
-    left: 50%;
+    top: 0%;
+    left: 27%;
     transform: translate(-50%, -10%);
     object-fit: cover;
     ${respondTo.iPro`
@@ -155,14 +199,19 @@ const Header = styled(motion.div)`
         width: 100%;
     `}
   }
+  .background-1 {
+    width: 35%;
+    top: 15%;
+    left: 32%;
+  }
   .map {
     z-index: 10;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 35%;
+    left: 40%;
     z-index: 1;
 
-    width: 20%;
+    width: 18%;
     transform: translate(-50%, -50%);
 
     object-fit: cover;
@@ -175,14 +224,26 @@ const Header = styled(motion.div)`
         width: 45%;
     `}
   }
+`;
+const Heading = styled(motion.h2)`
+  position: absolute;
+  top: 55%;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  z-index: 1;
+
   h2 {
-    color: ${COLORS.white};
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    width: 80%;
     transform: translate(-50%, -50%);
+    letter-spacing: 1.2rem;
+    line-height: 1.1;
+    -webkit-text-stroke: 1.5px ${COLORS.bodyDark};
+    text-stroke: 1px yellow;
     z-index: 1;
+    text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+      1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191,
+      1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191,
+      1px 18px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2);
     ${respondTo.iPro`
       font-size: 9rem; 
       `}
@@ -191,14 +252,26 @@ const Header = styled(motion.div)`
          top: 80%
          `}
   }
+  color: ${COLORS.white};
 `;
 const Footer = styled(Header)`
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .heading-footer {
+    top: 50%;
+  }
   .background {
-    top: 10%;
+    /* top: 60%; */
+  }
+  .background-1 {
+    /* top: 70%; */
   }
   .map {
     width: 15%;
-    top: 50%;
+    /* top: 80%; */
     ${respondTo.iPro`
         top: 30%;
         width: 25%;
@@ -208,9 +281,11 @@ const Footer = styled(Header)`
      `}
   }
   h2 {
+    align-self: flex-end;
+    z-index: 90;
     -webkit-text-stroke: 3px ${COLORS.white};
     text-stroke: 3px ${COLORS.white};
-    margin-top: 6rem;
+    bottom: 0;
     ${respondTo.pMobile`
       -webkit-text-stroke: 1px ${COLORS.white};
       text-stroke: 1px ${COLORS.white}`}

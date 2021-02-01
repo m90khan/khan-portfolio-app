@@ -4,8 +4,21 @@ import { motion } from 'framer-motion';
 import { skillBack, germany, china, pakistan } from '../assets/images';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
+import blob3 from './../assets/lottie/blob-3.json';
+import Lottie from 'react-lottie';
 
 const EducationDetails = () => {
+  const defaultOptions = (img) => {
+    return {
+      loop: true,
+      autoplay: true,
+      animationData: img,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+      },
+    };
+  };
+
   const Schools = [
     {
       icon: germany,
@@ -44,7 +57,9 @@ const EducationDetails = () => {
         <div className='direction'>
           <div className='direction-img'>
             <img src={Schools[0].icon} className='icon' alt='direction' />
-            <img src={skillBack} className='icon-background' alt='background' />
+            <div className='icon-background'>
+              <Lottie options={defaultOptions(blob3)} />
+            </div>
           </div>
           <h3>
             {Schools[0].country} <br></br>
@@ -57,7 +72,9 @@ const EducationDetails = () => {
         <div className='direction strategy'>
           <div className='direction-img'>
             <img src={Schools[1].icon} className='icon' alt='strategy' />
-            <img src={skillBack} className='icon-background' alt='background' />
+            <div className='icon-background'>
+              <Lottie options={defaultOptions(blob3)} />
+            </div>{' '}
           </div>
           <h3>
             {Schools[1].country} <br></br>
@@ -70,7 +87,9 @@ const EducationDetails = () => {
         <div className='direction'>
           <div className='direction-img'>
             <img src={Schools[2].icon} className='icon' alt='design' />
-            <img src={skillBack} className='icon-background' alt='background' />
+            <div className='icon-background'>
+              <Lottie options={defaultOptions(blob3)} />
+            </div>{' '}
           </div>
           <h3>
             {Schools[2].country} <br></br>
@@ -83,7 +102,9 @@ const EducationDetails = () => {
         <div className='direction strategy'>
           <div className='direction-img'>
             <img src={Schools[3].icon} className='icon' alt='code' />
-            <img src={skillBack} className='icon-background' alt='background' />
+            <div className='icon-background'>
+              <Lottie options={defaultOptions(blob3)} />
+            </div>{' '}
           </div>
           <h3>
             {Schools[3].country} <br></br>
@@ -103,6 +124,7 @@ const Overview = styled(motion.div)`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 5% 0;
   .deedColumn {
     flex: 0 0 50%;
     height: 100%;
@@ -131,24 +153,23 @@ const Overview = styled(motion.div)`
          `}
     .direction-img {
       position: relative;
-      height: 50vh;
       ${respondTo.L`
       height: 40vh;
-         `}
+      `}
       ${respondTo.iPro`
             height: 30vh;
             width: 80%
-          `}
+            `}
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       .icon-background {
-        position: absolute;
+        position: relative;
         top: 0%;
-        left: -20%;
-        width: 100%;
+        left: -15%;
+        width: 90%;
         height: 100%;
         object-fit: cover;
         ${respondTo.iPro`
@@ -157,11 +178,11 @@ const Overview = styled(motion.div)`
       }
       .icon {
         z-index: 1;
-        top: 0%;
-        position: relative;
+        top: 30%;
+        position: absolute;
         left: 18%;
         width: 30%;
-        object-fit: cover;
+        object-fit: contain;
         ${respondTo.iPro`
                 left: 2%;
              width: 40%;
@@ -215,7 +236,7 @@ const Overview = styled(motion.div)`
          `}
       }
       .icon {
-        left: 60%;
+        left: 50%;
         ${respondTo.L`
       left: 52%;
          `}

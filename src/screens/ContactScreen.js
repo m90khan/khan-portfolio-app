@@ -8,6 +8,7 @@ import { workCircle, workBackground } from './../assets/images';
 import WorkSection from '../components/WorkSection';
 
 import CheckWork from '../components/CheckWork';
+import Meta from '../components/Meta';
 
 const ContactScreen = () => {
   const socialIcons = [
@@ -33,33 +34,36 @@ const ContactScreen = () => {
     },
   ];
   return (
-    <Stats>
-      <div className='rating'>
-        <Platforms>
-          {socialIcons.map((icon, index) => (
-            <a
-              href={icon.link}
-              target='_blank'
-              rel='noreferrer noopener'
-              className='icon-back'
-              key={index}
-            >
-              <img src={icon.icon} alt='overview' />
-            </a>
-          ))}
-        </Platforms>
-        <div className='header'>
-          <motion.h2 layoutId={`title `}>Send Email.</motion.h2>
-          <img src={workBackground} className='back background-1' alt='background' />
-          <img src={workCircle} className='back background-2' alt='pakistan' />
+    <>
+      <Meta title='Contact Khan | Full Stack Web Developer' />
+      <Stats>
+        <div className='rating'>
+          <Platforms>
+            {socialIcons.map((icon, index) => (
+              <a
+                href={icon.link}
+                target='_blank'
+                rel='noreferrer noopener'
+                className='icon-back'
+                key={index}
+              >
+                <img src={icon.icon} alt='overview' />
+              </a>
+            ))}
+          </Platforms>
+          <div className='header'>
+            <motion.h2 layoutId={`title `}>Send Email.</motion.h2>
+            <img src={workBackground} className='back background-1' alt='background' />
+            <img src={workCircle} className='back background-2' alt='pakistan' />
+          </div>
         </div>
-      </div>
-      <WorkSection
-        story='Looking for someone who think outside the box? then ...'
-        title='Contact'
-      />
-      <CheckWork />
-    </Stats>
+        <WorkSection
+          story='Looking for someone who think outside the box? then ...'
+          title='Contact'
+        />
+        <CheckWork />
+      </Stats>
+    </>
   );
 };
 
@@ -78,7 +82,7 @@ const Stats = styled(motion.div)`
     padding: 4rem;
     background: ${COLORS.primary};
     .header {
-      height: 90vh;
+      height: 70vh;
       width: 100%;
       display: flex;
       flex-direction: row;

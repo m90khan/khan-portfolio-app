@@ -1,18 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { direction, design, code, strategy, skillBack } from '../assets/images';
+import { direction, design, code, strategy } from '../assets/images';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
+import blob3 from './../assets/lottie/blob-3.json';
+import Lottie from 'react-lottie';
 
 const IntroDetails = () => {
+  const defaultOptions = (img) => {
+    return {
+      loop: true,
+      autoplay: true,
+      animationData: img,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+      },
+    };
+  };
   return (
     <Overview>
       <div className='deedColumn'>
         <div className='direction'>
           <div className='direction-img'>
             <img src={direction} className='icon' alt='direction' />
-            <img src={skillBack} className='icon-background' alt='background' />
+            <div className='icon-background'>
+              <Lottie options={defaultOptions(blob3)} />
+            </div>
+            {/* <img src={skillBack} className='icon-background' alt='background' /> */}
           </div>
           <h3>
             Strong <br></br>Direction
@@ -28,7 +43,9 @@ const IntroDetails = () => {
         <div className='direction strategy'>
           <div className='direction-img'>
             <img src={strategy} className='icon' alt='strategy' />
-            <img src={skillBack} className='icon-background' alt='background' />
+            <div className='icon-background'>
+              <Lottie options={defaultOptions(blob3)} />
+            </div>
           </div>
           <h3>
             Deep <br></br>Strategy
@@ -45,7 +62,9 @@ const IntroDetails = () => {
         <div className='direction'>
           <div className='direction-img'>
             <img src={design} className='icon' alt='design' />
-            <img src={skillBack} className='icon-background' alt='background' />
+            <div className='icon-background'>
+              <Lottie options={defaultOptions(blob3)} />
+            </div>
           </div>
           <h3>
             Creative <br></br>Design
@@ -61,7 +80,9 @@ const IntroDetails = () => {
         <div className='direction strategy'>
           <div className='direction-img'>
             <img src={code} className='icon' alt='code' />
-            <img src={skillBack} className='icon-background' alt='background' />
+            <div className='icon-background'>
+              <Lottie options={defaultOptions(blob3)} />
+            </div>
           </div>
           <h3>
             Dry <br></br>Principle
@@ -113,24 +134,23 @@ const Overview = styled(motion.div)`
          `}
     .direction-img {
       position: relative;
-      height: 50vh;
       ${respondTo.L`
       height: 40vh;
-         `}
+      `}
       ${respondTo.iPro`
             height: 30vh;
             width: 80%
-          `}
+            `}
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       .icon-background {
-        position: absolute;
+        position: relative;
         top: 0%;
-        left: -20%;
-        width: 100%;
+        left: -15%;
+        width: 90%;
         height: 100%;
         object-fit: cover;
         ${respondTo.iPro`
@@ -139,8 +159,8 @@ const Overview = styled(motion.div)`
       }
       .icon {
         z-index: 1;
-        top: 0%;
-        position: relative;
+        top: 30%;
+        position: absolute;
         left: 18%;
         object-fit: cover;
         ${respondTo.iPro`

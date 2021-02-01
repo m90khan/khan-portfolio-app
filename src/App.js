@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Nav from './components/Nav';
 import GlobalStyle from './styles/GlobalStyles';
 import { Switch, Route, useHistory } from 'react-router-dom';
@@ -13,11 +13,14 @@ import ScrollTop from './components/ScrollTop';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import data from './utils/data';
 import { plane } from './assets/images';
-
+import CircleComplete from './components/CircleComplete';
+import { motion } from 'framer-motion';
+import { planeImage } from './styles/Animation';
+import { useScroll } from './components/useScroll';
 function App() {
   const [projects, setProjects] = useState(data());
   const history = useHistory();
-  console.log(history);
+  const [element, controls] = useScroll();
   const pathName = history.location.pathname;
   useEffect(() => {
     if (!projects) {
@@ -28,8 +31,19 @@ function App() {
     <>
       <GlobalStyle />
       <ScrollTop />
+      <CircleComplete />
       <Nav />
-      {pathName === '/contact' && <img src={plane} className='planewrap' alt='planer' />}
+      <motion.div>
+        <motion.img
+          variants={planeImage}
+          initial='hidden'
+          animate='show'
+          src={plane}
+          className='planewrap'
+          alt='planer'
+        />
+      </motion.div>
+
       <AnimateSharedLayout type='crossfade'>
         <AnimatePresence exitBeforeEnter>
           <Switch>

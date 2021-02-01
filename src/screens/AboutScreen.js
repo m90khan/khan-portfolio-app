@@ -11,7 +11,15 @@ import IntroSection from '../components/IntroSection';
 import { Skills, Works } from '../utils/textData';
 import EducationDetails from '../components/EducationSection';
 import CheckWork from '../components/CheckWork';
-
+import Meta from '../components/Meta';
+import {
+  sliderContainer,
+  slider,
+  pageAnimation,
+  fade,
+  photoAnim,
+  lineAnim,
+} from './../styles/Animation';
 const AboutScreen = () => {
   const socialIcons = [
     {
@@ -36,33 +44,47 @@ const AboutScreen = () => {
     },
   ];
   return (
-    <Stats>
-      <div className='rating'>
-        <Platforms>
-          {socialIcons.map((icon, index) => (
-            <a
-              href={icon.link}
-              target='_blank'
-              rel='noreferrer noopener'
-              className='icon-back'
-              key={index}
-            >
-              <img src={icon.icon} alt='overview' />
-            </a>
-          ))}
-        </Platforms>
-        <div className='header'>
-          <motion.h2 layoutId={`title `}>Hi.</motion.h2>
-          <img src={workBackground} className='back background-1' alt='background' />
-          <img src={workCircle} className='back background-2' alt='pakistan' />
+    <motion.div exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
+      <Meta
+        title='About Khan | Full Stack Web Developer'
+        description='Full Stack Developer Story'
+        keywords='user experience, mern, design, developer, javascript'
+      />
+
+      <motion.div variants={sliderContainer}>
+        <Frame1 variants={slider}></Frame1>
+        <Frame2 variants={slider}></Frame2>
+        <Frame3 variants={slider}></Frame3>
+        <Frame4 variants={slider}></Frame4>
+      </motion.div>
+      <Stats>
+        <div className='rating'>
+          <Platforms>
+            {socialIcons.map((icon, index) => (
+              <a
+                href={icon.link}
+                target='_blank'
+                rel='noreferrer noopener'
+                className='icon-back'
+                key={index}
+              >
+                <img src={icon.icon} alt='overview' />
+              </a>
+            ))}
+          </Platforms>
+          <div className='header'>
+            <motion.h2 layoutId={`title `}>Hi.</motion.h2>
+            <img src={workBackground} className='back background-1' alt='background' />
+            <img src={workCircle} className='back background-2' alt='pakistan' />
+          </div>
         </div>
-      </div>
-      <VideoSection />
-      <WorkSection story='Work' title='Experience' works={Works} />
-      <IntroSection story='Technical' title='Skills' skills={Skills} />
-      <EducationDetails />
-      <CheckWork />
-    </Stats>
+        <VideoSection />
+        <WorkSection story='Work' title='Experience' works={Works} />
+        <IntroSection story='Technical' title='Skills' skills={Skills} />
+        <EducationDetails />
+        <CheckWork />
+      </Stats>
+    </motion.div>
   );
 };
 
@@ -158,5 +180,22 @@ const Platforms = styled(motion.div)`
     }
   }
 `;
-
+const Frame1 = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 0%;
+  width: 100%;
+  height: 100vh;
+  background: #f8a03c;
+  z-index: 2;
+`;
+const Frame2 = styled(Frame1)`
+  background: #d431cf;
+`;
+const Frame3 = styled(Frame1)`
+  background: #161718;
+`;
+const Frame4 = styled(Frame1)`
+  background: #8effa0;
+`;
 export default AboutScreen;

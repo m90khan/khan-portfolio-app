@@ -11,32 +11,15 @@ import { COLORS } from '../styles/Theme';
 import { profile } from '../assets/images';
 import { twitter, behance, linkedin, dribble } from '../assets/social';
 import { respondTo } from './../styles/RespondTo';
-const sidebar = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 400}px at -100px 40px)`,
-    transition: {
-      type: 'spring',
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: 'circle(20px at -20px -10px)',
-    transition: {
-      delay: 0.5,
-      type: 'spring',
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
+import { leftNav, rightNav, sidebar } from './../styles/Animation';
+
 const Nav = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
   return (
     <>
-      <LeftNav>
+      <LeftNav variants={leftNav} initial='hidden' animate='show'>
         <Link to='/about'>
           <h4 className='leftlink'>About Me</h4>
         </Link>
@@ -45,7 +28,7 @@ const Nav = () => {
         </div>
       </LeftNav>
 
-      <RightNav>
+      <RightNav variants={rightNav} initial='hidden' animate='show'>
         {/* <MenuToggle toggle={() => toggleOpen()} isOpen={isOpen} /> */}
         <Link to='/' className='logo'>
           <img src={profile} alt='profile' />
@@ -270,7 +253,6 @@ const LeftNav = styled(motion.div)`
     font-size: 1.5rem;
     color: #fff;
     z-index: 900;
-
     font-weight: normal;
     ${respondTo.iPro` 
     left: .5%;

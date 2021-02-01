@@ -3,19 +3,20 @@ import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
+import { lineAnim } from '../styles/Animation';
 
 const IntroSection = ({ story, title, description, job, notice, skills }) => {
   return (
     <>
       <InfoSection>
         <InfoHeader>
-          <h4 className='short'>{story}</h4>
-          <h1 className='intro'>{title}</h1>
+          <motion.h4 className='short'>{story}</motion.h4>
+          <motion.h1 className='intro'>{title}</motion.h1>
           {skills &&
             skills.map((skill, i) => (
-              <p className='desc' key={i} style={{ padding: 0 }}>
+              <motion.p className='desc' key={i} style={{ padding: 0 }}>
                 {skill}
-              </p>
+              </motion.p>
             ))}
 
           {description && <p className='desc'>{description}</p>}
@@ -37,7 +38,7 @@ const InfoSection = styled(motion.div)`
            height: 60vh;  min-height: 80vh;
          `}
 `;
-const InfoHeader = styled.div`
+const InfoHeader = styled(motion.div)`
   background: rgba(6, 176, 141, 0.8);
   z-index: 4;
 

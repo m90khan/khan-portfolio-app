@@ -6,12 +6,14 @@ import { behance, dribble, github } from '../assets/social';
 import { COLORS } from '../styles/Theme';
 import { workCircle, workBackground } from './../assets/images';
 import { respondTo } from './../styles/RespondTo';
+import CircleComplete from '../components/CircleComplete';
 
 const WorkDetails = ({ projects }) => {
   const [project, setProject] = useState(projects[0]);
   const history = useHistory();
   const location = useLocation();
   let pathId = location.pathname.split('/')[2];
+
   // const params = useParams();
   // const pathId = params.id;
   const exitDetailHander = (e) => {
@@ -63,9 +65,9 @@ const WorkDetails = ({ projects }) => {
     };
     fetchProject();
     if (!project) {
-      history.push('/');
       // const id = location.pathname.split('/')[2];
       // fetchProject(id);
+      history.push('/');
     }
   }, [project, projects, location.pathname, history, pathId]);
 

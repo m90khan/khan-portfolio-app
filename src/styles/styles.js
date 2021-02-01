@@ -57,3 +57,19 @@ width: 80%;      `}
     }
   }
 `;
+
+export const Line = styled(motion.div)`
+  height: 0.3rem;
+  background: ${COLORS.secondary};
+  width: 0%;
+  position: absolute;
+  bottom: -10%;
+  left: 0%;
+  @media (max-width: 1300px) {
+    left: 0%;
+  }
+`;
+
+export const Hide = styled.div`
+  overflow: hidden;
+`;
