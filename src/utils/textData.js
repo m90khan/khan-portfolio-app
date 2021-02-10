@@ -1,7 +1,7 @@
 export const intro = {
   title: "Hi, I'm Khan",
   description:
-    'and I am a full-stack web developer. I like working on challenging projects. I like the visual aspects while building things. My experience with startups has also allowed me to gain knowledge of UX/UI design. My current stack is MERN with GraphQL & TypeScript.',
+    'and I am a full-stack web developer. I like working on challenging projects. I like the visual aspects while building things. My experience with startups has also allowed me to gain knowledge of UX/UI design. I am currently using MERN, GraphQL, TypeScript and React Native',
   job: 'I am looking for full-time developer job',
   notice:
     'Note: I Prefer remote position for now and have no objection for relocation once the Covid situation settles down.',
