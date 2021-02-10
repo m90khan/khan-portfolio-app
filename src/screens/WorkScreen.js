@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { behance, dribble, github, linkedin } from '../assets/social';
 import { workCircle, workBackground } from './../assets/images';
 
 import { Work, ProjectSection } from './../styles/styles';
-import ProjectCard from './../components/ProjectCard';
-import { Link } from 'react-router-dom';
+
 import ProjectListCard from '../components/ProjectListCard';
 import Meta from '../components/Meta';
 import styled from 'styled-components';

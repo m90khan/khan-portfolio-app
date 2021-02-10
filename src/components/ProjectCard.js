@@ -67,7 +67,7 @@ const ProjectCard = ({ project, style }) => {
           </p> */}
           <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <img src={timeIcon} alt='overview' />
-            <p> 72h </p>
+            72h
           </p>
         </div>
         <div className='title '>

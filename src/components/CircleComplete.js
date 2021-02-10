@@ -8,7 +8,6 @@ const CircleComplete = () => {
   const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
 
-  console.log(scrollYProgress);
   useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);
   return (
     <svg className='progress-icon' viewBox='0 0 60 60'>

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
-import { lineAnim } from '../styles/Animation';
 
 const IntroSection = ({ story, title, description, job, notice, skills }) => {
   return (

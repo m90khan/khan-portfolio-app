@@ -9,7 +9,6 @@ const Form = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(name, email, text);
   };
   return (
     <>

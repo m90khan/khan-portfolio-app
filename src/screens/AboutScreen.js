@@ -12,14 +12,7 @@ import { Skills, Works } from '../utils/textData';
 import EducationDetails from '../components/EducationSection';
 import CheckWork from '../components/CheckWork';
 import Meta from '../components/Meta';
-import {
-  sliderContainer,
-  slider,
-  pageAnimation,
-  fade,
-  photoAnim,
-  lineAnim,
-} from './../styles/Animation';
+import { sliderContainer, slider, pageAnimation } from './../styles/Animation';
 const AboutScreen = () => {
   const socialIcons = [
     {

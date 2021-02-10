@@ -1,11 +1,12 @@
 import { css } from 'styled-components';
 
 // const breakpoints = {
-//   xs: '30em',
-//   sm: '48em',
-//   md: '62em',
-//   lg: '75em',
-//   xl: '87.5em',
+//   mobile: '37.5em',
+//   ipad: '48em',
+//   ipadPro: '64em',
+//   Laptop: '85.5em',
+//   Desktop: '100em',
+//   BigDesktop: '120em',
 // };
 const breakpoints = {
   pMobile: '600px',

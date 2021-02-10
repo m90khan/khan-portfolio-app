@@ -7,7 +7,7 @@ import TextEllipsis from 'react-text-ellipsis';
 import { respondTo } from './../styles/RespondTo';
 import { Link, useHistory } from 'react-router-dom';
 // import iconList from './iconList';
-import { behance, dribble, github, timeIcon } from '../assets/social';
+import { behance, dribble, github } from '../assets/social';
 
 const ProjectListCard = ({ project, style }) => {
   const history = useHistory();

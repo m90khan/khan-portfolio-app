@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
-import { footerBack, germany, headerBack, pakistan, plane } from './../assets/images';
+import { germany, pakistan } from './../assets/images';
 import { COLORS } from '../styles/Theme';
 import IntroSection from '../components/IntroSection';
 import IntroDetails from '../components/IntroDetails';
@@ -11,9 +11,7 @@ import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import blob from './../assets/lottie/blob.json';
 import blob2 from './../assets/lottie/blob-2.json';
-import introloader from './../assets/lottie/intro.json';
 
-import { useScroll } from './../components/useScroll';
 import {
   skillsDesktop,
   skillsPhone,
@@ -25,8 +23,11 @@ import {
 import { intro } from '../utils/textData';
 import { Work, ProjectSection, Hide } from './../styles/styles';
 import Meta from '../components/Meta';
-import { containerdiv, titleAnim, headerImage, planeImage } from './../styles/Animation';
+import { containerdiv, titleAnim, headerImage } from './../styles/Animation';
+
+import data from './../utils/projects';
 const HomeScreen = ({ projects }) => {
+  console.log(data());
   const defaultOptions = (img) => {
     return {
       loop: true,
@@ -37,7 +38,6 @@ const HomeScreen = ({ projects }) => {
       },
     };
   };
-  const [element, controls] = useScroll();
 
   return (
     <>

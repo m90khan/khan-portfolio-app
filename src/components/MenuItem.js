@@ -24,7 +24,6 @@ const variants = {
 export const MenuItem = ({ menuItem, toggle }) => {
   const history = useHistory();
   const { pathname } = useLocation();
-  console.log(pathname);
   const { title, links } = menuItem;
   const toggleHandler = (link) => {
     if (history.location.pathname === link) {
@@ -47,12 +46,14 @@ export const MenuItem = ({ menuItem, toggle }) => {
               <Link to={`${item.link}`} key={i}>
                 <p
                   onClick={() => toggleHandler(item.link)}
+                  key={i}
                   style={item.link === pathname ? { opacity: 1 } : { opacity: 0.6 }}
                 >
                   {item.name}
                   <Line
                     transition={{ duration: 0.75 }}
                     initial={{ width: '0%' }}
+                    key={i}
                     animate={{ width: item.link === pathname ? '30%' : '0%' }}
                   />
                 </p>
@@ -60,7 +61,7 @@ export const MenuItem = ({ menuItem, toggle }) => {
             </>
           ) : (
             <Link to={{ pathname: item.link }} key={i} target='_blank'>
-              <p>{item.name}</p>
+              <p key={i}>{item.name}</p>
             </Link>
           )
         )}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { skillBack, germany, china, pakistan } from '../assets/images';
+import { germany, china, pakistan } from '../assets/images';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
 import blob3 from './../assets/lottie/blob-3.json';

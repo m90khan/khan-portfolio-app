@@ -6,7 +6,6 @@ import { behance, dribble, github } from '../assets/social';
 import { COLORS } from '../styles/Theme';
 import { workCircle, workBackground } from './../assets/images';
 import { respondTo } from './../styles/RespondTo';
-import CircleComplete from '../components/CircleComplete';
 
 const WorkDetails = ({ projects }) => {
   const [project, setProject] = useState(projects[0]);
