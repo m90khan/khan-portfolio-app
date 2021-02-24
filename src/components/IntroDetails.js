@@ -148,7 +148,8 @@ const Overview = styled(motion.div)`
       align-items: flex-start;
       .icon-background {
         position: relative;
-        top: 0%;
+        top: -3rem;
+
         left: -15%;
         width: 90%;
         height: 100%;
@@ -209,7 +210,8 @@ const Overview = styled(motion.div)`
     align-items: flex-end;
     .direction-img {
       .icon-background {
-        left: 12rem;
+        top: -5rem;
+        left: 14rem;
         ${respondTo.L`
       left: 10rem;
          `}

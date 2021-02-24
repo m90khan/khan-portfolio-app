@@ -49,7 +49,7 @@ const ProjectListCard = ({ project, style }) => {
             ))}
           </div>
         </div>
-        <TextEllipsis lines={1} tag={'p'} ellipsisChars={'...'} tagClass={'short-desc'}>
+        <TextEllipsis lines={2} tag={'p'} ellipsisChars={'...'} tagClass={'short-desc'}>
           {project.description}
         </TextEllipsis>
         {/* <p className='short-desc'>{project.description}</p> */}
@@ -89,11 +89,11 @@ const ProjectListCard = ({ project, style }) => {
 };
 
 const Project = styled(motion.div)`
-  flex: 0 0 45%;
+  flex: 0 0 48%;
   background: ${COLORS.white};
   z-index: 20;
 
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
   border-radius: 2rem;
   -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
@@ -105,10 +105,10 @@ const Project = styled(motion.div)`
   `}
 
   .header-img {
-    flex: 0 0 40%;
+    flex: 0 0 45%;
     cursor: pointer;
     img {
-      object-fit: fill;
+      object-fit: cover;
       width: 100%;
       height: 100%;
     }
@@ -152,7 +152,7 @@ const Project = styled(motion.div)`
   }
   h4 {
     color: ${COLORS.bodyDark};
-    font-size: 2.8rem;
+    font-size: 2rem;
   }
   .icon-back {
     margin-right: 1rem;
@@ -169,17 +169,18 @@ const Project = styled(motion.div)`
       background-color: ${COLORS.white} !important;
     }
     img {
-      height: 2rem;
-      pointer-events: none;
+      height: 1.5rem;
+      object-fit: cover;
     }
   }
   .short-desc {
     padding: 0.5rem 0;
     color: ${COLORS.textgrey};
     text-align: left;
+    font-size: 1.5rem;
   }
   .skills-desc {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     color: ${COLORS.textgrey};
     opacity: 0.6;
     text-align: left;
@@ -190,7 +191,7 @@ const Project = styled(motion.div)`
       flex: 0 0 100%;
     }
     p {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
   }
 `;

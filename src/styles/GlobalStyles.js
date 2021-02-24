@@ -51,7 +51,7 @@ body{
 }
 button{
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.6rem;
     cursor: pointer;
     padding: 1rem 2rem;
     border: 5px solid   ${COLORS.bodyLight};
@@ -63,8 +63,8 @@ button{
     
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
      &:hover{
-        background-color: ${COLORS.primary};
-        color: white;
+        background: ${COLORS.white};
+        color: ${COLORS.primary};
         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     }
 }
@@ -93,7 +93,7 @@ h1{
     font-size: 6rem;     
 }
     h2{
-         font-size: 11rem;
+         font-size: 9rem;
          ${respondTo.iPro`
       font-size: 9rem; 
       `} 
@@ -163,6 +163,18 @@ h1{
             transform: translatey(0px);
   }
 }
+.lottie{
+  animation: rotatelottie 2s infinite alternate;
+}
+@keyframes rotatelottie {
+  from{
+    transform: rotate(0deg)
+  
+  }
+  to{
+    transform: rotate(360deg)
+  }
+}
 .job {
     background-color: ${COLORS.bodyDark};
     padding: 1rem 2rem;
@@ -170,9 +182,7 @@ h1{
     display: inline-block;
   }
  .big-text{
-  font-family: 'Permanent Marker', cursive;
-
- }
+  font-family: 'Yellowtail', cursive; }
 .progress-icon {
   position: fixed;
   bottom: 1rem;

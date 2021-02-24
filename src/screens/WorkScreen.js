@@ -57,8 +57,8 @@ const WorkScreen = ({ projects }) => {
           </Platforms>
           <div className='header'>
             <motion.h2 layoutId={`title `}>Projects</motion.h2>
-            <img src={workBackground} className='back background-1' alt='background' />
-            <img src={workCircle} className='back background-2' alt='pakistan' />
+            <img src={workBackground} className='back background-1  ' alt='background' />
+            <img src={workCircle} className='back background-2  ' alt='pakistan' />
           </div>
         </div>
         <Work style={{ margin: '5% auto 0 auto' }}>

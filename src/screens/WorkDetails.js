@@ -113,11 +113,12 @@ const WorkDetails = ({ projects }) => {
                   />
                   <img src={workCircle} className='back background-2' alt='pakistan' />
                 </motion.div>
-                <p>
-                  <h4>Description:</h4>
-                  {project.description} <br /> <h4>Skills:</h4>
-                  {project.builtWith}
-                </p>
+                <div className='description'>
+                  <h4 style={{ color: `${project.primaryColor}` }}>Description:</h4>
+                  <p> {project.description}</p>
+                  <h4 style={{ color: `${project.primaryColor}` }}>Skills:</h4>
+                  <p>{project.builtWith}</p>
+                </div>
               </div>
               <Info>
                 {/* <h3>Platforms</h3> */}
@@ -132,11 +133,11 @@ const WorkDetails = ({ projects }) => {
           /> */}
             </Media>
             <Description>
-              <p>{game.description_raw}</p>
+              <img src={project.overview} alt={'overview'} />
             </Description>
             <div className='gallery'>
               {project.images.map((image, i) => (
-                <img src={image} key={i} alt={'he'} />
+                <img src={image} key={i} alt={`${project.name + 1}`} />
               ))}
             </div>
           </Detail>
@@ -198,7 +199,7 @@ const Stats = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    p {
+    .description {
       background: rgba(25, 32, 44, 1);
       padding: 4rem;
       width: 80%;
@@ -217,6 +218,7 @@ const Stats = styled(motion.div)`
       display: flex;
       flex-direction: row;
       align-items: center;
+      position: relative;
       justify-content: center;
       text-align: center;
       ${respondTo.pMobile` 
@@ -225,6 +227,7 @@ const Stats = styled(motion.div)`
       .back {
         position: absolute;
         width: 20%;
+        top: 40%;
         height: auto;
         object-fit: cover;
         ${respondTo.pMobile` 
@@ -233,7 +236,8 @@ const Stats = styled(motion.div)`
       }
       .background-1 {
         width: 45%;
-        height: 9%;
+        top: 10%;
+        height: 75%;
         ${respondTo.pMobile` 
     width: 80%;
       `}

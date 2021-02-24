@@ -59,7 +59,7 @@ width: 80%;      `}
 `;
 
 export const Line = styled(motion.div)`
-  height: 0.3rem;
+  height: 0.2rem;
   background: ${COLORS.secondary};
   width: 0%;
   position: absolute;

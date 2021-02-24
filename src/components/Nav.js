@@ -31,7 +31,11 @@ const Nav = () => {
       <RightNav variants={rightNav} initial='hidden' animate='show'>
         {/* <MenuToggle toggle={() => toggleOpen()} isOpen={isOpen} /> */}
         <Link to='/' className='logo'>
-          <img src={profile} alt='profile' />
+          <img
+            src={profile}
+            alt='profile'
+            style={{ borderRadius: '50%', border: `2px solid ${COLORS.primary}` }}
+          />
         </Link>
         <Link className='rightlink' to='/contact'>
           Contact Me

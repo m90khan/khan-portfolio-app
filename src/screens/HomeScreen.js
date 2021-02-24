@@ -123,7 +123,7 @@ const HomeScreen = ({ projects }) => {
         </motion.div>
         <motion.img src={germany} className='map' alt='pakistan' variants={headerImage} />
         <h2>
-          I've landed <br />
+          Fin. Landed <br />
           <span>Lets Talk </span>
         </h2>
       </Footer>
@@ -230,15 +230,16 @@ const Heading = styled(motion.h2)`
   top: 55%;
   left: 10%;
   width: 80%;
-  height: 100%;
   z-index: 1;
 
   h2 {
     transform: translate(-50%, -50%);
-    letter-spacing: 1.2rem;
-    line-height: 1.1;
-    -webkit-text-stroke: 1.5px ${COLORS.bodyDark};
-    text-stroke: 1px yellow;
+    letter-spacing: 1rem;
+    height: 12rem;
+    line-height: 1;
+    font-weight: 900;
+    /* -webkit-text-stroke: 0.2px ${COLORS.bodyDark}; */
+    /* text-stroke: 1px ${COLORS.bodyDark}; */
     z-index: 1;
     text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
       1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191,

@@ -65,10 +65,18 @@ const ProjectCard = ({ project, style }) => {
           {/* <p className='skills-desc-left'>
             <strong>Skills:</strong> {project.builtWith}
           </p> */}
-          <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginBottom: '2rem',
+              marginRight: '1rem',
+            }}
+          >
             <img src={timeIcon} alt='overview' />
-            72h
-          </p>
+            <p> 72h</p>
+          </div>
         </div>
         <div className='title '>
           <h4 style={{ color: COLORS.primary }}>{project.side}</h4>
@@ -90,12 +98,12 @@ const Project = styled(motion.div)`
   flex: 0 0 45%;
   background: ${COLORS.white};
   z-index: 20;
+  overflow: hidden;
 
   margin-bottom: 10rem;
   border-radius: 2rem;
   -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
-  height: auto;
   ${respondTo.pMobile` 
    flex: 0 0 100%;
   `}
@@ -109,6 +117,7 @@ const Project = styled(motion.div)`
   }
   .content {
     padding: 2rem 1.5rem;
+    height: 100%;
   }
 
   .title,
@@ -146,7 +155,7 @@ const Project = styled(motion.div)`
   }
   h4 {
     color: ${COLORS.bodyDark};
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
   .icon-back {
     margin-right: 1rem;
@@ -156,14 +165,16 @@ const Project = styled(motion.div)`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border: 5px solid ${COLORS.bodyLight};
+    border: 2px solid ${COLORS.primary};
     background: ${COLORS.bodyLight};
     transition: all 0.5s ease;
+    padding: 1rem;
     :hover {
-      background-color: ${COLORS.white} !important;
+      background-color: ${COLORS.secondary} !important;
     }
     img {
-      height: 2rem;
+      height: 1.5rem;
+      object-fit: cover;
       pointer-events: none;
     }
   }
@@ -171,9 +182,9 @@ const Project = styled(motion.div)`
     padding: 0.5rem 0;
     color: ${COLORS.textgrey};
     text-align: left;
+    font-size: 1.8rem;
   }
   .skills-desc {
-    padding: 1rem 0;
     color: ${COLORS.textgrey};
     opacity: 0.6;
     text-align: left;
@@ -184,7 +195,7 @@ const Project = styled(motion.div)`
       flex: 0 0 80%;
     }
     p {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
   }
 `;

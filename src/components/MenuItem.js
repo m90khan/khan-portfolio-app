@@ -44,24 +44,27 @@ export const MenuItem = ({ menuItem, toggle }) => {
           item.link[0] === '/' ? (
             <>
               <Link to={`${item.link}`} key={i}>
-                <p
+                <div
                   onClick={() => toggleHandler(item.link)}
                   key={i}
-                  style={item.link === pathname ? { opacity: 1 } : { opacity: 0.6 }}
+                  style={item.link === pathname ? { opacity: 1 } : { opacity: 0.8 }}
+                  className='text-placeholder__item'
                 >
-                  {item.name}
+                  <p> {item.name}</p>
                   <Line
                     transition={{ duration: 0.75 }}
                     initial={{ width: '0%' }}
                     key={i}
                     animate={{ width: item.link === pathname ? '30%' : '0%' }}
                   />
-                </p>
+                </div>
               </Link>
             </>
           ) : (
             <Link to={{ pathname: item.link }} key={i} target='_blank'>
-              <p key={i}>{item.name}</p>
+              <p key={i} className='text-placeholder__item' style={{ opacity: '.8' }}>
+                {item.name}
+              </p>
             </Link>
           )
         )}
@@ -72,7 +75,7 @@ export const MenuItem = ({ menuItem, toggle }) => {
 
 const Item = styled(motion.li)`
   list-style: none;
-  margin-bottom: 20px;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,17 +97,22 @@ const Item = styled(motion.li)`
 
   .text-placeholder {
     border-radius: 5px;
+    padding: 2rem 0;
     width: 200px;
-    height: 20px;
+    height: 3rem;
     flex: 1;
 
-    p {
+    &__item {
       position: relative;
-      opacity: 0.6;
+      margin-bottom: 1rem;
+
       color: ${COLORS.white};
-    }
-    p:hover {
-      color: ${COLORS.secondary};
+      &:hover {
+        color: ${COLORS.primary};
+      }
+      a {
+        color: ${COLORS.white};
+      }
     }
   }
 `;
