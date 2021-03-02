@@ -25,7 +25,7 @@ const VideoSection = () => {
             title='Video Resume'
             src='https://www.youtube-nocookie.com/embed/lLQagAL3Fwo'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowfullScreen
+            allowFullScreen
           ></iframe>
         </motion.div>
       </motion.div>

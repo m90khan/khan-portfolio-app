@@ -134,8 +134,8 @@ const Platforms = styled(motion.div)`
   align-items: center;
   height: 20%;
   img {
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.55rem;
   }
   .icon-back {
     margin-right: 1rem;

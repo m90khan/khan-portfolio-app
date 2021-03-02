@@ -48,7 +48,7 @@ export const NavList = ({ isOpen, toggle }) => (
   <List variants={variants} style={isOpen ? { display: 'flex' } : { display: 'none' }}>
     {menuLists.map((menuItem, i) => (
       <MenuItem
-        key={menuItem.title}
+        key={i}
         menuItem={menuItem}
         style={isOpen ? { zIndex: 100 } : { zIndex: 0 }}
         toggle={toggle}

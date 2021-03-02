@@ -61,10 +61,10 @@ const EducationDetails = () => {
               <Lottie options={defaultOptions(blob3)} />
             </div>
           </div>
-          <h3>
-            {Schools[0].country} <br></br>
+          <div className='country'>
+            <h3> {Schools[0].country} </h3>
             <h4 className='short'> {Schools[0].date}</h4>
-          </h3>
+          </div>
           <p>{Schools[0].details}</p>
         </div>
       </div>
@@ -76,10 +76,10 @@ const EducationDetails = () => {
               <Lottie options={defaultOptions(blob3)} />
             </div>{' '}
           </div>
-          <h3>
-            {Schools[1].country} <br></br>
+          <div className='country'>
+            <h3> {Schools[1].country} </h3>
             <h4 className='short'> {Schools[1].date}</h4>
-          </h3>
+          </div>
           <p>{Schools[1].details}</p>
         </div>
       </div>
@@ -91,10 +91,10 @@ const EducationDetails = () => {
               <Lottie options={defaultOptions(blob3)} />
             </div>{' '}
           </div>
-          <h3>
-            {Schools[2].country} <br></br>
+          <div className='country'>
+            <h3> {Schools[2].country} </h3>
             <h4 className='short'> {Schools[2].date}</h4>
-          </h3>
+          </div>
           <p>{Schools[2].details}</p>
         </div>
       </div>
@@ -106,10 +106,10 @@ const EducationDetails = () => {
               <Lottie options={defaultOptions(blob3)} />
             </div>{' '}
           </div>
-          <h3>
-            {Schools[3].country} <br></br>
+          <div className='country'>
+            <h3> {Schools[3].country} </h3>
             <h4 className='short'> {Schools[3].date}</h4>
-          </h3>
+          </div>
           <p>{Schools[3].details}</p>
         </div>
       </div>
@@ -196,7 +196,7 @@ const Overview = styled(motion.div)`
          `}
       }
     }
-    h3 {
+    .country {
       margin: 2% 0 5% 0;
       ${respondTo.iPro`
       margin: 5% 0 5% 0;

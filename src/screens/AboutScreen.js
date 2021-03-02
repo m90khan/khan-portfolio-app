@@ -179,16 +179,16 @@ const Frame1 = styled(motion.div)`
   top: 0%;
   width: 100%;
   height: 100vh;
-  background: #f8a03c;
+  background: ${COLORS.bodyLight};
   z-index: 2;
 `;
 const Frame2 = styled(Frame1)`
-  background: #d431cf;
+  background: ${COLORS.secondary};
 `;
 const Frame3 = styled(Frame1)`
-  background: #161718;
+  background: ${COLORS.bodyDark};
 `;
 const Frame4 = styled(Frame1)`
-  background: #8effa0;
+  background: ${COLORS.white};
 `;
 export default AboutScreen;

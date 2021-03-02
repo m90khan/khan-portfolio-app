@@ -55,7 +55,7 @@ const Form = () => {
           display: 'block',
         }}
       >
-        <p> or send me an email at</p>m90khan@gmail.com
+        <p> or send me an email at</p>uxdkhan@gmail.com
       </h4>
     </>
   );

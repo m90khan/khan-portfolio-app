@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -16,7 +16,9 @@ import { leftNav, rightNav, sidebar } from './../styles/Animation';
 const Nav = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
+
   const { height } = useDimensions(containerRef);
+  useEffect(() => {}, [height]);
   return (
     <>
       <LeftNav variants={leftNav} initial='hidden' animate='show'>

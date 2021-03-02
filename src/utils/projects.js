@@ -106,6 +106,28 @@ const data = () => {
     },
     {
       id: uuidv4(),
+      title: 'Feito',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614653064/KhanPortfolio/ShortProjects/Feito-Cover_jwjwrt.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614653067/KhanPortfolio/ShortProjects/Feito_q0mzeu.jpg',
+      ],
+      builtWith: 'React Native, Apollo, JavaScript, Express, Nodejs',
+      description:
+        'It is an marketplace application built for both iOS and Android to allow users to sell anything',
+      side: 'Full-Stack',
+      primaryColor: '#F41646',
+      live: 'https://expo.io/@m90khan/projects/DoneWith-App',
+      video: 'https://www.youtube.com/watch?v=FwDx11A4ojI&ab_channel=uxdKhan',
+      socialIcons: [
+        {
+          name: 'github',
+          link: 'https://github.com/m90khan/DoneWith-ReactNative',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
       title: 'AyaKaffee',
       overview:
         'https://res.cloudinary.com/m90khan/image/upload/v1614179675/KhanPortfolio/AyaKaffee/AyaKaffee-Cover_eusxol.jpg',
@@ -162,6 +184,28 @@ const data = () => {
         {
           name: 'behance',
           link: 'https://www.behance.net/gallery/105591761/Hey-Boba',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      title: 'Fooder',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614653349/KhanPortfolio/ShortProjects/Fooder-Cover_xk5frp.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614653354/KhanPortfolio/ShortProjects/Fooder_pockpl.jpg',
+      ],
+      builtWith: 'React Native, Apollo, JavaScript, Express, Nodejs',
+      description:
+        'It is an food delivery app built for both iOS and Android for ordering food online',
+      side: 'Front-End',
+      primaryColor: '#1FCC79',
+      live: 'https://expo.io/@m90khan/projects/fooder-app',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: 'https://github.com/m90khan/Fooder-App',
         },
       ],
     },

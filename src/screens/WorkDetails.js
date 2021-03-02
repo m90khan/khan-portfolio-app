@@ -1,45 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { behance, dribble, github } from '../assets/social';
 import { COLORS } from '../styles/Theme';
 import { workCircle, workBackground } from './../assets/images';
 import { respondTo } from './../styles/RespondTo';
 
 const WorkDetails = ({ projects }) => {
+  const { id } = useParams();
   const [project, setProject] = useState(projects[0]);
   const history = useHistory();
   const location = useLocation();
-  let pathId = location.pathname.split('/')[2];
-
-  // const params = useParams();
-  // const pathId = params.id;
-  const exitDetailHander = (e) => {
-    const element = e.target;
-    if (element.classList.contains('shadow')) {
-      document.body.style.overflow = 'auto';
-      history.push('/');
-    }
-  };
-
-  const game = {
-    name: 'khan',
-    rating: 3,
-  };
-  //Get Stars
-  // const getStars = () => {
-  //   const stars = [];
-  //   const rating = Math.floor(game.rating);
-  //   for (let i = 1; i <= 5; i++) {
-  //     if (i <= rating) {
-  //       stars.push(<img alt='star' key={i} src={starFull}></img>);
-  //     } else {
-  //       stars.push(<img alt='star' key={i} src={starEmpty}></img>);
-  //     }
-  //   }
-  //   return stars;
-  // };
 
   //GET PLATFORM IMAGES
   const getPlatform = (platform) => {
@@ -54,31 +26,35 @@ const WorkDetails = ({ projects }) => {
         return null;
     }
   };
-  const ref = useRef();
+  const exitDetailHander = (e) => {
+    const element = e.target;
+    if (element.classList.contains('shadow')) {
+      document.body.style.overflow = 'auto';
+      history.push('/');
+    }
+  };
+
   useEffect(() => {
     const fetchProject = (id) => {
-      const currentProject = projects.filter(
-        (stateProject) => stateProject.id === pathId
-      );
+      const currentProject = projects.filter((stateProject) => stateProject.id === id);
       setProject(currentProject[0]);
     };
-    fetchProject();
+    fetchProject(id);
     if (!project) {
       // const id = location.pathname.split('/')[2];
       // fetchProject(id);
       history.push('/');
     }
-  }, [project, projects, location.pathname, history, pathId]);
+  }, [project, projects, location.pathname, history, id]);
 
   return (
     <>
       {project && (
         <CardShadow className='shadow' onClick={exitDetailHander}>
           <Detail
-            layoutId={pathId}
+            layoutId={id}
             style={project && { background: project.primaryColor }}
             key={project && project.id}
-            ref={ref}
           >
             <Stats>
               <div className='rating'>
@@ -105,7 +81,7 @@ const WorkDetails = ({ projects }) => {
                     ))}
                 </Platforms>
                 <motion.div className='header'>
-                  <motion.h2 layoutId={`title ${pathId}`}>{project.title}</motion.h2>
+                  <motion.h2 layoutId={`title ${id}`}>{project.title}</motion.h2>
                   <img
                     src={workBackground}
                     className='back background-1'

@@ -1,15 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import {
-  imgKP1,
-  imgAT4,
-  imgAT1,
-  imgAT2,
-  imgAT3,
-  AlohaTravels,
-  KhanPortfolio,
-} from './../assets/projects';
-
 const data = () => {
   return [
     {

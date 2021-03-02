@@ -25,9 +25,7 @@ import { Work, ProjectSection, Hide } from './../styles/styles';
 import Meta from '../components/Meta';
 import { containerdiv, titleAnim, headerImage } from './../styles/Animation';
 
-import data from './../utils/projects';
 const HomeScreen = ({ projects }) => {
-  console.log(data());
   const defaultOptions = (img) => {
     return {
       loop: true,

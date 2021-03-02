@@ -62,7 +62,7 @@ export const MenuItem = ({ menuItem, toggle }) => {
             </>
           ) : (
             <Link to={{ pathname: item.link }} key={i} target='_blank'>
-              <p key={i} className='text-placeholder__item' style={{ opacity: '.8' }}>
+              <p className='text-placeholder__item' style={{ opacity: '.8' }}>
                 {item.name}
               </p>
             </Link>
