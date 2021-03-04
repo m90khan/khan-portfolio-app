@@ -276,6 +276,53 @@ const data = () => {
     },
     {
       id: uuidv4(),
+      title: 'Leef Green',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614898354/KhanPortfolio/WordPress/LeefGreen-_Cover_q9ogmz.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614898291/KhanPortfolio/WordPress/LeefGreen-1_fipszm.jpg',
+        'https://res.cloudinary.com/m90khan/image/upload/v1614898291/KhanPortfolio/WordPress/LeefGreen-2_qgcwlk.jpg',
+        'https://res.cloudinary.com/m90khan/image/upload/v1614898291/KhanPortfolio/WordPress/LeefGreen-3_lr8yrz.jpg',
+      ],
+      builtWith: 'HTML5, CSS3, SCSS, JavaScript, WordPress, Elementor, LMS',
+      description:
+        'eCommerce platform for CDB and medical marijuana products built in WordPress with ScrollMagic and GSAP',
+      side: 'Front-End',
+      primaryColor: '#1E4A1B',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      title: 'ParhoForPakistan',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614886733/KhanPortfolio/WordPress/Parho-Cover_odu67w.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614886732/KhanPortfolio/WordPress/Parho_gfcaht.jpg',
+        'https://res.cloudinary.com/m90khan/image/upload/v1614886735/KhanPortfolio/WordPress/Parho_-_2_el9unx.jpg',
+      ],
+      builtWith: 'HTML5, CSS3, SCSS, JavaScript, WordPress, Elementor, LMS',
+      description:
+        'Online e Learning Skill Development Platform similar to udemy for a startup competition',
+      side: 'Front-End',
+      primaryColor: '#10AC84',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
       title: 'PhotosPix',
       overview:
         'https://res.cloudinary.com/m90khan/image/upload/v1614177572/KhanPortfolio/ShortProjects/PhotosPix-Cover_mvvko0.jpg',
@@ -318,6 +365,7 @@ const data = () => {
         },
       ],
     },
+
     {
       id: uuidv4(),
       title: 'Advanture',
@@ -346,6 +394,29 @@ const data = () => {
     },
     {
       id: uuidv4(),
+      title: 'XelliX',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614892814/KhanPortfolio/WordPress/XelliX-Cover_a7mtts.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614892816/KhanPortfolio/WordPress/XelliX_nzuvg2.jpg',
+        'https://res.cloudinary.com/m90khan/image/upload/v1614892819/KhanPortfolio/WordPress/XelliX-2_qqnruj.jpg',
+      ],
+      builtWith: 'HTML5, CSS3, SCSS, JavaScript, PHP, WordPress, Elementor, Paypal',
+      description:
+        'An online jewelry git store built in WordPress including the gift card option.',
+      side: 'Full-Stack',
+      primaryColor: '#101010',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
       title: 'Campsel',
       overview:
         'https://res.cloudinary.com/m90khan/image/upload/v1614177577/KhanPortfolio/ShortProjects/Campsel-Cover_wtd6o8.jpg',
@@ -368,6 +439,51 @@ const data = () => {
           name: 'dribble',
           link:
             'https://dribbble.com/shots/14027758-Campsel-Camping-Website-Front-end-Development',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      title: 'PakistaniGuyCooking',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614748839/KhanPortfolio/WordPress/PGC-Cover_sy096l.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614749521/KhanPortfolio/WordPress/PGC_vgewam.jpg',
+      ],
+      builtWith: 'HTML5, CSS3, SCSS, JavaScript, WordPress, Elementor, Recipes 101',
+      description:
+        'Platform for food bloggers/chef to showcase their recipes and interact with their audience',
+      side: 'Front-End',
+      primaryColor: '#FFF04F',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      title: 'WebsiteKitchen',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614747629/KhanPortfolio/WordPress/TWK-Cover_wdbpns.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614747629/KhanPortfolio/WordPress/TWK-1_mwrzzr.jpg',
+        'https://res.cloudinary.com/m90khan/image/upload/v1614747631/KhanPortfolio/WordPress/TWK-2_dya3i4.jpg',
+      ],
+      builtWith: 'HTML5, CSS3, SCSS, JavaScript, PHP, WordPress, Elementor, Paypal',
+      description:
+        'Web agency website to showcase portfolio of their work. it is niche based on WordPress.',
+      side: 'Full-Stack',
+      primaryColor: '#4A69FF',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
         },
       ],
     },
@@ -463,6 +579,76 @@ const data = () => {
     },
     {
       id: uuidv4(),
+      title: 'JoinChinaTrade',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614752698/KhanPortfolio/WordPress/JCT-Cover_poxgea.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614752698/KhanPortfolio/WordPress/JCT-1_xe2osp.jpg',
+        'https://res.cloudinary.com/m90khan/image/upload/v1614752699/KhanPortfolio/WordPress/JCT-2_bmdntr.jpg',
+      ],
+      builtWith: 'HTML5, CSS3, SCSS, JavaScript, PHP, WordPress, Elementor, Paypal',
+      description:
+        'Chinese sourcing company website to be redesigned into modern look along with copy writing',
+      side: 'Full-Stack',
+      primaryColor: '#6B66FE',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      title: 'PrintX',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614752698/KhanPortfolio/WordPress/PrintX-Cover_due3iy.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614887961/KhanPortfolio/WordPress/PrintX_hgel1y.jpg',
+      ],
+      builtWith:
+        'HTML5, CSS3, SCSS, JavaScript, PHP, WordPress, Elementor, Paypal, Lumise',
+      description:
+        'Complete Print on Demand Business eCommerce Website with advanced designing tools based on lumise plugin',
+      side: 'Full-Stack',
+      primaryColor: '#039E7F',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      title: 'ECMART',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614889360/KhanPortfolio/WordPress/ECmart_-Cover_ugcbpr.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614889362/KhanPortfolio/WordPress/ECmart_-1_vfcjx7.jpg',
+        'https://res.cloudinary.com/m90khan/image/upload/v1614889365/KhanPortfolio/WordPress/ECmart_-2_hctnxt.jpg',
+      ],
+      builtWith:
+        'HTML5, CSS3, SCSS, JavaScript, PHP, WordPress, Elementor, Paypal, Dokan',
+      description:
+        'Complete multi-vendor marketplace WordPress website Based on the AliExpress. It is built on Dokan plugin',
+      side: 'Full-Stack',
+      primaryColor: '#408EE3',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
       title: 'Mailbox',
       overview:
         'https://res.cloudinary.com/m90khan/image/upload/v1614168340/KhanPortfolio/ShortProjects/MailBox-Cover_jfffpn.jpgs',
@@ -501,6 +687,28 @@ const data = () => {
         {
           name: 'github',
           link: 'https://github.com/m90khan/Find-You-App-Features-Page',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      title: 'FoodX',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1614897225/KhanPortfolio/WordPress/FOODX_-_Cover_abnnpv.jpg',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1614897224/KhanPortfolio/WordPress/FOODX_zbd2dd.jpg',
+      ],
+      builtWith: 'HTML5, CSS3, SCSS, JavaScript, PHP, WordPress, Elementor, Paypal',
+      description:
+        'Restaurant website for food delivery service including displaying menu and booking tables.',
+      side: 'Full-Stack',
+      primaryColor: '#FFC13A',
+      live: '',
+      video: '',
+      socialIcons: [
+        {
+          name: 'github',
+          link: '',
         },
       ],
     },
