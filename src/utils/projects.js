@@ -276,7 +276,7 @@ const data = () => {
     },
     {
       id: uuidv4(),
-      title: 'Leef Green',
+      title: 'LeafGreen',
       overview:
         'https://res.cloudinary.com/m90khan/image/upload/v1614898354/KhanPortfolio/WordPress/LeefGreen-_Cover_q9ogmz.jpg',
       images: [
@@ -289,8 +289,8 @@ const data = () => {
         'eCommerce platform for CDB and medical marijuana products built in WordPress with ScrollMagic and GSAP',
       side: 'Front-End',
       primaryColor: '#1E4A1B',
-      live: '',
-      video: '',
+      live: 'https://youtu.be/UHuU8SmtK1I',
+      video: 'https://youtu.be/UHuU8SmtK1I',
       socialIcons: [
         {
           name: 'github',
@@ -455,8 +455,8 @@ const data = () => {
         'Platform for food bloggers/chef to showcase their recipes and interact with their audience',
       side: 'Front-End',
       primaryColor: '#FFF04F',
-      live: '',
-      video: '',
+      live: 'https://youtu.be/ZfupAgznF3Q',
+      video: 'https://youtu.be/ZfupAgznF3Q',
       socialIcons: [
         {
           name: 'github',
@@ -478,8 +478,8 @@ const data = () => {
         'Web agency website to showcase portfolio of their work. it is niche based on WordPress.',
       side: 'Full-Stack',
       primaryColor: '#4A69FF',
-      live: '',
-      video: '',
+      live: 'https://youtu.be/oJyuxujiLHo',
+      video: 'https://youtu.be/oJyuxujiLHo',
       socialIcons: [
         {
           name: 'github',
@@ -591,8 +591,8 @@ const data = () => {
         'Chinese sourcing company website to be redesigned into modern look along with copy writing',
       side: 'Full-Stack',
       primaryColor: '#6B66FE',
-      live: '',
-      video: '',
+      live: 'https://youtu.be/9p8_Hchjx9c',
+      video: 'https://youtu.be/9p8_Hchjx9c',
       socialIcons: [
         {
           name: 'github',
