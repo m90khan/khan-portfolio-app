@@ -51,9 +51,9 @@ body{
 }
 button{
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     cursor: pointer;
-    padding: 1rem 2rem;
+    padding: .8rem 2rem;
     border: 5px solid   ${COLORS.bodyLight};
     background: ${COLORS.bodyLight};
     font-family: 'Archivo', sans-serif;
@@ -103,7 +103,7 @@ h1{
     }
     h3{
         color: ${COLORS.white};
-        font-size: 6rem;
+        font-size: 4rem;
     }
     h4{
          font-size: 2.2rem;
@@ -117,7 +117,7 @@ h1{
          color:#23d997;
     }
     p{
-          font-size: 2rem;
+          font-size: 1.8rem;
         line-height: 150%;
     }
     .short {

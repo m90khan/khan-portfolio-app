@@ -95,12 +95,12 @@ const ProjectCard = ({ project, style }) => {
 };
 
 const Project = styled(motion.div)`
-  flex: 0 0 45%;
+  flex: 0 0 30%;
   background: ${COLORS.white};
   z-index: 20;
   overflow: hidden;
 
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
   border-radius: 2rem;
   -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
@@ -113,6 +113,7 @@ const Project = styled(motion.div)`
     img {
       object-fit: cover;
       width: 100%;
+      height: 30rem;
     }
   }
   .content {
@@ -155,7 +156,7 @@ const Project = styled(motion.div)`
   }
   h4 {
     color: ${COLORS.bodyDark};
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   .icon-back {
     margin-right: 1rem;
@@ -182,7 +183,7 @@ const Project = styled(motion.div)`
     padding: 0.5rem 0;
     color: ${COLORS.textgrey};
     text-align: left;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .skills-desc {
     color: ${COLORS.textgrey};
@@ -191,11 +192,13 @@ const Project = styled(motion.div)`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 0;
+
     .skills-desc-left {
       flex: 0 0 80%;
     }
     p {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
   }
 `;

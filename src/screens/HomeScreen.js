@@ -62,7 +62,7 @@ const HomeScreen = ({ projects }) => {
           </Hide>
           <Hide>
             <motion.h2 className='big-text' variants={titleAnim}>
-              Web Developer
+              Developer
             </motion.h2>
           </Hide>
         </Heading>
@@ -79,6 +79,7 @@ const HomeScreen = ({ projects }) => {
         <div className='work-intro'>
           <h2>WORK</h2>
         </div>
+
         <ProjectSection>
           {projects.map((project) => (
             <ProjectCard project={project} key={project.id} />
@@ -88,6 +89,7 @@ const HomeScreen = ({ projects }) => {
           <button className='projects-btn'>View All Projects (82)</button>
         </Link>
       </Work>
+
       <Skills>
         <div className='skills-intro'>
           <h1>Armory</h1>
@@ -112,6 +114,7 @@ const HomeScreen = ({ projects }) => {
           </picture>
         </div>
       </Skills>
+
       <Footer variants={containerdiv} initial='hidden' animate='show'>
         <motion.div className='background' variants={headerImage}>
           <Lottie options={defaultOptions(blob)} />
@@ -250,8 +253,8 @@ const Heading = styled(motion.h2)`
          font-size: 5rem; 
          top: 80%
          `}
-  }
   color: ${COLORS.white};
+  }
 `;
 const Footer = styled(Header)`
   top: 50%;

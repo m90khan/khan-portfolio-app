@@ -6,6 +6,7 @@ import { behance, dribble, github } from '../assets/social';
 import { COLORS } from '../styles/Theme';
 import { workCircle, workBackground } from './../assets/images';
 import { respondTo } from './../styles/RespondTo';
+import VideoSection from '../components/VideoSection';
 
 const WorkDetails = ({ projects }) => {
   const { id } = useParams();
@@ -76,7 +77,11 @@ const WorkDetails = ({ projects }) => {
                         className='icon-back'
                         key={index}
                       >
-                        <motion.img src={getPlatform(icon.name)} alt='overview' />
+                        <motion.img
+                          src={getPlatform(icon.name)}
+                          key={index}
+                          alt='overview'
+                        />
                       </motion.a>
                     ))}
                 </Platforms>
@@ -116,6 +121,16 @@ const WorkDetails = ({ projects }) => {
                 <img src={image} key={i} alt={`${project.name + 1}`} />
               ))}
             </div>
+
+            {project.video && (
+              <VideoSection
+                title={project.title}
+                highlight={null}
+                width='100%'
+                src='https://www.youtube.com/embed/9p8_Hchjx9c'
+                border={project.primaryColor}
+              />
+            )}
           </Detail>
         </CardShadow>
       )}

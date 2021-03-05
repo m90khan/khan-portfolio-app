@@ -16,6 +16,7 @@ import { plane } from './assets/images';
 import CircleComplete from './components/CircleComplete';
 import { motion } from 'framer-motion';
 import { planeImage } from './styles/Animation';
+
 function App() {
   const [projects, setProjects] = useState(data());
 

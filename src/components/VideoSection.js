@@ -5,25 +5,33 @@ import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
 import { useScroll } from './useScroll';
 import { fade } from '../styles/Animation';
-const VideoSection = () => {
+const VideoSection = ({
+  src = 'https://www.youtube-nocookie.com/embed/lLQagAL3Fwo',
+  width = '80%',
+  title = 'Video Resume',
+  highlight = 'Full Story',
+  border = COLORS.secondary,
+}) => {
   const [element, controls] = useScroll();
 
   return (
-    <Video>
+    <Video style={{ width: width, height: '100vh' }}>
       <motion.div
         className='video-block'
         ref={element}
         variants={fade}
         animate={controls}
         initial='hidden'
+        style={{ border: `2px solid ${border}` }}
       >
-        <motion.h4 className='short'>Full Story</motion.h4>
-        <motion.h1>Video Resume</motion.h1>
+        {highlight && <motion.h4 className='short'>{highlight}</motion.h4>}
+        {title && <motion.h3 style={{ color: border }}>{title}</motion.h3>}
         <br />
         <motion.div className='video'>
           <iframe
             title='Video Resume'
-            src='https://www.youtube-nocookie.com/embed/lLQagAL3Fwo'
+            src={src}
+            frameborder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
           ></iframe>
@@ -33,8 +41,6 @@ const VideoSection = () => {
   );
 };
 const Video = styled(motion.div)`
-  height: 120vh;
-  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +63,6 @@ const Video = styled(motion.div)`
     border-bottom-right-radius: 4rem;
     border-top-right-radius: 4rem;
     border-bottom-left-radius: 4rem;
-    border: 2px solid ${COLORS.secondary};
     position: relative;
     -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
     box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);

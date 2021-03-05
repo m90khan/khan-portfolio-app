@@ -6,33 +6,31 @@ import { COLORS } from '../styles/Theme';
 
 const IntroSection = ({ story, title, description, job, notice, skills }) => {
   return (
-    <>
-      <InfoSection>
-        <InfoHeader>
-          <motion.h4 className='short'>{story}</motion.h4>
-          <motion.h1 className='intro'>{title}</motion.h1>
-          {skills &&
-            skills.map((skill, i) => (
-              <motion.p className='desc' key={i} style={{ padding: 0 }}>
-                {skill}
-              </motion.p>
-            ))}
+    <InfoSection>
+      <InfoHeader>
+        <motion.h4 className='short'>{story}</motion.h4>
+        <motion.h1 className='intro'>{title}</motion.h1>
+        {skills &&
+          skills.map((skill, i) => (
+            <motion.p className='desc' key={i} style={{ padding: 0 }}>
+              {skill}
+            </motion.p>
+          ))}
 
-          {description && <p className='desc'>{description}</p>}
-          {job && <h4 className='job'>{job}</h4>}
-          {notice && <p className='notice'>{notice}</p>}
-        </InfoHeader>
-      </InfoSection>
-    </>
+        {description && <p className='desc'>{description}</p>}
+        {job && <h4 className='job'>{job}</h4>}
+        {notice && <p className='notice'>{notice}</p>}
+      </InfoHeader>
+    </InfoSection>
   );
 };
 const InfoSection = styled(motion.div)`
-  width: 100%;
-  min-height: 100vh;
-  height: 100vh;
+  height: 80vh;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   ${respondTo.iPad`
            height: 60vh;  min-height: 80vh;
          `}
@@ -41,7 +39,7 @@ const InfoHeader = styled(motion.div)`
   background: rgba(6, 176, 141, 0.8);
   z-index: 4;
 
-  width: 60%;
+  width: 80%;
   border-bottom-right-radius: 4rem;
   border-top-right-radius: 4rem;
   border-bottom-left-radius: 4rem;
@@ -70,7 +68,7 @@ const InfoHeader = styled(motion.div)`
     font-weight: 500;
     line-height: 1.5;
     padding: 2rem 0;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
   }
 
   .notice {
