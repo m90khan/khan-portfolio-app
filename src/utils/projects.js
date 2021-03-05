@@ -312,8 +312,8 @@ const data = () => {
         'Online e Learning Skill Development Platform similar to udemy for a startup competition',
       side: 'Front-End',
       primaryColor: '#10AC84',
-      live: '',
-      video: '',
+      live: 'https://youtu.be/fiCsWgOFYpM',
+      video: 'https://youtu.be/fiCsWgOFYpM',
       socialIcons: [
         {
           name: 'github',
@@ -614,8 +614,8 @@ const data = () => {
         'Complete Print on Demand Business eCommerce Website with advanced designing tools based on lumise plugin',
       side: 'Full-Stack',
       primaryColor: '#039E7F',
-      live: '',
-      video: '',
+      live: 'https://youtu.be/-Y6Rv82ojkI',
+      video: 'https://youtu.be/-Y6Rv82ojkI',
       socialIcons: [
         {
           name: 'github',
@@ -638,8 +638,8 @@ const data = () => {
         'Complete multi-vendor marketplace WordPress website Based on the AliExpress. It is built on Dokan plugin',
       side: 'Full-Stack',
       primaryColor: '#408EE3',
-      live: '',
-      video: '',
+      live: 'https://youtu.be/TLUhCUWJJ6I',
+      video: 'https://youtu.be/TLUhCUWJJ6I',
       socialIcons: [
         {
           name: 'github',
