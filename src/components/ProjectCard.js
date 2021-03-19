@@ -80,7 +80,7 @@ const ProjectCard = ({ project, style }) => {
         <div className='title '>
           <h4 style={{ color: COLORS.primary }}>{project.side}</h4>
           <div className='icons'>
-            <a href='/contact'>
+            <a href={`${project.live}`}>
               <button style={{ marginRight: '1rem' }}>Live</button>{' '}
             </a>
             <Link to={`/work/${project.id}`}>

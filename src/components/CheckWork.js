@@ -76,10 +76,12 @@ const Work = styled(motion.div)`
     box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
     h1 {
       text-decoration: none;
-      text-decoration-color: white;
       transition: all 0.2s ease-out;
       :hover {
         color: ${COLORS.bodyDark};
+        -webkit-text-fill-color: ${COLORS.bodyDark}; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: ${COLORS.secondary};
       }
     }
     ${respondTo.pMobile` 

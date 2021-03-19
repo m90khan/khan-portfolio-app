@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
@@ -24,8 +24,13 @@ import { intro } from '../utils/textData';
 import { Work, ProjectSection, Hide } from './../styles/styles';
 import Meta from '../components/Meta';
 import { containerdiv, titleAnim, headerImage } from './../styles/Animation';
+import Pagination from '../components/Pagination';
 
 const HomeScreen = ({ projects }) => {
+  const [iProjects, setIProjects] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [projectsPerPage] = useState(6);
   const defaultOptions = (img) => {
     return {
       loop: true,
@@ -36,7 +41,16 @@ const HomeScreen = ({ projects }) => {
       },
     };
   };
+  const indexOfLastPost = currentPage * projectsPerPage;
+  const indexOfFirstPost = indexOfLastPost - projectsPerPage;
+  const currentProjects = iProjects.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  useEffect(() => {
+    setIProjects(projects);
+  }, [projects, currentPage, paginate, iProjects]);
+  // Get current posts
 
+  console.log(currentProjects);
   return (
     <>
       <Meta />
@@ -79,9 +93,13 @@ const HomeScreen = ({ projects }) => {
         <div className='work-intro'>
           <h2>WORK</h2>
         </div>
-
+        <Pagination
+          postsPerPage={projectsPerPage}
+          totalPosts={iProjects.length}
+          paginate={paginate}
+        />
         <ProjectSection>
-          {projects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <ProjectCard project={project} key={project.id} />
           ))}
         </ProjectSection>

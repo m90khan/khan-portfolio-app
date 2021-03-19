@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const data = () => {
+const projectsData = () => {
   return [
     {
       id: uuidv4(),
@@ -950,4 +950,4 @@ const data = () => {
   ];
 };
 
-export default data;
+export default projectsData;

@@ -8,6 +8,7 @@ import { workCircle, workBackground } from './../assets/images';
 import { respondTo } from './../styles/RespondTo';
 import VideoSection from '../components/VideoSection';
 import CheckWork from '../components/CheckWork';
+import CircleComplete from '.././components/CircleComplete';
 
 const WorkDetails = ({ projects }) => {
   const { id } = useParams();
@@ -41,11 +42,14 @@ const WorkDetails = ({ projects }) => {
   useEffect(() => {
     const fetchProject = (id) => {
       const currentProject = projects.filter((stateProject, index, arr) => {
-        setPreProject(arr[index + 1]);
-        setNextProject(arr[index - 1]);
-        return stateProject.id === id;
+        const curProject = stateProject.id === id;
+        const nextProject = stateProject.id === id ? arr[index + 1] : '';
+        const preProject = stateProject.id === id ? arr[index - 1] : '';
+        return [curProject, nextProject, preProject];
       });
       setProject(currentProject[0]);
+      setNextProject(currentProject[1]);
+      setPreProject(currentProject[2]);
     };
     fetchProject(id);
     if (!project) {
@@ -59,6 +63,7 @@ const WorkDetails = ({ projects }) => {
     <>
       {project && (
         <CardShadow className='shadow' onClick={exitDetailHander}>
+          <CircleComplete />
           <Detail
             layoutId={id}
             style={project && { background: project.primaryColor }}
