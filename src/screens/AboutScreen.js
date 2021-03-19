@@ -17,7 +17,7 @@ const AboutScreen = () => {
   const socialIcons = [
     {
       name: 'dribble',
-      link: 'https://dribbble.com/khanx',
+      link: 'https://dribbble.com/uxdkhan',
       icon: dribble,
     },
     {
@@ -32,7 +32,7 @@ const AboutScreen = () => {
     },
     {
       name: 'linkedin',
-      link: 'https://www.linkedin.com/in/khanmohsinx/',
+      link: 'https://www.linkedin.com/in/uxdkhan/',
       icon: linkedin,
     },
   ];

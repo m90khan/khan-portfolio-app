@@ -58,7 +58,12 @@ export const planeImage = {
     scale: 1.1,
     opacity: 1,
     y: 10,
-    transition: { yoyo: Infinity, duration: 5, ease: [0.6, 0.05, -0.01, 0.9] },
+    transition: {
+      repeat: Infinity,
+      repeatType: 'mirror',
+      duration: 5,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
   },
 };
 export const containerdiv = {

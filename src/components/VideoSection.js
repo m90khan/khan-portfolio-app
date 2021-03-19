@@ -31,7 +31,7 @@ const VideoSection = ({
           <iframe
             title='Video Resume'
             src={src}
-            frameborder='0'
+            frameBorder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
           ></iframe>

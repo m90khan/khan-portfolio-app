@@ -6,15 +6,28 @@ import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
 import { workCircle, workBackground } from './../assets/images';
 import WorkSection from '../components/WorkSection';
+import blobContact from './../assets/lottie/contact.json';
 
 import CheckWork from '../components/CheckWork';
 import Meta from '../components/Meta';
+import { headerImage } from '../styles/Animation';
+import Lottie from 'react-lottie';
 
 const ContactScreen = () => {
+  const defaultOptions = (img) => {
+    return {
+      loop: true,
+      autoplay: true,
+      animationData: img,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+      },
+    };
+  };
   const socialIcons = [
     {
       name: 'dribble',
-      link: 'https://dribbble.com/khanx',
+      link: 'https://dribbble.com/uxdkhan',
       icon: dribble,
     },
     {
@@ -29,7 +42,7 @@ const ContactScreen = () => {
     },
     {
       name: 'linkedin',
-      link: 'https://www.linkedin.com/in/khanmohsinx/',
+      link: 'https://www.linkedin.com/in/uxdkhan/',
       icon: linkedin,
     },
   ];
@@ -54,7 +67,10 @@ const ContactScreen = () => {
           <div className='header'>
             <motion.h2 layoutId={`title `}>Send Email.</motion.h2>
             <img src={workBackground} className='back background-1' alt='background' />
-            <img src={workCircle} className='back background-2' alt='pakistan' />
+            {/* <img src={workCircle} className='back background-2' alt='pakistan' /> */}
+            <motion.div className='back background-2' variants={headerImage}>
+              <Lottie options={defaultOptions(blobContact)} />
+            </motion.div>
           </div>
         </div>
         <WorkSection
@@ -94,7 +110,7 @@ const Stats = styled(motion.div)`
       `}
       .back {
         position: absolute;
-        width: 20%;
+        width: 60%;
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);

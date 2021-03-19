@@ -8,20 +8,28 @@ import { Line } from '../styles/styles';
 import { useScroll } from './useScroll';
 import { fade } from '../styles/Animation';
 
-const CheckWork = () => {
+const CheckWork = ({ title, overview, id }) => {
   const [element, controls] = useScroll({ threshold: 0 });
   return (
-    <Work>
-      <Link to='/work'>
+    <Work style={overview && { margin: '0 auto' }}>
+      <Link to={id ? `/work/${id}` : '/work'}>
         <motion.div
           className='video-block'
           variants={fade}
           animate={controls}
           initial='hidden'
           ref={element}
+          style={
+            overview && {
+              background: `linear-gradient(to right, rgba(25, 32, 44,0.3), rgba(0, 255, 132,.3)), url("${overview}") `,
+              backgroundPosition: 'center center ',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+            }
+          }
         >
-          <div style={{ position: 'relative' }}>
-            <h1>Check Out My Work</h1>
+          <div>
+            <h1>{title ? `Next: ${title}` : 'Check Out My Work'}</h1>
             <LineAnim
               transition={{ duration: 0.75 }}
               initial={{ width: '0%' }}
@@ -41,6 +49,7 @@ const LineAnim = styled(Line)`
 const Work = styled(motion.div)`
   height: 100vh;
   width: 80%;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;

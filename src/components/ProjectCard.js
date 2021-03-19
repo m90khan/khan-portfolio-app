@@ -11,7 +11,6 @@ import { behance, dribble, github, timeIcon } from '../assets/social';
 
 const ProjectCard = ({ project, style }) => {
   const history = useHistory();
-
   const ProjectDetails = (id) => {
     history.push(`/work/${id}`);
   };

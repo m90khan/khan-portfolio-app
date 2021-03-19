@@ -35,33 +35,34 @@ export const MenuItem = ({ menuItem, toggle }) => {
   };
 
   return (
-    <Item variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+    <Item
+      variants={variants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      key={title}
+    >
       <div className='icon-placeholder'>
         <h4>{title}</h4>
       </div>
       <div className='text-placeholder'>
         {links.map((item, i) =>
           item.link[0] === '/' ? (
-            <>
-              <Link to={`${item.link}`} key={i}>
-                <div
-                  onClick={() => toggleHandler(item.link)}
-                  key={i}
-                  style={item.link === pathname ? { opacity: 1 } : { opacity: 0.8 }}
-                  className='text-placeholder__item'
-                >
-                  <p> {item.name}</p>
-                  <Line
-                    transition={{ duration: 0.75 }}
-                    initial={{ width: '0%' }}
-                    key={i}
-                    animate={{ width: item.link === pathname ? '30%' : '0%' }}
-                  />
-                </div>
-              </Link>
-            </>
+            <Link to={`${item.link}`} key={i}>
+              <div
+                onClick={() => toggleHandler(item.link)}
+                style={item.link === pathname ? { opacity: 1 } : { opacity: 0.8 }}
+                className='text-placeholder__item'
+              >
+                <p> {item.name}</p>
+                <Line
+                  transition={{ duration: 0.75 }}
+                  initial={{ width: '0%' }}
+                  animate={{ width: item.link === pathname ? '30%' : '0%' }}
+                />
+              </div>
+            </Link>
           ) : (
-            <Link to={{ pathname: item.link }} key={i} target='_blank'>
+            <Link to={{ pathname: item.link }} target='_blank' key={i}>
               <p className='text-placeholder__item' style={{ opacity: '.8' }}>
                 {item.name}
               </p>

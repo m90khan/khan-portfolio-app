@@ -9,7 +9,7 @@ import IntroDetails from '../components/IntroDetails';
 import ProjectCard from '../components/ProjectCard';
 import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie';
-import blob from './../assets/lottie/blob.json';
+import blob from './../assets/lottie/blob-1x.json';
 import blob2 from './../assets/lottie/blob-2.json';
 
 import {
@@ -81,12 +81,12 @@ const HomeScreen = ({ projects }) => {
         </div>
 
         <ProjectSection>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <ProjectCard project={project} key={project.id} />
           ))}
         </ProjectSection>
         <Link to='/work'>
-          <button className='projects-btn'>View All Projects (82)</button>
+          <button className='projects-btn'>View All Projects ({projects.length})</button>
         </Link>
       </Work>
 

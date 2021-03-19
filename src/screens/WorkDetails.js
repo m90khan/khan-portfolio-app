@@ -7,10 +7,13 @@ import { COLORS } from '../styles/Theme';
 import { workCircle, workBackground } from './../assets/images';
 import { respondTo } from './../styles/RespondTo';
 import VideoSection from '../components/VideoSection';
+import CheckWork from '../components/CheckWork';
 
 const WorkDetails = ({ projects }) => {
   const { id } = useParams();
   const [project, setProject] = useState(projects[0]);
+  const [nextProject, setNextProject] = useState([]);
+  const [preProject, setPreProject] = useState([]);
   const history = useHistory();
   const location = useLocation();
 
@@ -37,7 +40,11 @@ const WorkDetails = ({ projects }) => {
 
   useEffect(() => {
     const fetchProject = (id) => {
-      const currentProject = projects.filter((stateProject) => stateProject.id === id);
+      const currentProject = projects.filter((stateProject, index, arr) => {
+        setPreProject(arr[index + 1]);
+        setNextProject(arr[index - 1]);
+        return stateProject.id === id;
+      });
       setProject(currentProject[0]);
     };
     fetchProject(id);
@@ -87,6 +94,7 @@ const WorkDetails = ({ projects }) => {
                 </Platforms>
                 <motion.div className='header'>
                   <motion.h2 layoutId={`title ${id}`}>{project.title}</motion.h2>
+
                   <img
                     src={workBackground}
                     className='back background-1'
@@ -131,6 +139,11 @@ const WorkDetails = ({ projects }) => {
                 border={project.primaryColor}
               />
             )}
+            <CheckWork
+              title={nextProject.title}
+              overview={nextProject.overview}
+              id={nextProject.id}
+            />
           </Detail>
         </CardShadow>
       )}

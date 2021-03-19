@@ -1,9 +1,9 @@
 export const COLORS = {
   // base colors
-  bodyDark: '#19202C',
+  bodyDark: '#19202c',
   bodyLight: '#232b3a',
-  primary: '#06B08D',
-  secondary: '#22DBB5',
+  primary: '#02b45e',
+  secondary: '#00FF84',
   textgrey: '#7C8898',
   // colors
   black: '#1E1F20',

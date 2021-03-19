@@ -36,7 +36,7 @@ const InfoSection = styled(motion.div)`
          `}
 `;
 const InfoHeader = styled(motion.div)`
-  background: rgba(6, 176, 141, 0.8);
+  background: ${COLORS.primary};
   z-index: 4;
 
   width: 80%;

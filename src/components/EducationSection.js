@@ -71,7 +71,7 @@ const EducationDetails = () => {
       <div className='deedColumn deedColumnright'>
         <div className='direction strategy'>
           <div className='direction-img'>
-            <img src={Schools[1].icon} className='icon' alt='strategy' />
+            <img src={Schools[1].icon} className='icon icon-china' alt='strategy' />
             <div className='icon-background'>
               <Lottie options={defaultOptions(blob3)} />
             </div>{' '}
@@ -101,7 +101,7 @@ const EducationDetails = () => {
       <div className='deedColumn deedColumnright'>
         <div className='direction strategy'>
           <div className='direction-img'>
-            <img src={Schools[3].icon} className='icon' alt='code' />
+            <img src={Schools[3].icon} className='icon ' alt='code' />
             <div className='icon-background'>
               <Lottie options={defaultOptions(blob3)} />
             </div>{' '}
@@ -194,6 +194,10 @@ const Overview = styled(motion.div)`
              height: 45%;
              object-fit: contain;
          `}
+
+         &-china {
+          width: 40%;
+        }
       }
     }
     .country {
