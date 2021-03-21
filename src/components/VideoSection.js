@@ -44,12 +44,7 @@ const VideoSection = ({
         </motion.div>
         {resume && (
           <div className='resume-block'>
-            <Button
-              title='Download the CV'
-              icon={download}
-              link={resume}
-              target='_blank'
-            />
+            <Button title='Download CV' icon={download} link={resume} target='_blank' />
             <Button title='Cover Letter' icon={download} link='/about/#videoSectionID' />
 
             <Link
