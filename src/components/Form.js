@@ -10,14 +10,15 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');
   const { register, handleSubmit, watch, errors } = useForm();
-  const submitHandler = (formData) => {
+  const submitHandler = (data) => {
+    console.log(data);
     const sendEmail = async () => {
-      const { data, status } = await axios({
+      const res = await axios({
         method: 'POST',
         url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
-        data: formData,
+        data: data,
       });
-      if (data) {
+      if (res.data) {
         console.log('form submitted');
         setText('Thank you for contact');
       }
