@@ -10,7 +10,7 @@ useAnimation : to control animation in framer motion
 */
 export const useScroll = () => {
   const controls = useAnimation();
-  const [element, view] = useInView({ threshold: 0.5, triggerOnce: true });
+  const [element, view] = useInView({ threshold: 0.4 });
 
   useEffect(() => {
     if (view) {

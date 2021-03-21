@@ -1,6 +1,7 @@
 import headerBack from './home/headerback.png';
 import footerBack from './home/footerback.png';
 import profile from './user/profile.png';
+import aboutProfile from './user/about-profile.png';
 import pakistan from './home/pakistan.png';
 import germany from './home/germany.png';
 import plane from './home/plane.png';
@@ -27,4 +28,5 @@ export {
   footerBack,
   workBackground,
   workCircle,
+  aboutProfile,
 };

@@ -5,17 +5,23 @@ import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
 import { useScroll } from './useScroll';
 import { fade } from '../styles/Animation';
+import Button from './Button';
+import { download, figma, play } from '../assets/social';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 const VideoSection = ({
-  src = 'https://www.youtube-nocookie.com/embed/lLQagAL3Fwo',
+  src = 'https://www.youtube-nocookie.com/embed/ghzFFalTciE',
   width = '80%',
   title = 'Video Resume',
   highlight = 'Full Story',
   border = COLORS.secondary,
+  resume,
 }) => {
   const [element, controls] = useScroll();
+  const { pathname } = useLocation();
 
   return (
-    <Video style={{ width: width, height: '100vh' }}>
+    <Video style={{ width: width, height: '100vh' }} id='videoSectionID'>
       <motion.div
         className='video-block'
         ref={element}
@@ -36,6 +42,25 @@ const VideoSection = ({
             allowFullScreen
           ></iframe>
         </motion.div>
+        {resume && (
+          <div className='resume-block'>
+            <Button title='Download CV' icon={download} link={resume} target='_blank' />
+            <Button title='Cover Letter' icon={download} link='/about/#videoSectionID' />
+
+            <Link
+              to={{
+                pathname:
+                  ' https://www.figma.com/file/XKWUdZIsKSFLD8CuI61C1Z/Projects-Case-Studies?node-id=0%3A1',
+              }}
+              target='_blank'
+            >
+              <div className='resume'>
+                <img src={figma} alt='button' />
+                <h4 style={{ display: 'inline-block' }}>View all projects in Figma</h4>
+              </div>
+            </Link>
+          </div>
+        )}
       </motion.div>
     </Video>
   );
@@ -44,13 +69,16 @@ const Video = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 80%;
   margin-top: 5rem;
   ${respondTo.iPro` 
   height: 70vh;
       `}
   ${respondTo.iPad` 
   height: 50vh;
+      `}
+  ${respondTo.pMobile` 
+width: 95% !important;
       `}
   .video-block {
     /* background: rgba(25, 32, 44, 0.5); */
@@ -66,7 +94,12 @@ const Video = styled(motion.div)`
     position: relative;
     -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
     box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
-
+    ${respondTo.iPro` 
+    width: 95%;
+      `}
+    ${respondTo.pMobile` 
+    padding: 3rem 2rem;
+      `}
     .video {
       overflow: hidden;
       padding-bottom: 56.25%;

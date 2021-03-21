@@ -20,7 +20,7 @@ html {
 
   font-size: 62.5%;  
   @media only screen and (min-width: 1920px ) {
-    font-size: 100%; 
+    font-size: 90%; 
     }
       ${respondTo.xxD`
    font-size: 75%; 
@@ -189,7 +189,10 @@ h1{
   left: 4%;
    border-radius:100%;
   height: 8%;
- 
+  ${respondTo.iPro` 
+    left: 10%;
+    height: 5%;
+       `}
 }
 
 @media (max-width: 600px) {
@@ -199,6 +202,31 @@ h1{
     left: 10px;
     top: 10px;
   }}
+  .resume-block {
+    margin-top: 1rem;
+    display: flex;
+  }
+  .resume {
+    background-color: ${COLORS.bodyDark};
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+
+    display: inline-block;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 3rem;
+&:hover{
+  background-color: ${COLORS.bodyLight};
+
+}
+    img {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+    }
+  }
 `;
 
 export default GlobalStyle;

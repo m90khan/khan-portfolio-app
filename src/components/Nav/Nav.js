@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { motion, useCycle } from 'framer-motion';
-import { useDimensions } from '../utils/useDimension';
+import { useDimensions } from '../../utils/useDimension';
 import { MenuToggle } from './MenuToggle';
 import { NavList } from './NavList';
-import { COLORS } from '../styles/Theme';
-import { profile } from '../assets/images';
-import { twitter, behance, linkedin, dribble } from '../assets/social';
-import { respondTo } from './../styles/RespondTo';
-import { leftNav, rightNav, sidebar } from './../styles/Animation';
+import { COLORS } from '../../styles/Theme';
+import { profile } from '../../assets/images';
+import { twitter, behance, linkedin, dribble } from '../../assets/social';
+import { respondTo } from '../../styles/RespondTo';
+import { leftNav, rightNav, sidebar } from '../../styles/Animation';
 
 const Nav = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);

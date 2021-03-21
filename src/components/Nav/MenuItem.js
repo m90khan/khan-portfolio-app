@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { COLORS } from '../styles/Theme';
+import { COLORS } from '../../styles/Theme';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { Line } from './../styles/styles';
+import { Line } from '../../styles/styles';
 const variants = {
   open: {
     y: 0,

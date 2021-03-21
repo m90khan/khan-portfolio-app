@@ -103,6 +103,9 @@ const Project = styled(motion.div)`
   border-radius: 2rem;
   -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
   box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
+  ${respondTo.iPro` 
+   flex: 0 0 42%;
+      `}
   ${respondTo.pMobile` 
    flex: 0 0 100%;
   `}

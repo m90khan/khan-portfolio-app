@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { germany, china, pakistan } from '../assets/images';
 import { COLORS } from '../styles/Theme';
-import { respondTo } from './../styles/RespondTo';
-import blob3 from './../assets/lottie/blob-3.json';
+import { respondTo } from '../styles/RespondTo';
+import blob3 from '../assets/lottie/blob-3.json';
 import Lottie from 'react-lottie';
 
 const EducationDetails = () => {
@@ -154,7 +154,7 @@ const Overview = styled(motion.div)`
     .direction-img {
       position: relative;
       ${respondTo.L`
-      height: 40vh;
+      // height: 40vh;
       `}
       ${respondTo.iPro`
             height: 30vh;
@@ -167,8 +167,8 @@ const Overview = styled(motion.div)`
       align-items: flex-start;
       .icon-background {
         position: relative;
-        top: 0%;
-        left: -15%;
+        top: -3rem;
+        left: -12%;
         width: 90%;
         height: 100%;
         object-fit: cover;
@@ -184,7 +184,7 @@ const Overview = styled(motion.div)`
         width: 30%;
         object-fit: contain;
         ${respondTo.iPro`
-                left: 2%;
+                left: 10%;
              width: 40%;
              height: 50%;
              object-fit: contain;
@@ -231,7 +231,9 @@ const Overview = styled(motion.div)`
     align-items: flex-end;
     .direction-img {
       .icon-background {
-        left: 12rem;
+        top: -5rem;
+
+        left: 14rem;
         ${respondTo.L`
       left: 10rem;
          `}

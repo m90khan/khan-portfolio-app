@@ -2,35 +2,58 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { COLORS } from '../styles/Theme';
 import { motion } from 'framer-motion';
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
+
 const Form = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');
-
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const { register, handleSubmit, watch, errors } = useForm();
+  const submitHandler = (formData) => {
+    const sendEmail = async () => {
+      const { data, status } = await axios({
+        method: 'POST',
+        url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
+        data: formData,
+      });
+      if (data) {
+        console.log('form submitted');
+        setText('Thank you for contact');
+      }
+    };
+    sendEmail();
   };
   return (
     <>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={handleSubmit(submitHandler)}>
         <Row>
           <div className='form-field'>
-            <h4 na>Your Name</h4>
+            <h4>Your Name</h4>
             <input
               type='text'
               placeholder='Enter name'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name='name'
+              ref={register({ required: true, minLength: 2 })}
+              // onChange={(e) => setName(e.target.value)}
             />
+            {errors.name && <p>Name is required.</p>}
+            {errors.name && errors.name.type === 'minLength' && (
+              <p>Name should be greater than 2 letters.</p>
+            )}
           </div>
           <div className='form-field'>
             <h4>Your Email</h4>
             <input
               type='email'
               placeholder='Enter email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name='email'
+              ref={register({
+                required: true,
+                pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              })}
             />
+            {errors.email && <p>Email is required.</p>}
           </div>
         </Row>
         <Row>
@@ -39,13 +62,18 @@ const Form = () => {
             <textarea
               type='text'
               placeholder='Enter Message'
-              value={text}
-              onChange={(e) => setText(e.target.value)}
+              name='message'
+              ref={register({ required: true, minLength: 80 })}
             />
+            {errors.message && <p>Please write something ...</p>}
+            {errors.name && errors.name.type === 'minLength' && (
+              <p>Message should not be less than 80 letters.</p>
+            )}
           </div>
         </Row>
         <Button type='submit'>Send Message</Button>
       </form>
+      {text && <p>{text}</p>}
       <br />
       <h4
         className='job'
@@ -66,7 +94,7 @@ const Button = styled(motion.button)`
   display: inline-block;
 `;
 
-const Row = styled.div`
+const Row = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -76,6 +104,9 @@ const Row = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    p {
+      color: #fd3333 !important;
+    }
   }
   .form-field-text {
     flex: 0 0 100%;
