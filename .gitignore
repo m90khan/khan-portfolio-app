@@ -22,3 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
+src/assets/skills/coverLetter.pdf
+src/assets/skills/resume.pdf
+.eslintcache
+.eslintcache
