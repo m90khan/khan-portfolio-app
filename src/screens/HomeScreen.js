@@ -19,6 +19,7 @@ import {
   skillsDesktop2x,
   skillsPhone2x,
   skillsIpad2x,
+  resume,
 } from './../assets/skills';
 import { intro } from '../utils/textData';
 import { Work, ProjectSection, Hide } from './../styles/styles';
@@ -44,13 +45,14 @@ const HomeScreen = ({ projects }) => {
   const indexOfLastPost = currentPage * projectsPerPage;
   const indexOfFirstPost = indexOfLastPost - projectsPerPage;
   const currentProjects = iProjects.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = useCallback((pageNumber) => {
+    return setCurrentPage(pageNumber);
+  }, []);
   useEffect(() => {
     setIProjects(projects);
   }, [projects, currentPage, paginate, iProjects]);
   // Get current posts
 
-  console.log(currentProjects);
   return (
     <>
       <Meta />
@@ -87,17 +89,14 @@ const HomeScreen = ({ projects }) => {
         description={intro.description}
         job={intro.job}
         notice={intro.notice}
+        resume={resume}
       />
       <IntroDetails />
       <Work>
         <div className='work-intro'>
           <h2>WORK</h2>
         </div>
-        <Pagination
-          postsPerPage={projectsPerPage}
-          totalPosts={iProjects.length}
-          paginate={paginate}
-        />
+
         <ProjectSection>
           {currentProjects.map((project, index) => (
             <ProjectCard project={project} key={project.id} />
@@ -141,10 +140,12 @@ const HomeScreen = ({ projects }) => {
           <Lottie options={defaultOptions(blob2)} />
         </motion.div>
         <motion.img src={germany} className='map' alt='pakistan' variants={headerImage} />
-        <h2>
-          Fin. Landed <br />
-          <span>Lets Talk </span>
-        </h2>
+        <Link to='/contact' style={{ display: 'flex', alignSelf: 'flex-end' }}>
+          <h2>
+            Fin. Landed <br />
+            <span className='footer-contact'>Lets Talk</span>
+          </h2>
+        </Link>
       </Footer>
     </>
   );
@@ -210,12 +211,13 @@ const Header = styled(motion.div)`
     transform: translate(-50%, -10%);
     object-fit: cover;
     ${respondTo.iPro`
-          top: 35%;
-          width: 70%;
+          top: 5%;
+          left: 20%;
+          width: 60%;
       `}
     ${respondTo.pMobile`
-        top: 20%;
-        width: 100%;
+        top: 10%;
+        width: 60%;
     `}
   }
   .background-1 {
@@ -235,12 +237,13 @@ const Header = styled(motion.div)`
 
     object-fit: cover;
     ${respondTo.iPro`
-        top: 55%;
-           width: 30%;
+        top: 20%;
+        left: 40%;
+           width: 25%;
       `}
     ${respondTo.pMobile`
-        top: 40%;
-        width: 45%;
+        top: 20%;
+        width: 25%;
     `}
   }
 `;
@@ -250,7 +253,10 @@ const Heading = styled(motion.h2)`
   left: 10%;
   width: 80%;
   z-index: 1;
-
+  ${respondTo.iPro`
+  top: 60%;
+      
+      `}
   h2 {
     transform: translate(-50%, -50%);
     letter-spacing: 1rem;
@@ -266,9 +272,10 @@ const Heading = styled(motion.h2)`
       1px 18px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2);
     ${respondTo.iPro`
       font-size: 9rem; 
+      
       `}
     ${respondTo.pMobile`
-         font-size: 5rem; 
+         font-size: 7rem; 
          top: 80%
          `}
   color: ${COLORS.white};
@@ -293,27 +300,29 @@ const Footer = styled(Header)`
     width: 15%;
     /* top: 80%; */
     ${respondTo.iPro`
-        top: 30%;
-        width: 25%;
+         width: 25%;
      `}
     ${respondTo.pMobile`
-     width: 40%;
+     width: 20%;
      `}
   }
   h2 {
-    align-self: flex-end;
     z-index: 90;
     -webkit-text-stroke: 3px ${COLORS.white};
     text-stroke: 3px ${COLORS.white};
     bottom: 0;
+    ${respondTo.iPro`
+ margin-bottom: 15rem;
+      `}
     ${respondTo.pMobile`
       -webkit-text-stroke: 1px ${COLORS.white};
-      text-stroke: 1px ${COLORS.white}`}
+      text-stroke: 1px ${COLORS.white};
+      `}
     color: ${COLORS.primary};
     ${respondTo.pMobile`
          margin-top: 0;
      `}
-    span {
+    .footer-contact {
       -webkit-text-stroke: 3px ${COLORS.primary};
       text-stroke: 3px ${COLORS.primary};
 

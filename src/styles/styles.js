@@ -9,10 +9,13 @@ export const ProjectSection = styled(motion.div)`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  padding: 20rem 0 10rem 0;
+  padding: 15rem 0 10rem 0;
   ${respondTo.iPro` 
-  padding: 12rem 0 8rem 0;
+  padding: 10rem 3rem 8rem 3rem;
       `}
+  @media only screen and (max-width: 400px ) {
+    padding: 0;
+  }
 `;
 export const Work = styled(motion.div)`
   min-height: 50vh;

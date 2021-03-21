@@ -12,9 +12,9 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: 'Khan Mohsin | Full Stack Web Developer',
-  description: 'Full Stack portfolio website to display projects',
-  keywords: 'MERN, TypeScript, JavaScript, GraphQl, React, Redux',
+  title: 'Khan Mohsin | Full Stack Developer Portfolio',
+  description: 'Full Stack developer portfolio website to represent work',
+  keywords: 'MERN, TypeScript, JavaScript, GraphQl, Apollo, React Native, React, Redux',
 };
 
 export default Meta;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { behance, dribble, github, linkedin } from '../assets/social';
 import { motion } from 'framer-motion';
@@ -12,8 +12,11 @@ import CheckWork from '../components/CheckWork';
 import Meta from '../components/Meta';
 import { headerImage } from '../styles/Animation';
 import Lottie from 'react-lottie';
+import { socialIcons } from '../utils/textData';
 
 const ContactScreen = () => {
+  const [icons, setIcons] = useState(socialIcons);
+
   const defaultOptions = (img) => {
     return {
       loop: true,
@@ -24,35 +27,14 @@ const ContactScreen = () => {
       },
     };
   };
-  const socialIcons = [
-    {
-      name: 'dribble',
-      link: 'https://dribbble.com/uxdkhan',
-      icon: dribble,
-    },
-    {
-      name: 'behance',
-      link: 'https://www.behance.net/Khan_Mohsin',
-      icon: behance,
-    },
-    {
-      name: 'github',
-      link: 'https://github.com/m90khan',
-      icon: github,
-    },
-    {
-      name: 'linkedin',
-      link: 'https://www.linkedin.com/in/uxdkhan/',
-      icon: linkedin,
-    },
-  ];
+
   return (
     <>
       <Meta title='Contact Khan | Full Stack Web Developer' />
       <Stats>
         <div className='rating'>
           <Platforms>
-            {socialIcons.map((icon, index) => (
+            {icons.map((icon, index) => (
               <a
                 href={icon.link}
                 target='_blank'

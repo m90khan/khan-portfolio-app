@@ -6,4 +6,21 @@ import github from './github.png';
 import starFull from './star-full.png';
 import starEmpty from './star-empty.png';
 import timeIcon from './time.png';
-export { twitter, dribble, linkedin, behance, github, starFull, starEmpty, timeIcon };
+import liveIcon from './live.png';
+import download from './download.png';
+import play from './play.png';
+import figma from './figma.png';
+export {
+  twitter,
+  dribble,
+  linkedin,
+  behance,
+  github,
+  starFull,
+  starEmpty,
+  timeIcon,
+  liveIcon,
+  play,
+  download,
+  figma,
+};

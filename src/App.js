@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 import GlobalStyle from './styles/GlobalStyles';
 import { Switch, Route } from 'react-router-dom';
 import {
@@ -59,7 +59,7 @@ function App() {
             <Route path='/contact' exact>
               <ContactScreen />
             </Route>
-            <Route path='/work/:id'>
+            <Route path='/work/:id' exact>
               <WorkDetails projects={projects} />
             </Route>
           </Switch>

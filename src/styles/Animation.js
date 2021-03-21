@@ -58,6 +58,8 @@ export const planeImage = {
     scale: 1.1,
     opacity: 1,
     y: 10,
+    x: 10,
+    x: -20,
     transition: {
       repeat: Infinity,
       repeatType: 'mirror',
@@ -67,7 +69,7 @@ export const planeImage = {
   },
 };
 export const containerdiv = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0.2 },
   show: {
     opacity: 1,
     transition: {

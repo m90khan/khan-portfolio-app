@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
-import { behance, dribble, github } from '../assets/social';
+import { behance, dribble, github, liveIcon } from '../assets/social';
 import { COLORS } from '../styles/Theme';
 import { workCircle, workBackground } from './../assets/images';
 import { respondTo } from './../styles/RespondTo';
 import VideoSection from '../components/VideoSection';
 import CheckWork from '../components/CheckWork';
 import CircleComplete from '.././components/CircleComplete';
+import ScrollTop from '../components/ScrollTop';
 
 const WorkDetails = ({ projects }) => {
   const { id } = useParams();
+  const [iProjects, setIProjects] = useState(projects);
   const [project, setProject] = useState(projects[0]);
   const [nextProject, setNextProject] = useState([]);
   const [preProject, setPreProject] = useState([]);
   const history = useHistory();
   const location = useLocation();
+  const { pathname } = useLocation();
 
   //GET PLATFORM IMAGES
   const getPlatform = (platform) => {
@@ -41,29 +44,36 @@ const WorkDetails = ({ projects }) => {
 
   useEffect(() => {
     const fetchProject = (id) => {
-      const currentProject = projects.filter((stateProject, index, arr) => {
-        const curProject = stateProject.id === id;
-        const nextProject = stateProject.id === id ? arr[index + 1] : '';
-        const preProject = stateProject.id === id ? arr[index - 1] : '';
-        return [curProject, nextProject, preProject];
+      const currentProject = iProjects.filter((stateProject, index, arr) => {
+        let curProject;
+        if (stateProject.id === id) {
+          curProject = stateProject;
+          const nextItem = arr[index + 1];
+          setNextProject(nextItem);
+          const prevItem = arr[index - 1];
+          setPreProject(prevItem);
+        }
+        return curProject;
       });
+
       setProject(currentProject[0]);
-      setNextProject(currentProject[1]);
-      setPreProject(currentProject[2]);
     };
     fetchProject(id);
+
+    window.scroll({
+      top: 0,
+      left: 0,
+    });
+
     if (!project) {
-      // const id = location.pathname.split('/')[2];
-      // fetchProject(id);
       history.push('/');
     }
-  }, [project, projects, location.pathname, history, id]);
+  }, [id, history, iProjects, project, pathname]);
 
   return (
     <>
       {project && (
         <CardShadow className='shadow' onClick={exitDetailHander}>
-          <CircleComplete />
           <Detail
             layoutId={id}
             style={project && { background: project.primaryColor }}
@@ -80,7 +90,7 @@ const WorkDetails = ({ projects }) => {
                     }
                   }
                 >
-                  {project &&
+                  {project.socialIcons &&
                     project.socialIcons.map((icon, index) => (
                       <motion.a
                         href={icon.link}
@@ -96,6 +106,14 @@ const WorkDetails = ({ projects }) => {
                         />
                       </motion.a>
                     ))}
+                  <motion.a
+                    href={project.live}
+                    target='_blank'
+                    rel='noreferrer noopener'
+                    className='icon-back'
+                  >
+                    <motion.img src={liveIcon} alt='overview' />
+                  </motion.a>
                 </Platforms>
                 <motion.div className='header'>
                   <motion.h2 layoutId={`title ${id}`}>{project.title}</motion.h2>
@@ -130,9 +148,10 @@ const WorkDetails = ({ projects }) => {
               <img src={project.overview} alt={'overview'} />
             </Description>
             <div className='gallery'>
-              {project.images.map((image, i) => (
-                <img src={image} key={i} alt={`${project.name + 1}`} />
-              ))}
+              {project &&
+                project.images.map((image, i) => (
+                  <img src={image} key={i} alt={`${project.name + 1}`} />
+                ))}
             </div>
 
             {project.video && (

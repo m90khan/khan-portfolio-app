@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { COLORS } from '../styles/Theme';
-import { respondTo } from './../styles/RespondTo';
+import { COLORS } from '../../styles/Theme';
+import { respondTo } from './../../styles/RespondTo';
 
 const Path = (props) => (
   <motion.path

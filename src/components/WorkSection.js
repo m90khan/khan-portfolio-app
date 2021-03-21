@@ -8,12 +8,12 @@ const WorkSection = ({ story, title, works }) => {
   return (
     <Work>
       <div className='video-block'>
-        <h4 className='short'>{story}</h4>
+        <h4 className='short'>{story && story}</h4>
         <h1>{title}</h1>
         <br />
         <div className='video'>
           {works && works.map((item, i) => <p key={i}>- {item}</p>)}
-          {title === 'Contact' ? <Form /> : ''}
+          {title && title === 'Contact' ? <Form /> : ''}
         </div>
       </div>
     </Work>
@@ -29,7 +29,9 @@ const Work = styled(motion.div)`
   ${respondTo.iPro` 
   height: 70vh;
       `}
-
+  ${respondTo.pMobile` 
+width: 95%;
+      `}
   .video-block {
     /* background: rgba(25, 32, 44, 0.5); */
     padding: 6rem;
@@ -44,7 +46,9 @@ const Work = styled(motion.div)`
     position: relative;
     -webkit-box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
     box-shadow: 2px 5px 15px 8px rgba(0, 0, 0, 0.6);
-
+    ${respondTo.iPro` 
+    width: 95%;
+      `}
     .video {
       p {
         color: ${COLORS.textgrey};
@@ -53,6 +57,7 @@ const Work = styled(motion.div)`
 
     ${respondTo.pMobile` 
       width: 100%;
+      padding: 3rem 2rem;
       `}
   }
 `;

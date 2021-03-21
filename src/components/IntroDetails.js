@@ -135,7 +135,7 @@ const Overview = styled(motion.div)`
     .direction-img {
       position: relative;
       ${respondTo.L`
-      height: 40vh;
+      // height: 40vh;
       `}
       ${respondTo.iPro`
             height: 30vh;
@@ -179,6 +179,9 @@ const Overview = styled(motion.div)`
     }
     h3 {
       margin: 2% 0 5% 0;
+      ${respondTo.L`
+      margin: -5% 0 5% 0;
+         `}
       ${respondTo.iPro`
       margin: 5% 0 5% 0;
          `}
@@ -214,6 +217,8 @@ const Overview = styled(motion.div)`
         left: 14rem;
         ${respondTo.L`
       left: 10rem;
+      top: 0;
+
          `}
         ${respondTo.iPro`
       left: 35%;

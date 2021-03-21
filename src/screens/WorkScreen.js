@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { behance, dribble, github, linkedin } from '../assets/social';
 import { workCircle, workBackground } from './../assets/images';
 
@@ -10,30 +10,26 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
-
+import { socialIcons } from './../utils/textData';
+import Pagination from '../components/Pagination';
+import ProjectCard from '../components/ProjectCard';
 const WorkScreen = ({ projects }) => {
-  const socialIcons = [
-    {
-      name: 'dribble',
-      link: 'https://dribbble.com/uxdkhan',
-      icon: dribble,
-    },
-    {
-      name: 'behance',
-      link: 'https://www.behance.net/Khan_Mohsin',
-      icon: behance,
-    },
-    {
-      name: 'github',
-      link: 'https://github.com/m90khan',
-      icon: github,
-    },
-    {
-      name: 'linkedin',
-      link: 'https://www.linkedin.com/in/uxdkhan/',
-      icon: linkedin,
-    },
-  ];
+  const [icons, setIcons] = useState(socialIcons);
+  const [iProjects, setIProjects] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [projectsPerPage] = useState(9);
+
+  const indexOfLastPost = currentPage * projectsPerPage;
+  const indexOfFirstPost = indexOfLastPost - projectsPerPage;
+  const currentProjects = iProjects.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = useCallback((pageNumber) => {
+    return setCurrentPage(pageNumber);
+  }, []);
+  useEffect(() => {
+    setIProjects(projects);
+  }, [projects, currentPage, paginate, iProjects]);
+
   return (
     <>
       <Meta
@@ -43,7 +39,7 @@ const WorkScreen = ({ projects }) => {
       <Stats>
         <div className='rating'>
           <Platforms>
-            {socialIcons.map((icon, index) => (
+            {icons.map((icon, index) => (
               <a
                 href={icon.link}
                 target='_blank'
@@ -62,9 +58,15 @@ const WorkScreen = ({ projects }) => {
           </div>
         </div>
         <Work style={{ margin: '5% auto 0 auto' }}>
+          <Pagination
+            postsPerPage={projectsPerPage}
+            totalPosts={iProjects.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
           <ProjectSection>
-            {projects.map((project) => (
-              <ProjectListCard project={project} key={project.id} />
+            {currentProjects.map((project) => (
+              <ProjectCard project={project} key={project.id} />
             ))}
           </ProjectSection>
         </Work>

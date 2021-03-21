@@ -4,15 +4,16 @@ import { behance, dribble, github, linkedin } from '../assets/social';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
-import { workCircle, workBackground } from './../assets/images';
+import { workCircle, workBackground, aboutProfile } from './../assets/images';
 import VideoSection from '../components/VideoSection';
 import WorkSection from '../components/WorkSection';
 import IntroSection from '../components/IntroSection';
 import { Skills, Works } from '../utils/textData';
-import EducationDetails from '../components/EducationSection';
+import EducationDetails from '../components/EducationDetails';
 import CheckWork from '../components/CheckWork';
 import Meta from '../components/Meta';
 import { sliderContainer, slider, pageAnimation } from './../styles/Animation';
+import { resume } from './../assets/skills';
 const AboutScreen = () => {
   const socialIcons = [
     {
@@ -68,10 +69,10 @@ const AboutScreen = () => {
           <div className='header'>
             <motion.h2 layoutId={`title `}>Hi.</motion.h2>
             <img src={workBackground} className='back background-1' alt='background' />
-            <img src={workCircle} className='back background-2' alt='pakistan' />
+            <img src={aboutProfile} className='back background-2' alt='pakistan' />
           </div>
         </div>
-        <VideoSection />
+        <VideoSection resume={resume} />
         <WorkSection story='Work' title='Experience' works={Works} />
         <IntroSection story='Technical' title='Skills' skills={Skills} />
         <EducationDetails />
@@ -135,6 +136,8 @@ const Stats = styled(motion.div)`
       h2 {
         z-index: 20;
         font-size: 14rem;
+        top: 40%;
+        position: relative;
       }
     }
   }

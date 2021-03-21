@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { behance, dribble, github } from '../assets/social';
-import { COLORS } from '../styles/Theme';
+import { behance, dribble, github } from '../../assets/social';
+import { COLORS } from '../../styles/Theme';
 import { motion } from 'framer-motion';
 
 const iconList = ({ socialIcons }) => {
