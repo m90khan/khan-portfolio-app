@@ -68,16 +68,12 @@ const Nav = () => {
         animate={isOpen ? 'open' : 'closed'}
         custom={height}
         ref={containerRef}
-        // style={
-        //   isOpen ? { transform: 'translateX(0%)' } : { transform: 'translateX(100%)' }
-        // }
         style={isOpen ? { zIndex: 100 } : { zIndex: 29 }}
       >
         <motion.div className='nav-back' variants={sidebar} />
         <NavList isOpen={isOpen} toggle={() => toggleOpen()} />
 
         <MenuToggle toggle={() => toggleOpen()} isOpen={isOpen} />
-        {/* <motion.div className={isOpen ? 'background' : ''} variants={sidebar} /> */}
       </StyledNav>
     </>
   );

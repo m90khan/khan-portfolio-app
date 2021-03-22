@@ -7,8 +7,10 @@ import starFull from './star-full.png';
 import starEmpty from './star-empty.png';
 import timeIcon from './time.png';
 import liveIcon from './live.png';
+import liveLightIcon from './live-light.png';
 import download from './download.png';
 import play from './play.png';
+import playDark from './play-dark.png';
 import figma from './figma.png';
 export {
   twitter,
@@ -23,4 +25,6 @@ export {
   play,
   download,
   figma,
+  liveLightIcon,
+  playDark,
 };

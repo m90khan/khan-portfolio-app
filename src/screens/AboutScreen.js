@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { behance, dribble, github, linkedin } from '../assets/social';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
-import { workCircle, workBackground, aboutProfile } from './../assets/images';
+import { workBackground, aboutProfile } from './../assets/images';
 import VideoSection from '../components/VideoSection';
 import WorkSection from '../components/WorkSection';
 import IntroSection from '../components/IntroSection';
@@ -14,35 +13,17 @@ import CheckWork from '../components/CheckWork';
 import Meta from '../components/Meta';
 import { sliderContainer, slider, pageAnimation } from './../styles/Animation';
 import { resume } from './../assets/skills';
+import { socialIcons } from '../utils/textData';
+
 const AboutScreen = () => {
-  const socialIcons = [
-    {
-      name: 'dribble',
-      link: 'https://dribbble.com/uxdkhan',
-      icon: dribble,
-    },
-    {
-      name: 'behance',
-      link: 'https://www.behance.net/Khan_Mohsin',
-      icon: behance,
-    },
-    {
-      name: 'github',
-      link: 'https://github.com/m90khan',
-      icon: github,
-    },
-    {
-      name: 'linkedin',
-      link: 'https://www.linkedin.com/in/uxdkhan/',
-      icon: linkedin,
-    },
-  ];
+  const [icons, setIcons] = useState(socialIcons);
+
   return (
     <motion.div exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
       <Meta
-        title='About Khan | Full Stack Web Developer'
+        title='About Khan | Full Stack Developer'
         description='Full Stack Developer Story'
-        keywords='user experience, mern, design, developer, javascript'
+        keywords='user experience design, MERN stack, design, developer, typescript, javascript'
       />
 
       <motion.div variants={sliderContainer}>
@@ -54,7 +35,7 @@ const AboutScreen = () => {
       <Stats>
         <div className='rating'>
           <Platforms>
-            {socialIcons.map((icon, index) => (
+            {icons.map((icon, index) => (
               <a
                 href={icon.link}
                 target='_blank'

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { respondTo } from './../styles/RespondTo';
 import { motion } from 'framer-motion';
-import { germany, pakistan } from './../assets/images';
+import { germany, logo, pakistan } from './../assets/images';
 import { COLORS } from '../styles/Theme';
 import IntroSection from '../components/IntroSection';
 import IntroDetails from '../components/IntroDetails';
@@ -25,7 +25,6 @@ import { intro } from '../utils/textData';
 import { Work, ProjectSection, Hide } from './../styles/styles';
 import Meta from '../components/Meta';
 import { containerdiv, titleAnim, headerImage } from './../styles/Animation';
-import Pagination from '../components/Pagination';
 
 const HomeScreen = ({ projects }) => {
   const [iProjects, setIProjects] = useState([]);
@@ -57,6 +56,8 @@ const HomeScreen = ({ projects }) => {
     <>
       <Meta />
       <Header variants={containerdiv} initial='hidden' animate='show'>
+        <motion.img src={logo} className='logo-img' alt='logo' variants={headerImage} />
+
         <motion.div className='background' variants={headerImage}>
           <Lottie options={defaultOptions(blob)} />
         </motion.div>
@@ -203,6 +204,12 @@ const Header = styled(motion.div)`
   align-items: center;
   position: relative;
   text-align: center;
+  .logo-img {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 4%;
+  }
   .background {
     width: 48%;
     position: absolute;
@@ -311,6 +318,11 @@ const Footer = styled(Header)`
     -webkit-text-stroke: 3px ${COLORS.white};
     text-stroke: 3px ${COLORS.white};
     bottom: 0;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+      color: ${COLORS.bodyDark};
+      -webkit-text-stroke: 3px ${COLORS.white};
+    }
     ${respondTo.iPro`
  margin-bottom: 15rem;
       `}
@@ -329,7 +341,12 @@ const Footer = styled(Header)`
       color: ${COLORS.bodyDark};
       ${respondTo.pMobile`
       -webkit-text-stroke: 1px ${COLORS.primary};
-      text-stroke: 1px ${COLORS.primary}`}
+      text-stroke: 1px ${COLORS.primary}`};
+      transition: all 0.4s ease-in;
+      &:hover {
+        color: ${COLORS.secondary};
+        -webkit-text-stroke: 3px ${COLORS.bodyDark};
+      }
     }
   }
 `;

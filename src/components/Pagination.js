@@ -9,7 +9,6 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
-  console.log(currentPage);
   return (
     <Nav>
       <ul className='pagination'>

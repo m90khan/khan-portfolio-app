@@ -42,6 +42,19 @@ html {
          `} 
 }
  
+ html{
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${COLORS.primary};
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${COLORS.bodyLight};
+  }
+ }
 body{
     background: ${COLORS.bodyLight};
     font-family: "Roboto", sans-serif;
@@ -175,11 +188,25 @@ h1{
     transform: rotate(360deg)
   }
 }
+.map{
+  animation: zoomIn 8s cubic-bezier(0.075, 0.82, 0.165, 1) infinite alternate;
+
+}
+@keyframes zoomIn {
+  from{
+    transform: scale(1.1)
+  
+  }
+  to{
+    transform: scale(.8)
+  }
+}
 .job {
     background-color: ${COLORS.bodyDark};
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     display: inline-block;
+    border: 2px solid ${COLORS.secondary}
   }
  .big-text{
   font-family: 'Yellowtail', cursive; }
@@ -227,6 +254,25 @@ h1{
       margin-right: 1rem;
     }
   }
+
+
+ 
+ 
+.awssld{
+  
+ --loader-bar-color: #00ff84 !important;
+
+}
+.awssld__bullets button {
+        background: #232b3a !important;
+}
+
+.awssld__bullets .awssld__bullets--active {
+  background: #00ff84 !important;
+}
+.awssld__timer {
+--timer-background-color:   #02b45e !important;
+}
 `;
 
 export default GlobalStyle;

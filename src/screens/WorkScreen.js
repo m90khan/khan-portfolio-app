@@ -1,10 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { behance, dribble, github, linkedin } from '../assets/social';
 import { workCircle, workBackground } from './../assets/images';
 
 import { Work, ProjectSection } from './../styles/styles';
 
-import ProjectListCard from '../components/ProjectListCard';
 import Meta from '../components/Meta';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';

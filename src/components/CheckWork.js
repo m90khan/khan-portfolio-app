@@ -1,25 +1,37 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Line } from '../styles/styles';
 import { useScroll } from './useScroll';
 import { fade } from '../styles/Animation';
-import ScrollTop from './ScrollTop';
 
-const CheckWork = ({ title, overview, id }) => {
+const CheckWork = ({ project = '', detail }) => {
   const [element, controls] = useScroll({ threshold: 0 });
   const history = useHistory();
 
+  const { title, overview, id, primaryColor } = project;
   const nextHandler = () => {
-    history.push(`/work/${id}`);
+    if (id) {
+      history.push(`/work/${id}`);
+    } else {
+      history.push(`/work`);
+    }
   };
 
   return (
-    <Work style={overview && { margin: '0 auto' }} onClick={nextHandler}>
-      {/* <Link to={id ? `/work/${id}` : '/work'}> */}
+    <Work
+      style={
+        overview && {
+          margin: '0 auto',
+          background: primaryColor,
+          width: '100%',
+        }
+      }
+      onClick={nextHandler}
+    >
       <motion.div
         className='video-block'
         variants={fade}
@@ -28,7 +40,7 @@ const CheckWork = ({ title, overview, id }) => {
         ref={element}
         style={
           overview && {
-            background: `linear-gradient(to right, rgba(25, 32, 44,0.3), rgba(0, 255, 132,.3)), url("${overview}") `,
+            background: `linear-gradient(to right, rgba(25, 32, 44,0.7), rgba(0, 255, 132,.6)), url("${overview}") `,
             backgroundPosition: 'center center ',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
@@ -36,7 +48,7 @@ const CheckWork = ({ title, overview, id }) => {
         }
       >
         <div>
-          <h1>{title ? `Next: ${title}` : 'Check Out My Work'}</h1>
+          <h1>{title && title ? `${detail}: ${title}` : 'Check Out My Work'}</h1>
           <LineAnim
             transition={{ duration: 0.75 }}
             initial={{ width: '0%' }}
@@ -45,7 +57,6 @@ const CheckWork = ({ title, overview, id }) => {
           />
         </div>
       </motion.div>
-      {/* </Link> */}
     </Work>
   );
 };

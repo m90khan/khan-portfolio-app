@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
-import { behance, dribble, github, liveIcon } from '../assets/social';
+import { behance, dribble, github, liveIcon, playDark } from '../assets/social';
 import { COLORS } from '../styles/Theme';
 import { workCircle, workBackground } from './../assets/images';
 import { respondTo } from './../styles/RespondTo';
 import VideoSection from '../components/VideoSection';
 import CheckWork from '../components/CheckWork';
-import CircleComplete from '.././components/CircleComplete';
-import ScrollTop from '../components/ScrollTop';
+
+import Button from '../components/Button';
+import Meta from '../components/Meta';
 
 const WorkDetails = ({ projects }) => {
   const { id } = useParams();
@@ -18,7 +19,6 @@ const WorkDetails = ({ projects }) => {
   const [nextProject, setNextProject] = useState([]);
   const [preProject, setPreProject] = useState([]);
   const history = useHistory();
-  const location = useLocation();
   const { pathname } = useLocation();
 
   //GET PLATFORM IMAGES
@@ -74,6 +74,11 @@ const WorkDetails = ({ projects }) => {
     <>
       {project && (
         <CardShadow className='shadow' onClick={exitDetailHander}>
+          <Meta
+            title={project.title + ' | Full Stack Developer Portfolio'}
+            description={project.description}
+            keywords={project.builtWith}
+          />
           <Detail
             layoutId={id}
             style={project && { background: project.primaryColor }}
@@ -131,19 +136,31 @@ const WorkDetails = ({ projects }) => {
                   <h4 style={{ color: `${project.primaryColor}` }}>Skills:</h4>
                   <p>{project.builtWith}</p>
                 </div>
+                {project.live && (
+                  <div className='resume-block'>
+                    <Button
+                      title='Live Preview'
+                      icon={liveIcon}
+                      link={{
+                        pathname: `${project.live}`,
+                      }}
+                      target='_blank'
+                    />
+
+                    <Button
+                      title='Video Demo'
+                      icon={playDark}
+                      link={{
+                        pathname: `${project.video}`,
+                      }}
+                      target='_blank'
+                    />
+                  </div>
+                )}
               </div>
-              <Info>
-                {/* <h3>Platforms</h3> */}
-                {/* <div>{getStars()}</div> */}
-              </Info>
+              <Info></Info>
             </Stats>
-            <Media>
-              {/* <motion.img
-            layoutId={`image ${pathId}`}
-            src={smallImage(game.background_image, 1280)}
-            alt={game.background_image}
-          /> */}
-            </Media>
+
             <Description>
               <img src={project.overview} alt={'overview'} />
             </Description>
@@ -159,15 +176,13 @@ const WorkDetails = ({ projects }) => {
                 title={project.title}
                 highlight={null}
                 width='100%'
-                src='https://www.youtube.com/embed/9p8_Hchjx9c'
+                src={project.video}
                 border={project.primaryColor}
               />
             )}
-            <CheckWork
-              title={nextProject.title}
-              overview={nextProject.overview}
-              id={nextProject.id}
-            />
+
+            <CheckWork project={nextProject} detail='Next' />
+            <CheckWork project={preProject} detail='Previous' />
           </Detail>
         </CardShadow>
       )}
@@ -200,16 +215,18 @@ const CardShadow = styled(motion.div)`
 `;
 
 const Detail = styled(motion.div)`
-  width: 80%;
+  width: 85%;
 
   border-radius: 1rem;
+  border: 5px solid ${COLORS.black};
   padding: 2rem 5rem;
   ${respondTo.pMobile` 
   padding: 2rem 1rem;
       `}
   background: ${COLORS.white};
   position: absolute;
-  left: 10%;
+  left: 7.5%;
+
   color: black;
   z-index: 10;
   img {
@@ -315,12 +332,12 @@ const Platforms = styled(motion.div)`
   }
 `;
 
-const Media = styled(motion.div)`
-  margin-top: 5rem;
-  img {
-    width: 100%;
-  }
-`;
+// const Media = styled(motion.div)`
+//   margin-top: 5rem;
+//   img {
+//     width: 100%;
+//   }
+// `;
 
 const Description = styled(motion.div)`
   margin: 5rem 0rem;

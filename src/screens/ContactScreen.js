@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { behance, dribble, github, linkedin } from '../assets/social';
 import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
-import { workCircle, workBackground } from './../assets/images';
+import { workBackground } from './../assets/images';
 import WorkSection from '../components/WorkSection';
 import blobContact from './../assets/lottie/contact.json';
 
@@ -30,7 +29,7 @@ const ContactScreen = () => {
 
   return (
     <>
-      <Meta title='Contact Khan | Full Stack Web Developer' />
+      <Meta title='Contact Khan | Full Stack Developer' />
       <Stats>
         <div className='rating'>
           <Platforms>

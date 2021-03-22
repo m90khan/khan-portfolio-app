@@ -6,10 +6,9 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 
 const Form = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [text, setText] = useState('');
-  const { register, handleSubmit, watch, errors } = useForm();
+  const [formError, setFormError] = useState('');
+  const { register, handleSubmit, errors } = useForm();
   const sendEmail = (data) => {
     axios({
       method: 'POST',
@@ -19,12 +18,14 @@ const Form = () => {
       .then(({ data }) => {
         if (data) {
           console.log('form submitted');
-          setText(data);
+          setText('Thank you: I will get back to you.');
         }
       })
       .catch((error) => {
         console.log(error);
-        setText(error.message);
+        setFormError(
+          'Ooh:  Google does not like third party auth. just use email please'
+        );
       });
   };
   const submitHandler = (data) => {
@@ -32,7 +33,7 @@ const Form = () => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit(submitHandler)} methid>
+      <form onSubmit={handleSubmit(submitHandler)}>
         <Row>
           <div className='form-field'>
             <h4>Your Name</h4>
@@ -56,7 +57,7 @@ const Form = () => {
               name='email'
               ref={register({
                 required: true,
-                pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
               })}
             />
             {errors.email && <p>Email is required.</p>}
@@ -80,6 +81,7 @@ const Form = () => {
         <Button type='submit'>Send Message</Button>
       </form>
       {text && <p style={{ color: COLORS.secondary }}>{text}</p>}
+      {formError && <p style={{ color: '#fd3333 ' }}>{formError}</p>}
       <br />
       <h4
         className='job'

@@ -6,9 +6,7 @@ import { respondTo } from './../styles/RespondTo';
 import { useScroll } from './useScroll';
 import { fade } from '../styles/Animation';
 import Button from './Button';
-import { download, figma, play } from '../assets/social';
-import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
+import { download, figma } from '../assets/social';
 const VideoSection = ({
   src = 'https://www.youtube-nocookie.com/embed/ghzFFalTciE',
   width = '80%',
@@ -18,7 +16,6 @@ const VideoSection = ({
   resume,
 }) => {
   const [element, controls] = useScroll();
-  const { pathname } = useLocation();
 
   return (
     <Video style={{ width: width, height: '100vh' }} id='videoSectionID'>
@@ -45,20 +42,16 @@ const VideoSection = ({
         {resume && (
           <div className='resume-block'>
             <Button title='Download CV' icon={download} link={resume} target='_blank' />
-            <Button title='Cover Letter' icon={download} link='/about/#videoSectionID' />
 
-            <Link
-              to={{
+            <Button
+              title='View all projects in Figma'
+              icon={figma}
+              link={{
                 pathname:
-                  ' https://www.figma.com/file/XKWUdZIsKSFLD8CuI61C1Z/Projects-Case-Studies?node-id=0%3A1',
+                  'https://www.figma.com/file/XKWUdZIsKSFLD8CuI61C1Z/Projects-Case-Studies?node-id=0%3A1',
               }}
               target='_blank'
-            >
-              <div className='resume'>
-                <img src={figma} alt='button' />
-                <h4 style={{ display: 'inline-block' }}>View all projects in Figma</h4>
-              </div>
-            </Link>
+            />
           </div>
         )}
       </motion.div>

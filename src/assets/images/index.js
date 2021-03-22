@@ -13,6 +13,7 @@ import code from './home/code.png';
 import design from './home/design.png';
 import workBackground from './workdetails/workback.png';
 import workCircle from './workdetails/circleback.png';
+import logo from './home/logo.png';
 export {
   headerBack,
   profile,
@@ -29,4 +30,5 @@ export {
   workBackground,
   workCircle,
   aboutProfile,
+  logo,
 };

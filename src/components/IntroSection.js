@@ -34,13 +34,12 @@ const IntroSection = ({ story, title, description, job, notice, skills, resume }
   );
 };
 const InfoSection = styled(motion.div)`
-  height: 100vh;
   min-height: 80vh;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 10rem auto;
   ${respondTo.iPad`
            height: 60vh;  min-height: 80vh;
          `}

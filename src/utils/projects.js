@@ -21,7 +21,7 @@ const projectsData = () => {
       side: 'Full-Stack',
       primaryColor: '#1890FF',
       live: 'https://airhouse-app.herokuapp.com/',
-      video: 'https://www.youtube.com/watch?v=FwDx11A4ojI&ab_channel=uxdKhan',
+      video: 'https://www.youtube.com/embed/FwDx11A4ojI',
       socialIcons: [
         {
           name: 'behance',
@@ -52,7 +52,7 @@ const projectsData = () => {
       side: 'UX/UI',
       primaryColor: '#FFBC4B',
       live: 'https://aloha-travels-app.herokuapp.com/',
-      video: 'https://www.youtube.com/watch?v=quGAUd1b95E&t=10s&ab_channel=uxdKhan',
+      video: 'https://www.youtube.com/embed/quGAUd1b95E',
       socialIcons: [
         {
           name: 'dribble',
@@ -87,7 +87,7 @@ const projectsData = () => {
       side: 'Full-Stack',
       primaryColor: '#FFBC4B',
       live: 'https://aloha-travels-app.herokuapp.com/',
-      video: 'https://www.youtube.com/watch?v=quGAUd1b95E&t=10s&ab_channel=uxdKhan',
+      video: 'https://www.youtube.com/embed/quGAUd1b95E',
       socialIcons: [
         {
           name: 'dribble',
@@ -118,7 +118,7 @@ const projectsData = () => {
       side: 'Full-Stack',
       primaryColor: '#F41646',
       live: 'https://expo.io/@m90khan/projects/DoneWith-App',
-      video: 'https://www.youtube.com/watch?v=FwDx11A4ojI&ab_channel=uxdKhan',
+      video: '',
       socialIcons: [
         {
           name: 'github',
@@ -144,7 +144,7 @@ const projectsData = () => {
       side: 'Full-Stack',
       primaryColor: '#033F3D',
       live: 'https://ayakaffee-app.herokuapp.com/',
-      video: 'https://www.youtube.com/watch?v=kldxqMhJbik&t=2s&ab_channel=uxdKhan',
+      video: 'https://www.youtube.com/embed/kldxqMhJbik',
       socialIcons: [
         {
           name: 'dribble',
@@ -289,8 +289,8 @@ const projectsData = () => {
         'eCommerce platform for CDB and medical marijuana products built in WordPress with ScrollMagic and GSAP',
       side: 'Front-End',
       primaryColor: '#1E4A1B',
-      live: 'https://youtu.be/UHuU8SmtK1I',
-      video: 'https://youtu.be/UHuU8SmtK1I',
+      live: 'https://www.youtube.com/embed/UHuU8SmtK1I',
+      video: 'https://www.youtube.com/embed/UHuU8SmtK1I',
       socialIcons: [
         {
           name: 'github',
@@ -312,8 +312,8 @@ const projectsData = () => {
         'Online e Learning Skill Development Platform similar to udemy for a startup competition',
       side: 'Front-End',
       primaryColor: '#10AC84',
-      live: 'https://youtu.be/fiCsWgOFYpM',
-      video: 'https://youtu.be/fiCsWgOFYpM',
+      live: '',
+      video: 'https://www.youtube.com/embed/fiCsWgOFYpM',
       socialIcons: [
         {
           name: 'github',
@@ -380,7 +380,7 @@ const projectsData = () => {
       side: 'Front-End',
       primaryColor: '#567ce4',
       live: 'https://m90khan.github.io/Advanture-Web-GSAP/',
-      video: 'Video Here',
+      video: '',
       socialIcons: [
         {
           name: 'github',
@@ -429,7 +429,7 @@ const projectsData = () => {
       side: 'Front-End',
       primaryColor: '#FF8A6C',
       live: 'https://dazzling-mclean-a17029.netlify.app/',
-      video: 'Video Here',
+      video: '',
       socialIcons: [
         {
           name: 'github',
@@ -455,8 +455,8 @@ const projectsData = () => {
         'Platform for food bloggers/chef to showcase their recipes and interact with their audience',
       side: 'Front-End',
       primaryColor: '#FFF04F',
-      live: 'https://youtu.be/ZfupAgznF3Q',
-      video: 'https://youtu.be/ZfupAgznF3Q',
+      live: '',
+      video: 'https://www.youtube.com/embed/ZfupAgznF3Q',
       socialIcons: [
         {
           name: 'github',
@@ -478,8 +478,8 @@ const projectsData = () => {
         'Web agency website to showcase portfolio of their work. it is niche based on WordPress.',
       side: 'Full-Stack',
       primaryColor: '#4A69FF',
-      live: 'https://youtu.be/oJyuxujiLHo',
-      video: 'https://youtu.be/oJyuxujiLHo',
+      live: '',
+      video: 'https://www.youtube.com/embed/oJyuxujiLHo',
       socialIcons: [
         {
           name: 'github',
@@ -591,8 +591,8 @@ const projectsData = () => {
         'Chinese sourcing company website to be redesigned into modern look along with copy writing',
       side: 'Full-Stack',
       primaryColor: '#6B66FE',
-      live: 'https://youtu.be/9p8_Hchjx9c',
-      video: 'https://youtu.be/9p8_Hchjx9c',
+      live: '',
+      video: 'https://www.youtube.com/embed/9p8_Hchjx9c',
       socialIcons: [
         {
           name: 'github',
@@ -614,8 +614,8 @@ const projectsData = () => {
         'Complete Print on Demand Business eCommerce Website with advanced designing tools based on lumise plugin',
       side: 'Full-Stack',
       primaryColor: '#039E7F',
-      live: 'https://youtu.be/-Y6Rv82ojkI',
-      video: 'https://youtu.be/-Y6Rv82ojkI',
+      live: '',
+      video: 'https://www.youtube.com/embed/-Y6Rv82ojkI',
       socialIcons: [
         {
           name: 'github',
@@ -638,8 +638,8 @@ const projectsData = () => {
         'Complete multi-vendor marketplace WordPress website Based on the AliExpress. It is built on Dokan plugin',
       side: 'Full-Stack',
       primaryColor: '#408EE3',
-      live: 'https://youtu.be/TLUhCUWJJ6I',
-      video: 'https://youtu.be/TLUhCUWJJ6I',
+      live: '',
+      video: 'https://www.youtube.com/embed/TLUhCUWJJ6I',
       socialIcons: [
         {
           name: 'github',
@@ -651,7 +651,7 @@ const projectsData = () => {
       id: uuidv4(),
       title: 'Mailbox',
       overview:
-        'https://res.cloudinary.com/m90khan/image/upload/v1614168340/KhanPortfolio/ShortProjects/MailBox-Cover_jfffpn.jpgs',
+        'https://res.cloudinary.com/m90khan/image/upload/v1614168340/KhanPortfolio/ShortProjects/MailBox-Cover_jfffpn.jpg',
       images: [
         'https://res.cloudinary.com/m90khan/image/upload/v1614168343/KhanPortfolio/ShortProjects/MailBox_zpvior.jpg',
       ],

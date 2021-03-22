@@ -35,17 +35,18 @@ const ProjectCard = ({ project, style }) => {
         <div className='title'>
           <motion.h4>{project.title} </motion.h4>
           <div className='icon-social'>
-            {project.socialIcons.map((icon, index) => (
-              <a
-                href={icon.link}
-                target='_blank'
-                rel='noreferrer noopener'
-                className='icon-back'
-                key={index}
-              >
-                <img src={getPlatform(icon.name)} key={index} alt='overview' />
-              </a>
-            ))}
+            {project.socialIcons &&
+              project.socialIcons.map((icon, index) => (
+                <a
+                  href={icon.link}
+                  target='_blank'
+                  rel='noreferrer noopener'
+                  className='icon-back'
+                  key={index}
+                >
+                  <img src={getPlatform(icon.name)} key={index} alt='overview' />
+                </a>
+              ))}
           </div>
         </div>
         <TextEllipsis lines={2} tag={'p'} ellipsisChars={'...'} tagClass={'short-desc'}>

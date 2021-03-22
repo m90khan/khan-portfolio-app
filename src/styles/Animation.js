@@ -59,7 +59,6 @@ export const planeImage = {
     opacity: 1,
     y: 10,
     x: 10,
-    x: -20,
     transition: {
       repeat: Infinity,
       repeatType: 'mirror',

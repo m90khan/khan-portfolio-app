@@ -4,6 +4,35 @@ import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { respondTo } from './../styles/RespondTo';
 import Form from './Form';
+import AwesomeSlider from 'react-awesome-slider';
+import AwsSliderStyles from 'react-awesome-slider/dist/styles.css';
+import {
+  fullStackCert,
+  frontStackCert,
+  mongo001Cert,
+  jsCert,
+  seoCert,
+} from '../assets/skills';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
+
+const AutoplaySlider = withAutoplay(AwesomeSlider);
+const Slider = () => {
+  return (
+    <AutoplaySlider
+      cssModule={AwsSliderStyles}
+      play={true}
+      cancelOnInteraction={false}
+      interval={3000}
+      style={{ height: '80vh', width: '100%' }}
+    >
+      <div data-src={fullStackCert} />
+      <div data-src={frontStackCert} />
+      <div data-src={mongo001Cert} />
+      <div data-src={jsCert} />
+      <div data-src={seoCert} />
+    </AutoplaySlider>
+  );
+};
 const WorkSection = ({ story, title, works }) => {
   return (
     <Work>
@@ -15,17 +44,24 @@ const WorkSection = ({ story, title, works }) => {
           {works && works.map((item, i) => <p key={i}>- {item}</p>)}
           {title && title === 'Contact' ? <Form /> : ''}
         </div>
+        {works && (
+          <div>
+            <h3 style={{ margin: '2rem 0', color: COLORS.primary }}>Certifications</h3>{' '}
+            <Slider />
+          </div>
+        )}
       </div>
     </Work>
   );
 };
 const Work = styled(motion.div)`
-  height: 100vh;
+  min-height: 100vh;
   width: 80%;
   display: flex;
   justify-content: center;
+  padding: 5rem 0;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 10rem;
   ${respondTo.iPro` 
   height: 70vh;
       `}

@@ -6,7 +6,7 @@ const Button = ({ title, icon, link, target }) => {
     <Link to={link} target={target && target}>
       <div className='resume'>
         <img src={icon} alt='button' />
-        <h4 style={{ display: 'inline-block' }}>{title}</h4>
+        <h4 style={{ display: 'inline-block', fontSize: '1.5rem' }}>{title}</h4>
       </div>
     </Link>
   );
