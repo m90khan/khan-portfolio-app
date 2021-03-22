@@ -11,7 +11,6 @@ const Form = () => {
   const [text, setText] = useState('');
   const { register, handleSubmit, watch, errors } = useForm();
   const sendEmail = async (data) => {
-    console.log(data);
     try {
       const res = await axios({
         method: 'POST',
@@ -23,7 +22,7 @@ const Form = () => {
         setText(res.data);
       }
     } catch (error) {
-      console.log('Something Went wrong!');
+      console.log('Something Went wrong submitted');
       setText(error.message);
     }
   };
