@@ -10,20 +10,20 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');
   const { register, handleSubmit, watch, errors } = useForm();
-  const submitHandler = (data) => {
+  const sendEmail = async (data) => {
     console.log(data);
-    const sendEmail = async () => {
-      const res = await axios({
-        method: 'POST',
-        url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
-        data: data,
-      });
-      if (res.data) {
-        console.log('form submitted');
-        setText('Thank you for contact');
-      }
-    };
-    sendEmail();
+    const res = await axios({
+      method: 'POST',
+      url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
+      data: data,
+    });
+    if (res.data) {
+      console.log('form submitted');
+      setText('Thank you for contact');
+    }
+  };
+  const submitHandler = (data) => {
+    sendEmail(data);
   };
   return (
     <>
@@ -74,7 +74,7 @@ const Form = () => {
         </Row>
         <Button type='submit'>Send Message</Button>
       </form>
-      {text && <p>{text}</p>}
+      {text && <p style={{ color: COLORS.secondary }}>{text}</p>}
       <br />
       <h4
         className='job'
