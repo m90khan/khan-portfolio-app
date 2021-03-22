@@ -15,14 +15,18 @@ const Form = () => {
       const res = await axios({
         method: 'POST',
         url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
-        data: data,
+        data: {
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        },
       });
       if (res.data) {
         console.log('form submitted');
         setText(res.data);
       }
     } catch (error) {
-      console.log('Something Went wrong submitted');
+      console.log(error);
       setText(error.message);
     }
   };
