@@ -12,14 +12,19 @@ const Form = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const sendEmail = async (data) => {
     console.log(data);
-    const res = await axios({
-      method: 'POST',
-      url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
-      data: data,
-    });
-    if (res.data) {
-      console.log('form submitted');
-      setText(res.data);
+    try {
+      const res = await axios({
+        method: 'POST',
+        url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
+        data: data,
+      });
+      if (res.data) {
+        console.log('form submitted');
+        setText(res.data);
+      }
+    } catch (error) {
+      console.log('Something Went wrong!');
+      setText(error.message);
     }
   };
   const submitHandler = (data) => {
