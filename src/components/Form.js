@@ -10,22 +10,22 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');
   const { register, handleSubmit, watch, errors } = useForm();
-  const sendEmail = async (data) => {
-    console.log(data);
-    try {
-      const res = await axios({
-        method: 'POST',
-        url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
-        data: data,
+  const sendEmail = (data) => {
+    axios({
+      method: 'POST',
+      url: `https://speckled-experienced-sand.glitch.me/send-email`,
+      data: data,
+    })
+      .then(({ data }) => {
+        if (data) {
+          console.log('form submitted');
+          setText(data);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setText(error.message);
       });
-      if (res.data) {
-        console.log('form submitted');
-        setText(res.data);
-      }
-    } catch (error) {
-      console.log(error);
-      setText(error.message);
-    }
   };
   const submitHandler = (data) => {
     sendEmail(data);
