@@ -19,7 +19,7 @@ const Form = () => {
     });
     if (res.data) {
       console.log('form submitted');
-      setText('Thank you for contact');
+      setText(res.data);
     }
   };
   const submitHandler = (data) => {
