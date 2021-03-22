@@ -11,15 +11,12 @@ const Form = () => {
   const [text, setText] = useState('');
   const { register, handleSubmit, watch, errors } = useForm();
   const sendEmail = async (data) => {
+    console.log(data);
     try {
       const res = await axios({
         method: 'POST',
         url: `https://uxdkhan-email-server.herokuapp.com/send-email`,
-        data: {
-          name: data.name,
-          email: data.email,
-          message: data.message,
-        },
+        data: data,
       });
       if (res.data) {
         console.log('form submitted');
@@ -35,7 +32,7 @@ const Form = () => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit(submitHandler)}>
+      <form onSubmit={handleSubmit(submitHandler)} methid>
         <Row>
           <div className='form-field'>
             <h4>Your Name</h4>
