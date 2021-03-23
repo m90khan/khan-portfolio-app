@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import blob from './../assets/lottie/blob-1x.json';
 import blob2 from './../assets/lottie/blob-2.json';
+import Typewriter from 'typewriter-effect';
 
 import {
   skillsDesktop,
@@ -73,14 +74,36 @@ const HomeScreen = ({ projects }) => {
         {/* <img src={headerBack} className='background' alt='background' /> */}
         <Heading>
           <Hide>
-            <motion.h2 className='big-text' variants={titleAnim}>
+            <Typewriter
+              options={{
+                autoStart: true,
+                loop: true,
+              }}
+              className='big-text'
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString('Full Stack <br> Developer!')
+                  .deleteAll()
+                  .pauseFor(600)
+                  .start()
+                  .typeString('Khan Mohsin')
+                  .deleteAll()
+                  .pauseFor(600)
+                  .start()
+                  .typeString('PakMan')
+                  .deleteAll()
+                  .pauseFor(600)
+                  .start();
+              }}
+            />
+            {/* <motion.h2 className='big-text' variants={titleAnim}>
               Full Stack
-            </motion.h2>
+            </motion.h2> */}
           </Hide>
           <Hide>
-            <motion.h2 className='big-text' variants={titleAnim}>
+            {/* <motion.h2 className='big-text' variants={titleAnim}>
               Developer
-            </motion.h2>
+            </motion.h2> */}
           </Hide>
         </Heading>
       </Header>
@@ -264,7 +287,7 @@ const Heading = styled(motion.h2)`
   top: 60%;
       
       `}
-  h2 {
+  h2, .Typewriter__wrapper {
     transform: translate(-50%, -50%);
     letter-spacing: 1rem;
     height: 12rem;

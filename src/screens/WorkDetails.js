@@ -287,6 +287,7 @@ const Stats = styled(motion.div)`
     width: 80%;
       `}
       }
+
       h2 {
         z-index: 20;
       }

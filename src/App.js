@@ -29,7 +29,7 @@ function App() {
     <>
       <GlobalStyle />
       <ScrollTop />
-      {/* <CircleComplete /> */}
+      <CircleComplete />
       <Nav />
       <motion.div>
         <motion.img

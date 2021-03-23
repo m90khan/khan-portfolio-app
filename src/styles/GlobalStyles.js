@@ -2,9 +2,32 @@
 import { createGlobalStyle } from 'styled-components';
 import { respondTo } from './RespondTo';
 import { COLORS } from './Theme';
-
 const GlobalStyle = createGlobalStyle`
-  
+@font-face {
+  font-family: 'SofiaPro-SemiBold';
+  src: url('./fonts/SofiaPro-SemiBold.eot');
+  src: url('./fonts/SofiaPro-SemiBold.woff2') format('woff2'),
+       url('./fonts/SofiaPro-SemiBold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SofiaProRegular';
+  src: url('./fonts/SofiaProRegular.woff') format('woff'),
+       url('./fonts/SofiaProRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SofiaPro-Bold';
+  src: url('./fonts/SofiaPro-Bold.eot');
+  src: url('./fonts/SofiaPro-Bold.woff') format('woff'),
+       url('./fonts/SofiaPro-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 *::after,
 *::before {
@@ -57,7 +80,7 @@ html {
  }
 body{
     background: ${COLORS.bodyLight};
-    font-family: "Roboto", sans-serif;
+    font-family: 'SofiaProRegular', sans-serif;
     overflow-x: hidden; 
      -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,7 +92,7 @@ button{
     padding: .8rem 2rem;
     border: 5px solid   ${COLORS.bodyLight};
     background: ${COLORS.bodyLight};
-    font-family: 'Archivo', sans-serif;
+    font-family:  'SofiaPro-SemiBold', sans-serif;
     color: white;
     transition: all 0.5s ease;
     border-radius: .5rem;
@@ -83,7 +106,7 @@ button{
 }
 
 h1, h2, h3, h4, h5, h6{
-    font-family: 'Archivo', sans-serif;       
+    font-family: 'SofiaPro-Bold', sans-serif;       
      color: ${COLORS.white};
 }
 ul,
@@ -96,7 +119,7 @@ button,
 label,
 input,
 p {
-    font-family: "Roboto", sans-serif;
+    font-family: 'SofiaProRegular', sans-serif;
 }
 ::selection {
   background-color:${COLORS.primary} ;
@@ -208,7 +231,7 @@ h1{
     display: inline-block;
     border: 2px solid ${COLORS.secondary}
   }
- .big-text{
+ .big-text, .Typewriter__wrapper{
   font-family: 'Yellowtail', cursive; }
 .progress-icon {
   position: fixed;
@@ -255,7 +278,13 @@ h1{
     }
   }
 
-
+  .Typewriter__cursor{
+    color: ${COLORS.white} !important;
+    text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+      1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191,
+      1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191,
+      1px 18px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2);
+  }
  
  
 .awssld{

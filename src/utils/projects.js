@@ -33,6 +33,7 @@ const projectsData = () => {
         },
       ],
     },
+
     {
       id: uuidv4(),
       title: 'Aloha Travels Part 1',
@@ -184,6 +185,35 @@ const projectsData = () => {
         {
           name: 'behance',
           link: 'https://www.behance.net/gallery/105591761/Hey-Boba',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
+      title: 'KhanPortfolio',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1616488674/KhanPortfolio/UxdKhan/Khan-Cover_lh0jrq.png',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1616488681/KhanPortfolio/UxdKhan/Khan_je53iu.png',
+        'https://res.cloudinary.com/m90khan/image/upload/v1616488679/KhanPortfolio/UxdKhan/Khan-2_yzwhmm.png',
+        'https://res.cloudinary.com/m90khan/image/upload/v1616488676/KhanPortfolio/UxdKhan/Khan-3_tkglub.png',
+      ],
+      builtWith:
+        'React, JavaScript, Express, Nodejs, Nodemailer, Framer-motion, Lottie, Axios',
+      description:
+        'It is a developer portfolio website to represent projects and case-studies in detail and ability to be able to contacted and receive email through gmail',
+      side: 'Full-Stack',
+      primaryColor: '#01FF85',
+      live: 'https://uxdkhan.cf',
+      video: '',
+      socialIcons: [
+        {
+          name: 'behance',
+          link: 'https://www.behance.net/gallery/116004621/KhanPortfolio',
+        },
+        {
+          name: 'github',
+          link: 'https://github.com/m90khan/khan-portfolio-app',
         },
       ],
     },
