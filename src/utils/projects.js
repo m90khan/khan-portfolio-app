@@ -4,6 +4,36 @@ const projectsData = () => {
   return [
     {
       id: uuidv4(),
+      title: 'NotTwitter',
+      overview:
+        'https://res.cloudinary.com/m90khan/image/upload/v1616615336/KhanPortfolio/NotTwitter/t1_wmpbmt.png',
+      images: [
+        'https://res.cloudinary.com/m90khan/image/upload/v1616615329/KhanPortfolio/NotTwitter/t2_whl1cq.png',
+        'https://res.cloudinary.com/m90khan/image/upload/v1616615331/KhanPortfolio/NotTwitter/t3_co7dql.png',
+        'https://res.cloudinary.com/m90khan/image/upload/v1616615333/KhanPortfolio/NotTwitter/t4_ifanbf.png',
+        'https://res.cloudinary.com/m90khan/image/upload/v1616615334/KhanPortfolio/NotTwitter/t5_e7opsm.png',
+      ],
+      builtWith:
+        'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MondoDB, Pug, Session, Socket.io',
+      description:
+        'It is a Twitter clone where a user can post, like, retweet, and reply to a tweet. search users and post. Users also have the ability to chat with one another',
+      side: 'Full-Stack',
+      primaryColor: '#0099FF',
+      live: 'https://nottwitter.glitch.me',
+      video: 'https://www.youtube.com/embed/6h-UNBnmM4k',
+      socialIcons: [
+        {
+          name: 'behance',
+          link: 'https://www.behance.net/gallery/116127339/NotTwitter',
+        },
+        {
+          name: 'github',
+          link: 'https://github.com/m90khan/twitter-full-stack-clone',
+        },
+      ],
+    },
+    {
+      id: uuidv4(),
       title: 'AirHouse',
       overview:
         'https://res.cloudinary.com/m90khan/image/upload/v1614182839/KhanPortfolio/AirHouse/AirHouse_-Cover_uu3e0q.jpg',
@@ -33,7 +63,6 @@ const projectsData = () => {
         },
       ],
     },
-
     {
       id: uuidv4(),
       title: 'Aloha Travels Part 1',
