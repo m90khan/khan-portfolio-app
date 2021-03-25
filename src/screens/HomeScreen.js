@@ -84,15 +84,15 @@ const HomeScreen = ({ projects }) => {
                 typewriter
                   .typeString('Full Stack <br> Developer!')
                   .deleteAll()
-                  .pauseFor(600)
+                  .pauseFor(1000)
                   .start()
                   .typeString('Khan Mohsin')
                   .deleteAll()
-                  .pauseFor(600)
+                  .pauseFor(1000)
                   .start()
                   .typeString('PakMan')
                   .deleteAll()
-                  .pauseFor(600)
+                  .pauseFor(1000)
                   .start();
               }}
             />
