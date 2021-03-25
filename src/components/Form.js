@@ -22,9 +22,8 @@ const Form = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
         setFormError(
-          'Ooh:  Google does not like third party auth. just use email please'
+          'Oops:  Google does not like third party auth. Please send me email at uxdkhan@gmail.com'
         );
       });
   };
