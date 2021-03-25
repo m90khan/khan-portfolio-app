@@ -14,7 +14,7 @@ const projectsData = () => {
         'https://res.cloudinary.com/m90khan/image/upload/v1616615334/KhanPortfolio/NotTwitter/t5_e7opsm.png',
       ],
       builtWith:
-        'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MondoDB, Pug, Session, Socket.io',
+        'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MongoDB, Pug, Session, Socket.io',
       description:
         'It is a Twitter clone where a user can post, like, retweet, and reply to a tweet. search users and post. Users also have the ability to chat with one another',
       side: 'Full-Stack',
@@ -45,7 +45,7 @@ const projectsData = () => {
         'https://res.cloudinary.com/m90khan/image/upload/v1614182846/KhanPortfolio/AirHouse/AirHouse-5_yy5onb.jpg',
       ],
       builtWith:
-        'React, AntDesign, TypeScript, GraphQL, Apollo, Express, Nodejs, MondoDB',
+        'React, AntDesign, TypeScript, GraphQL, Apollo, Express, Nodejs, MongoDB',
       description:
         'It is an AirBnB clone where a user can host a listing to rent a place, book a listing and ability to sign-in with google account',
       side: 'Full-Stack',
@@ -76,7 +76,7 @@ const projectsData = () => {
         'https://res.cloudinary.com/m90khan/image/upload/v1614178812/KhanPortfolio/AlohaTravels/AlohaUX-5_ejvliw.jpg',
         'https://res.cloudinary.com/m90khan/image/upload/v1614178801/KhanPortfolio/AlohaTravels/AlohaUX-6_lcgh03.jpg',
       ],
-      builtWith: 'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MondoDB, Pug, JWT',
+      builtWith: 'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MongoDB, Pug, JWT',
       description:
         'It is a Full Stack UX/UI case study for Aloha Travels to be able to increase their revenue',
       side: 'UX/UI',
@@ -111,9 +111,9 @@ const projectsData = () => {
         'https://res.cloudinary.com/m90khan/image/upload/v1614179079/KhanPortfolio/AlohaTravels/AlohaDev-4_h3jvms.jpg',
         'https://res.cloudinary.com/m90khan/image/upload/v1614179094/KhanPortfolio/AlohaTravels/AlohaDev-5_bc0svb.jpg',
       ],
-      builtWith: 'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MondoDB, Pug, JWT',
+      builtWith: 'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MongoDB, Pug, JWT',
       description:
-        'It is a Full Stack Tour booking platform that provide an comfortable experience to view tour and book it online.',
+        'It is a Full Stack Tour booking platform that provides a comfortable experience to view a tour and book it online.',
       side: 'Full-Stack',
       primaryColor: '#FFBC4B',
       live: 'https://aloha-travels-app.herokuapp.com/',
@@ -142,7 +142,7 @@ const projectsData = () => {
       images: [
         'https://res.cloudinary.com/m90khan/image/upload/v1614653067/KhanPortfolio/ShortProjects/Feito_q0mzeu.jpg',
       ],
-      builtWith: 'React Native, Apollo, JavaScript, Express, Nodejs',
+      builtWith: 'React Native, Expo, JavaScript, Express, Nodejs',
       description:
         'It is an marketplace application built for both iOS and Android to allow users to sell anything',
       side: 'Full-Stack',
@@ -168,7 +168,7 @@ const projectsData = () => {
         'https://res.cloudinary.com/m90khan/image/upload/v1614179678/KhanPortfolio/AyaKaffee/AyaKaffee-4_ayykve.jpg',
       ],
       builtWith:
-        'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MondoDB, React, Redux, PayPal, JWT',
+        'HTML5, CSS3 (SCSS), JS, NodeJS, Express, Mongoose, MongoDB, React, Redux, PayPal, JWT',
       description:
         'AyaKaffee needs an online eCommerce platform to sell their products to the world',
       side: 'Full-Stack',

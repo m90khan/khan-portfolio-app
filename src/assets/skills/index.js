@@ -4,7 +4,7 @@ import skillsPhone from './skill-mobile.png';
 import skillsDesktop2x from './skill-desktop-2x.png';
 import skillsIpad2x from './skill-tablet-2x.png';
 import skillsPhone2x from './skill-mobile-2x.png';
-import resume from './resume-cover.pdf';
+import resume from './coverLetter+resume.pdf';
 import fullStackCert from './full-stack-cert.png';
 import frontStackCert from './front-stack-cert.png';
 import mongo001Cert from './mongo-001.png';
