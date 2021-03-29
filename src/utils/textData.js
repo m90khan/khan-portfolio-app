@@ -17,7 +17,7 @@ export const Skills = [
   'APP Development: Build iOS and Android apps using React Native, Expo, Formik, Yup, Prisma',
   'Tools: npm, webpack, parcel-bundler, polyfill, Babel, Git, pip, CLI',
   'CMS: WordPress(80%) Elementor(90%), Shopify(40%), Drupal(10%)',
-  'Testing: Jest, Enzyme, circileCI',
+  'Testing: mocking , static analysis, DOM, Jest, Enzyme, Cypress, Testing Node.js Backends',
   'Performance: PWAs, code minification, image optimization, gzip, CDNs, caching, DB scaling',
   'Deployment: CI/CD, Docker, Code -> Test -> Build -> Merge -> ?Review -> Deploy',
   'Animation: framer-motion, scroll magic, gsap, Barba, scrollr',
