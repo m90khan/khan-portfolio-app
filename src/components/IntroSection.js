@@ -5,8 +5,11 @@ import { motion } from 'framer-motion';
 import { COLORS } from '../styles/Theme';
 import { download, play } from '../assets/social';
 import Button from './Button';
+import { useLocation } from 'react-router-dom';
 
 const IntroSection = ({ story, title, description, job, notice, skills, resume }) => {
+  const { pathname } = useLocation();
+
   return (
     <InfoSection>
       <InfoHeader>
@@ -24,7 +27,14 @@ const IntroSection = ({ story, title, description, job, notice, skills, resume }
         {resume && (
           <div className='resume-block'>
             <Button title='Download CV' icon={download} link={resume} target='_blank' />
-            <Button title='Video CV' icon={play} link='/about/#videoSectionID' />
+            <Button
+              title='Video CV'
+              icon={play}
+              link={{
+                pathname: `https://www.youtube.com/embed/ghzFFalTciE`,
+              }}
+              target='_blank'
+            />
           </div>
         )}
 
