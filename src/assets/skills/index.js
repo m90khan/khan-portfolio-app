@@ -10,7 +10,7 @@ import frontStackCert from './front-stack-cert.png';
 import mongo001Cert from './mongo-001.png';
 import jsCert from './js-cert.png';
 import seoCert from './seo-cert.png';
-import responsiveFFC from 'responsive-design-ffc.png';
+import responsiveFFC from './responsive-design-ffc.png';
 
 export {
   skillsDesktop,
