@@ -12,6 +12,7 @@ import {
   mongo001Cert,
   jsCert,
   seoCert,
+  responsiveFFC,
 } from '../assets/skills';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 
@@ -26,6 +27,7 @@ const Slider = () => {
       style={{ height: '80vh', width: '100%' }}
     >
       <div data-src={fullStackCert} />
+      <div data-src={responsiveFFC} />
       <div data-src={frontStackCert} />
       <div data-src={mongo001Cert} />
       <div data-src={jsCert} />
