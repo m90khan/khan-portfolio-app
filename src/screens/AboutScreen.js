@@ -53,9 +53,9 @@ const AboutScreen = () => {
             <img src={aboutProfile} className='back background-2' alt='pakistan' />
           </div>
         </div>
-        <VideoSection resume={resume} />
-        <WorkSection story='Work' title='Experience' works={Works} />
+        {/* <VideoSection resume={resume} /> */}
         <IntroSection story='Technical' title='Skills' skills={Skills} />
+        <WorkSection story='Work' title='Experience' works={Works} />
         <EducationDetails />
         <CheckWork />
       </Stats>

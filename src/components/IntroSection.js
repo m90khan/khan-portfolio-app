@@ -23,8 +23,8 @@ const IntroSection = ({ story, title, description, job, notice, skills, resume }
           ))}
 
         {description && <p className='desc'>{description}</p>}
-        {job && <h4 className='job'>{job}</h4>}
-        {resume && (
+        {/* {job && <h4 className='job'>{job}</h4>} */}
+        {/* {resume && (
           <div className='resume-block'>
             <Button title='Download CV' icon={download} link={resume} target='_blank' />
             <Button
@@ -36,7 +36,7 @@ const IntroSection = ({ story, title, description, job, notice, skills, resume }
               target='_blank'
             />
           </div>
-        )}
+        )} */}
 
         {notice && <p className='notice'>{notice}</p>}
       </InfoHeader>
